@@ -1,4 +1,4 @@
-import rss from '@astrojs/rss';
+import rss from '@astrojs/rss'
 
 export function GET(context) {
   return rss({
@@ -6,6 +6,6 @@ export function GET(context) {
     description: '...',
     site: context.site,
     items: [], // TODO: add articles
-    customData: `<language>es-es</language>`,
-  });
+    customData: `<language>es-es</language>`
+  })
 }

@@ -1,0 +1,18 @@
+---
+import Button from '@/components/ui/button'
+import { SunToMoonIcon } from '@/icons'
+---
+
+<header class="flex items-start justify-between pb-8">
+  <p class="flex flex-col">
+    Michelangelo
+    <span class="text-muted-foreground">Valderrama Vivanco</span>
+  </p>
+  <Button
+    variant="ghost"
+    size="icon"
+    className="text-muted-foreground hover:bg-transparent size-4"
+  >
+    <SunToMoonIcon className="size-4" />
+  </Button>
+</header>

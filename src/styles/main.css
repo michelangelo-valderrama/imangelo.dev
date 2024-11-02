@@ -1,0 +1,15 @@
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: hsl(var(--im-selection));
+  color: hsl(var(--im-selection-foreground));
+}
+
+svg {
+  width: 1em;
+  height: 1em;
+}

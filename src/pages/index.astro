@@ -1,0 +1,14 @@
+---
+import Root from '@/layouts/Root.layout.astro'
+import Main from '@/layouts/Main.layout.astro'
+import Markdown from '@/layouts/Markdown.layout.astro'
+import RenderMD from '@/components/views/RenderMD.astro'
+---
+
+<Root>
+  <Main>
+    <Markdown>
+      <RenderMD slug="home" />
+    </Markdown>
+  </Main>
+</Root>

@@ -1,0 +1,19 @@
+---
+import { getEntry } from 'astro:content'
+
+interface Props {
+  slug: string
+}
+
+const { slug } = Astro.props
+
+const content = await getEntry('pages', slug)
+
+if (!content) {
+  throw new Error(`The slug '${slug}' does not exists in content/pages/'`)
+}
+
+const { Content /* headings */ } = await content.render()
+---
+
+<Content />

@@ -1,0 +1,31 @@
+:root {
+  --im-background: 0 0% 98%;
+  --im-foreground: 0 0% 32%;
+
+  --im-selection: 0 0% 20%;
+  --im-selection-foreground: 0 0% 98%;
+
+  --im-primary: 0 0% 10%;
+  --im-primary-foreground: 0 0% 98%;
+
+  --im-accent: 0 0% 94%;
+  --im-accent-foreground: 0 0% 0%;
+
+  --im-muted: 0 0% 90%;
+  --im-muted-foreground: 0 0% 74%;
+
+  --im-input: 0 0% 98%;
+  --im-input-foreground: 0 0% 98%;
+
+  --im-code: 4 90% 60% / 0.1;
+  --im-code-foreground: 4 90% 60%;
+
+  --im-link: 4 90% 60%;
+  --im-border: 0 0% 98%;
+  --im-ring: 0 0% 20%;
+
+  --im-radius: 0.5rem;
+
+  --im-sans: 'Inter Variable', sans-serif;
+  --im-mono: 'Fira Code Variable', monospace;
+}

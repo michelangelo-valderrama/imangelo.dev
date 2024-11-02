@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths } from 'astro'
+
+import { getFilteredPosts } from '@/lib/utils'
+
+import Root from '@/layouts/Root.layout.astro'
+import Main from '@/layouts/Main.layout.astro'
+import Markdown from '@/layouts/Markdown.layout.astro'
+
+import BackLink from '@/components/widgets/BackLink.astro'
+
+export const getStaticPaths = (async () => {
+  const articles = await getFilteredPosts('articles')
+
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }))
+}) satisfies GetStaticPaths
+
+const { article } = Astro.props
+const { Content } = await article.render()
+---
+
+<Root>
+  <Main>
+    <header>
+      <BackLink />
+      <h1 class="text-lg font-medium line-height-tight mb-1 mt-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quidem?
+      </h1>
+      <time class="text-sm text-muted-foreground" datetime="2024-09-01"
+        >21 sep, 2024</time
+      >
+    </header>
+    <Markdown>
+      <Content />
+    </Markdown>
+  </Main>
+</Root>
