@@ -1,3 +1,5 @@
+Esto es un _archivo de prueba_.
+
 ## "Detalles"
 
 ### Cohesión de elementos

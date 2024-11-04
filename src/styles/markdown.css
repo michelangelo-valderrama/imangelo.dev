@@ -3,29 +3,73 @@
 .prose {
   position: relative;
 
-  color: hsl(var(--im-foreground));
+  p {
+    color: hsl(var(--im-foreground));
+
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 
   a {
     color: hsl(var(--im-link));
     text-decoration: none;
-    border-bottom: 1px solid hsl(var(--im-link) / 0.25);
+    position: relative;
 
-    transition: border 100ms ease-in-out;
+    span {
+      display: inline-block;
+      margin-left: 0.1rem;
+      vertical-align: text-bottom;
+
+      color: hsl(var(--im-muted-foreground));
+
+      transition: all 100ms ease-in-out;
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      bottom: -2px;
+      left: 0;
+      right: 0;
+
+      height: 1px;
+
+      background-color: hsl(var(--im-link) / 0.25);
+
+      transition: background-color 100ms ease-in-out;
+    }
+
+    &:has(span) {
+      &::before {
+        right: calc(1em + 0.1rem);
+      }
+    }
 
     &:hover {
-      border-bottom: 1px solid hsl(var(--im-link));
-    }
-  }
+      &::before {
+        background-color: hsl(var(--im-link));
+      }
 
-  p {
-    margin-top: 0;
-    margin-bottom: 1rem;
+      span {
+        color: hsl(var(--im-foreground));
+      }
+    }
   }
 
   h2,
   h3,
   h4 {
-    color: hsl(var(--im-accent-foreground));
+    color: hsl(var(--im-header));
   }
 
   h2 {
@@ -37,7 +81,7 @@
     margin-bottom: 1.25rem;
 
     &:first-of-type {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
   }
 
@@ -60,11 +104,13 @@
   }
 
   p > code {
+    display: inline-block;
+
     font-size: 0.8em;
     font-weight: 500;
 
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--im-radius);
+    padding: 0 0.5rem;
+    border-radius: calc(var(--im-radius));
 
     background-color: hsl(var(--im-code));
     color: hsl(var(--im-code-foreground));

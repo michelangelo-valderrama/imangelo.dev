@@ -8,6 +8,7 @@ export default defineConfig({
       colors: {
         background: 'hsl(var(--im-background))',
         foreground: 'hsl(var(--im-foreground))',
+        header: 'hsl(var(--im-header))',
         primary: {
           DEFAULT: 'hsl(var(--im-primary))',
           foreground: 'hsl(var(--im-primary-foreground))'
