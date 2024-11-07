@@ -22,8 +22,11 @@
   --im-code: 4 90% 60% / 0.1;
   --im-code-foreground: 4 90% 60%;
 
+  --im-code-block: 0 0% 100%;
+  --im-code-block-header: 0 0% 98%;
+
   --im-link: 4 90% 60%;
-  --im-border: 0 0% 98%;
+  --im-border: 0 0% 92%;
   --im-ring: 0 0% 20%;
 
   --im-radius: 0.5rem;
