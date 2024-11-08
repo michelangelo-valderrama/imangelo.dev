@@ -17,3 +17,20 @@ export async function getFilteredPosts(
     return import.meta.env.PROD ? !data.isDraft : true
   })
 }
+
+export function groupBy<K extends PropertyKey, T>(
+  items: Array<T>,
+  keySelector: (item: T, index: number) => K
+): Partial<Record<K, T[]>> {
+  return items.reduce<Partial<Record<K, T[]>>>((prev, curr, index) => {
+    const key = keySelector(curr, index)
+
+    if (prev[key]) {
+      prev[key].push(curr)
+    } else {
+      prev[key] = [curr]
+    }
+
+    return prev
+  }, {})
+}

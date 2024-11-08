@@ -172,10 +172,6 @@
       font-size: 0.875rem;
       margin-left: 0.25rem;
       margin-bottom: 0.25rem;
-
-      transition: all 100ms ease-in-out;
-
-      cursor: default;
     }
 
     &::before {
@@ -207,10 +203,14 @@
   --ec-brdCol: hsl(var(--im-border));
   --ec-gtrBrdCol: none;
   --ec-brdRad: var(--im-radius);
-  --ec-uiFontSize: 0.875rem;
+  --ec-uiFontSize: 0.75rem;
   --ec-uiFontFml: var(--im-sans);
   --ec-codeFontFml: var(--im-mono);
   --ec-lineNumbers-fg: hsl(var(--im-muted-foreground));
+
+  .frame.has-title .header {
+    border-bottom: var(--ec-brdWd) solid var(--ec-brdCol);
+  }
 
   .title {
     font-weight: normal;

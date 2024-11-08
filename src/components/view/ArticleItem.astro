@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  article: CollectionEntry<'articles'>
+}
+
+const {
+  data: { title, pubDate },
+  slug
+} = Astro.props.article
+
+const pubDateFormated = pubDate.toLocaleString('es', {
+  day: '2-digit',
+  month: 'short'
+})
+---
+
+<li class="border-t last-of-type:border-b">
+  <a href={'/articles/' + slug}>
+    <article class="h-12 flex items-center">
+      <time
+        datetime={pubDate.toString()}
+        class="w-14 text-sm text-muted-foreground"
+      >
+        {pubDateFormated}
+      </time>
+      <p class="px-2">{title}</p>
+    </article>
+  </a>
+</li>

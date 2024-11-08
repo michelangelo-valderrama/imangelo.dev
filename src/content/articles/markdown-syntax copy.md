@@ -1,3 +1,10 @@
+---
+title: Markdown Syntax
+description: Meta description...
+pubDate: 2024-09-12
+isDraft: false
+---
+
 Esto es un _archivo de prueba_.
 
 ## "Detalles"

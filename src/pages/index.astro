@@ -2,7 +2,10 @@
 import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
-import RenderMD from '@/components/views/RenderMD.astro'
+
+import RenderMD from '@/components/view/RenderMD.astro'
+
+import ListOfArticles from '@/components/view/ListOfArticles.astro'
 ---
 
 <Root>
@@ -10,5 +13,6 @@ import RenderMD from '@/components/views/RenderMD.astro'
     <Markdown>
       <RenderMD slug="home" />
     </Markdown>
+    <ListOfArticles />
   </Main>
 </Root>

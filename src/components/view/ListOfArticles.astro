@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content'
+import ArticleItem from './ArticleItem.astro'
+import { groupBy } from '@/lib/utils'
+
+const articlesCollection = await getCollection(
+  'articles',
+  (article) => !article.data.isDraft
+)
+
+const articlesGroupedByYear = groupBy(
+  articlesCollection,
+  (article) => article.data.pubDate.getFullYear() + ''
+)
+
+const avaibleYears = Object.keys(articlesGroupedByYear).sort((a, b) => +b - +a)
+---
+
+{
+  avaibleYears.map((year) => {
+    const articles =
+      articlesGroupedByYear[year as keyof typeof articlesGroupedByYear]
+
+    if (!articles) return null
+
+    return (
+      <section class="mt-8 first-of-type:mt-16">
+        <h2 class="mb-2">{year}</h2>
+        <ul>
+          {articles.map((article) => (
+            <ArticleItem {article} />
+          ))}
+        </ul>
+      </section>
+    )
+  })
+}
