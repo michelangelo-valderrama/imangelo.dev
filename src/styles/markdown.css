@@ -14,54 +14,80 @@
   }
 
   a {
-    color: hsl(var(--im-link));
     text-decoration: none;
-    position: relative;
+    transition: all 100ms ease-in-out;
 
-    span {
-      display: inline-block;
-      margin-left: 0.2rem;
-      vertical-align: text-top;
+    &.data-footnote-backref {
+      font-size: 1em;
+      line-height: 1;
 
       color: hsl(var(--im-muted-foreground));
 
-      transition: all 100ms ease-in-out;
-
-      svg {
-        width: 1em;
-        height: 1em;
+      &:hover {
+        color: hsl(var(--im-accent-foreground));
       }
     }
 
-    &::before {
-      content: '';
+    & {
+      font-size: 0.875em;
+      line-height: 1;
 
-      position: absolute;
+      color: hsl(var(--im-muted-foreground));
 
-      bottom: -2px;
-      left: 0;
-      right: 0;
-
-      height: 1px;
-
-      background-color: hsl(var(--im-link) / 0.25);
-
-      transition: background-color 100ms ease-in-out;
-    }
-
-    &:has(span) {
-      &::before {
-        right: calc(1em + 0.2rem);
+      &:hover {
+        color: hsl(var(--im-accent-foreground));
       }
     }
 
-    &:hover {
-      &::before {
-        background-color: hsl(var(--im-link));
-      }
+    &:not(.data-footnote-backref, [data-footnote-ref]) {
+      color: hsl(var(--im-link));
+      position: relative;
 
       span {
-        color: hsl(var(--im-foreground));
+        display: inline-block;
+        margin-left: 0.2rem;
+        vertical-align: text-top;
+
+        color: hsl(var(--im-muted-foreground));
+
+        transition: all 100ms ease-in-out;
+
+        svg {
+          width: 1em;
+          height: 1em;
+        }
+      }
+
+      &::before {
+        content: '';
+
+        position: absolute;
+
+        bottom: -2px;
+        left: 0;
+        right: 0;
+
+        height: 1px;
+
+        background-color: hsl(var(--im-link) / 0.25);
+
+        transition: background-color 100ms ease-in-out;
+      }
+
+      &:has(span) {
+        &::before {
+          right: calc(1em + 0.2rem);
+        }
+      }
+
+      &:hover {
+        &::before {
+          background-color: hsl(var(--im-link));
+        }
+
+        span {
+          color: hsl(var(--im-foreground));
+        }
       }
     }
   }
@@ -123,6 +149,44 @@
       content: '';
     }
   }
+
+  .footnotes {
+    position: relative;
+    margin-top: 3.5rem;
+    padding-top: 1.25rem;
+
+    ul {
+      list-style-type: decimal;
+      list-style-position: outside;
+    }
+
+    li::marker {
+      color: hsl(var(--im-muted-foreground));
+      font-size: 0.875rem;
+
+      transition: all 100ms ease-in-out;
+    }
+
+    p {
+      color: hsl(var(--im-muted-foreground));
+      font-size: 0.875rem;
+      margin-left: 0.25rem;
+      margin-bottom: 0.25rem;
+
+      transition: all 100ms ease-in-out;
+
+      cursor: default;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 80px;
+      border-top: 1.5px solid hsl(var(--im-border));
+    }
+  }
 }
 
 .expressive-code {
@@ -137,6 +201,7 @@
   --ec-frm-trmTtbDotsFg: hsl(var(--im-foreground));
 
   --ec-frm-edTabBarBrdCol: hsl(var(--im-border));
+  --ec-frm-edActTabIndBtmCol: hsl(var(--im-muted-foreground));
   --ec-frm-edTabBarBrdRad: hsl(var(--im-radius));
 
   --ec-brdCol: hsl(var(--im-border));

@@ -1,3 +1,13 @@
-<article class="prose">
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'div'> {
+  as?: string
+}
+
+const { as: As = 'article', class: className, ...props } = Astro.props
+---
+
+<As class:list={['prose', className]} {...props}>
   <slot />
-</article>
+</As>

@@ -2,6 +2,8 @@ import type { RemarkPlugins, RehypePlugins } from 'astro'
 
 // remark plugins
 import remarkDirective from 'remark-directive'
+import remarkImageFigure from './remark-image-figure'
+import remarkImgattr from 'remark-imgattr'
 import remarkMath from 'remark-math'
 
 // rehype plugins
@@ -9,7 +11,12 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import rehypeKatex from 'rehype-katex'
 import rehypeExternalLinks from 'rehype-external-links'
 
-export const remarkPlugins: RemarkPlugins = [remarkDirective, remarkMath]
+export const remarkPlugins: RemarkPlugins = [
+  remarkDirective,
+  remarkImageFigure,
+  remarkImgattr,
+  remarkMath
+]
 
 export const rehypePlugins: RehypePlugins = [
   rehypeHeadingIds,

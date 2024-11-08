@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
+import Image from 'astro/components/Image.astro'
 
 import { getFilteredPosts } from '@/lib/utils'
 
@@ -8,6 +9,8 @@ import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
 
 import BackLink from '@/components/widgets/BackLink.astro'
+
+import articleImage from '@/assets/articles/el-principio-del-universo.webp'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -26,27 +29,37 @@ const { Content } = await article.render()
   <Main>
     <header class="mb-8">
       <BackLink />
-      <h1 class="text-lg font-medium line-height-tight mb-1 mt-2 text-header">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quidem?
+      <h1 class="text-xl font-medium line-height-tight mb-1 mt-2 text-header">
+        El principio del universo: Desde las partículas hasta las estrellas
       </h1>
       <time class="text-sm text-muted-foreground" datetime="2024-09-01"
         >21 sep, 2024</time
       >
-      <img
-        class="mt-6"
-        src="https://imangelo.dev/images/articles/2023-03-07-el-principio-del-universo/cosmologia.webp"
-        alt="imagen"
-      />
-      <!-- <div class="mt-6 relative w-[calc(100%+4rem)] -ml-8 -mr-8">
-        <img
-          class="size-full"
-          src="https://imangelo.dev/images/articles/2023-03-07-el-principio-del-universo/cosmologia.webp"
-          alt="imagen"
-        />
-      </div> -->
+      <figure>
+        <Image src={articleImage} class="mt-6" alt="image" />
+        <figcaption class="text-xs text-muted-foreground mt-2">
+          Origen:
+          physics.oregonstate.edu/research/quantum-cosmology-and-foundations
+        </figcaption>
+      </figure>
     </header>
-    <Markdown>
+    <Markdown class="pb-24">
       <Content />
+      <aside
+        class="relative w-screen -left-50vw -right-50vw ml-1/2 mr-1/2 border-t border-b py-8 mt-18 bg-muted"
+      >
+        <div class="max-w-screen-xs px-4 ma">
+          <p>Gracias por leer :></p>
+          <p>
+            Suscríbete a mi <a href="/rss">RSS</a> o <a href="/newsletter"
+              >newsletter</a
+            > para estar atento a futuras divagaciones.
+          </p>
+          <p class="text-sm! text-foreground/70! mt-8!">
+            Un saludo.<br />— Michelangelo
+          </p>
+        </div>
+      </aside>
     </Markdown>
   </Main>
 </Root>

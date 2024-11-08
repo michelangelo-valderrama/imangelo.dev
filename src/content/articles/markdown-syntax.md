@@ -111,6 +111,10 @@ Here's a footnote [^1].
 
 [^1]: Footnote text goes here.
 
+Here's a footnote v2 [^2].
+
+[^2]: Lorem ipsum dolor sit amet.
+
 Tables can look like this:
 
 | size | material    | color       |
@@ -125,7 +129,11 @@ A horizontal rule follows.
 
 Here's a image can be specified like so:
 
-![example image](https://antfu.me/og/shiki-magic-move.png 'An exemplary image')
+![example image](@/assets/articles/shiki-magic-move.png 'An exemplary image')
+
+:::img-fig
+![example image](@/assets/articles/shiki-magic-move.png 'An exemplary image')
+:::
 
 Inline math equations go in like so: $\omega = d\phi / dt$.
 
