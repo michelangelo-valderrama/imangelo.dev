@@ -17,7 +17,6 @@ export const rehypePlugins: RehypePlugins = [
   [
     rehypeExternalLinks,
     {
-      target: '_blank',
       rel: 'noopener noreferrer',
       content: {
         type: 'element',

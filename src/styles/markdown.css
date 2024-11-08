@@ -20,8 +20,8 @@
 
     span {
       display: inline-block;
-      margin-left: 0.1rem;
-      vertical-align: text-bottom;
+      margin-left: 0.2rem;
+      vertical-align: text-top;
 
       color: hsl(var(--im-muted-foreground));
 
@@ -51,7 +51,7 @@
 
     &:has(span) {
       &::before {
-        right: calc(1em + 0.1rem);
+        right: calc(1em + 0.2rem);
       }
     }
 
@@ -121,6 +121,48 @@
 
     &::after {
       content: '';
+    }
+  }
+}
+
+.expressive-code {
+  --ec-frm-frameBoxShdCssVal: none;
+
+  --ec-frm-edBg: hsl(var(--im-code-block));
+  --ec-frm-trmBg: hsl(var(--im-code-block));
+
+  --ec-frm-trmTtbBrdBtmCol: hsl(var(--im-border));
+  --ec-frm-trmTtbFg: hsl(var(--im-foreground) / 0.6);
+  --ec-frm-trmTtbBg: hsl(var(--im-code-block-header));
+  --ec-frm-trmTtbDotsFg: hsl(var(--im-foreground));
+
+  --ec-frm-edTabBarBrdCol: hsl(var(--im-border));
+  --ec-frm-edTabBarBrdRad: hsl(var(--im-radius));
+
+  --ec-brdCol: hsl(var(--im-border));
+  --ec-gtrBrdCol: none;
+  --ec-brdRad: var(--im-radius);
+  --ec-uiFontSize: 0.875rem;
+  --ec-uiFontFml: var(--im-sans);
+  --ec-codeFontFml: var(--im-mono);
+  --ec-lineNumbers-fg: hsl(var(--im-muted-foreground));
+
+  .title {
+    font-weight: normal;
+  }
+
+  .copy button {
+    --ec-frm-inlBtnBg: hsl(var(--im-background-accent));
+    --ec-frm-inlBtnFg: hsl(var(--im-muted-foreground));
+    --ec-frm-inlBtnBrd: hsl(var(--im-border));
+    --ec-frm-inlBtnBrdOpa: 1;
+
+    &::before {
+      border-radius: var(--ec-brdRad);
+    }
+
+    &::after {
+      mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>') !important;
     }
   }
 }

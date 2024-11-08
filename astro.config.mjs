@@ -1,18 +1,18 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 
-import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
-
 import UnoCSS from 'unocss/astro'
+import expressiveCode from 'astro-expressive-code'
+import mdx from '@astrojs/mdx'
 
 import { remarkPlugins, rehypePlugins } from './plugins'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://imangelo.dev',
-  integrations: [mdx(), sitemap(/*TODO*/), react(), UnoCSS()],
+  integrations: [sitemap(/*TODO*/), react(), UnoCSS(), expressiveCode(), mdx()],
   markdown: {
     remarkPlugins,
     rehypePlugins
