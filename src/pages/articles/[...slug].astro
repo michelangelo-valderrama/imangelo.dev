@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import type { CollectionEntry } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
 import { getFilteredPosts } from '@/lib/utils'
@@ -12,6 +12,7 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 import BackLink from '@/components/widgets/BackLink.astro'
 
 import Link from '@/components/ui/link'
+import ArticleItem from '@/components/view/ArticleItem.astro'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -38,6 +39,16 @@ const modDate = (lastModDate ?? pubDate).toLocaleDateString('es-ES', {
   month: 'short',
   year: 'numeric'
 })
+
+const relatedArticles = (
+  await getCollection(
+    'articles',
+    ($article) =>
+      !$article.data.isDraft &&
+      $article.data.category === article.data.category &&
+      $article.slug !== article.slug
+  )
+).slice(0, 3)
 ---
 
 <Root>
@@ -52,7 +63,7 @@ const modDate = (lastModDate ?? pubDate).toLocaleDateString('es-ES', {
       >
       {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
     </header>
-    <Markdown class="pb-24">
+    <Markdown class="mb-12">
       <Content />
       <aside
         class="relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw border-t border-b py-8 mt-18 bg-muted"
@@ -70,6 +81,12 @@ const modDate = (lastModDate ?? pubDate).toLocaleDateString('es-ES', {
         </div>
       </aside>
     </Markdown>
+    <aside class="mb-12">
+      <h2 class="font-medium mb-4">Relacionado</h2>
+      <ul>
+        {relatedArticles.map((article) => <ArticleItem {article} />)}
+      </ul>
+    </aside>
     <footer>
       <h2 class="font-medium mb-4">Sobre este artículo</h2>
       <ul
