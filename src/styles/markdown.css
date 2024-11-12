@@ -1,7 +1,20 @@
+/* Katex CSS */
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css');
 
 .prose {
   position: relative;
+
+  figure {
+    p {
+      margin-bottom: 0;
+    }
+
+    figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: hsl(var(--im-muted-foreground));
+    }
+  }
 
   p {
     color: hsl(var(--im-foreground));
@@ -15,21 +28,11 @@
 
   a {
     text-decoration: none;
-    transition: all 100ms ease-in-out;
+    transition: all 300ms ease-in-out;
 
-    &.data-footnote-backref {
+    &.data-footnote-backref,
+    &[data-footnote-ref] {
       font-size: 1em;
-      line-height: 1;
-
-      color: hsl(var(--im-muted-foreground));
-
-      &:hover {
-        color: hsl(var(--im-accent-foreground));
-      }
-    }
-
-    & {
-      font-size: 0.875em;
       line-height: 1;
 
       color: hsl(var(--im-muted-foreground));
@@ -45,12 +48,10 @@
 
       span {
         display: inline-block;
-        margin-left: 0.2rem;
+        margin-left: 0.1rem;
         vertical-align: text-top;
 
         color: hsl(var(--im-muted-foreground));
-
-        transition: all 100ms ease-in-out;
 
         svg {
           width: 1em;
@@ -76,17 +77,13 @@
 
       &:has(span) {
         &::before {
-          right: calc(1em + 0.2rem);
+          right: calc(1em + 0.1rem);
         }
       }
 
       &:hover {
         &::before {
           background-color: hsl(var(--im-link));
-        }
-
-        span {
-          color: hsl(var(--im-foreground));
         }
       }
     }
@@ -197,16 +194,34 @@
   --ec-frm-trmTtbDotsFg: hsl(var(--im-foreground));
 
   --ec-frm-edTabBarBrdCol: hsl(var(--im-border));
-  --ec-frm-edActTabIndBtmCol: hsl(var(--im-muted-foreground));
-  --ec-frm-edTabBarBrdRad: hsl(var(--im-radius));
+  --ec-frm-edActTabIndBtmCol: hsl(var(--im-foreground));
 
+  --ec-brdRad: var(--im-radius);
   --ec-brdCol: hsl(var(--im-border));
   --ec-gtrBrdCol: none;
-  --ec-brdRad: var(--im-radius);
   --ec-uiFontSize: 0.75rem;
   --ec-uiFontFml: var(--im-sans);
   --ec-codeFontFml: var(--im-mono);
   --ec-lineNumbers-fg: hsl(var(--im-muted-foreground));
+
+  .ec-line .gutter .ln {
+    padding-inline: 1.5ch 2ch;
+  }
+
+  @media (max-width: 640px) {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    --ec-brdRad: 0;
+  }
+
+  .code {
+    --ecGtrBrdWd: var(--ec-codePadInl) !important;
+  }
 
   .frame.has-title .header {
     border-bottom: var(--ec-brdWd) solid var(--ec-brdCol);
@@ -216,18 +231,32 @@
     font-weight: normal;
   }
 
-  .copy button {
-    --ec-frm-inlBtnBg: hsl(var(--im-background-accent));
-    --ec-frm-inlBtnFg: hsl(var(--im-muted-foreground));
-    --ec-frm-inlBtnBrd: hsl(var(--im-border));
-    --ec-frm-inlBtnBrdOpa: 1;
+  .copy {
+    button {
+      --ec-frm-inlBtnBg: hsl(var(--im-accent));
+      --ec-frm-inlBtnFg: hsl(var(--im-foreground));
+      --ec-frm-inlBtnBrd: hsl(var(--im-border));
+      --ec-frm-inlBtnBrdOpa: 1;
 
-    &::before {
-      border-radius: var(--ec-brdRad);
+      width: 2rem !important;
+      height: 2rem !important;
+
+      &::before {
+        border-radius: var(--im-radius);
+      }
+
+      &::after {
+        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>') !important;
+        mask-position: center;
+      }
     }
 
-    &::after {
-      mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>') !important;
+    & .feedback ~ button::after {
+      mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>') !important;
     }
+  }
+
+  .feedback {
+    visibility: hidden;
   }
 }

@@ -1,8 +1,12 @@
 ---
+import Footer from '@/components/base/Footer.astro'
 import Header from '@/components/base/Header.astro'
 ---
 
 <main class="max-w-screen-xs ma min-h-screen pt-16 px-4">
   <Header />
-  <slot />
+  <article>
+    <slot />
+  </article>
+  <Footer />
 </main>

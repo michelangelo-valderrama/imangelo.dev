@@ -17,7 +17,7 @@ export default defineEcConfig({
   plugins: [pluginLineNumbers()],
 
   /* Basics */
-  defaultLocale: 'es-ES',
+  defaultLocale: 'es',
   defaultProps: {
     showLineNumbers: true,
     wrap: false

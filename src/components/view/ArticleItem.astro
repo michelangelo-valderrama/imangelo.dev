@@ -1,4 +1,5 @@
 ---
+import { MoveRightIcon } from '@/icons'
 import type { CollectionEntry } from 'astro:content'
 
 interface Props {
@@ -16,16 +17,37 @@ const pubDateFormated = pubDate.toLocaleString('es', {
 })
 ---
 
-<li class="border-t last-of-type:border-b">
-  <a href={'/articles/' + slug}>
-    <article class="h-12 flex items-center">
+<li
+  class={`
+    relative border-y border-b-transparent last-of-type:border-b-border py-2 group
+    w-screen relative left-1/2 right-1/2 -ml-50vw -mr-50vw px-4
+    sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0
+    hover:border-y-foreground last-of-type:hover:border-b-foreground
+  `}
+>
+  <a href={'/articles/' + slug} class={``}>
+    <p class="flex items-center relative">
       <time
         datetime={pubDate.toString()}
-        class="w-14 text-sm text-muted-foreground"
+        class={`
+          w-14 text-sm text-muted-foreground
+          group-hover:-translate-x-16 group-hover:opacity-0 group-hover:scale-0
+          transition-all duration-200
+        `}
       >
         {pubDateFormated}
       </time>
-      <p class="px-2">{title}</p>
-    </article>
+      <span
+        class="flex-1 px-2 group-hover:-translate-x-16 transition-all duration-200"
+        >{title}</span
+      >
+      <MoveRightIcon
+        className={`
+          text-muted-foreground size-4 translate-x-16 opacity-0 scale-0
+          group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-100
+          transition-all duration-200
+        `}
+      />
+    </p>
   </a>
 </li>

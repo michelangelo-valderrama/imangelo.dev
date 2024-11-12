@@ -2,8 +2,19 @@
 title: Markdown Syntax
 description: Meta description...
 pubDate: 2024-09-12
+cover:
+  src: /images/el-principio-del-universo.webp
+  width: 1200
+  height: 768
+  credits: physics.oregonstate.edu
+category: markdown
+tags:
+  - categoría-1
+  - categoría-2
 isDraft: false
 ---
+
+Hay algo que siempre me ha molestado de algunos matemáticos. Tómese por ejemplo Henri Poincaré y Bertrand Russell, sin lugar a dudas grandes matemáticos —en el caso de Poincaré también físico— y filósofos —sobre todo Russell— que no dudaron en afirmar que la matemática es la ciencia más pura y más bella que existe. Yo, ante tales afirmaciones no puedo parar de preguntarme: ¿Qué tienen de científico las matemáticas?
 
 Esto es un _archivo de prueba_.
 
@@ -77,9 +88,30 @@ echo "Hello, world!"
 
 <br />
 
-```python title="main.py"
+```python title="main.py" showLineNumbers=false
 def foobar():
     print("Welcome to flavor country!")
+```
+
+<br />
+
+```ts title="@/utils.ts"
+export function groupBy<K extends PropertyKey, T>(
+  items: Array<T>,
+  keySelector: (item: T, index: number) => K
+): Partial<Record<K, T[]>> {
+  return items.reduce<Partial<Record<K, T[]>>>((prev, curr, index) => {
+    const key = keySelector(curr, index)
+
+    if (prev[key]) {
+      prev[key].push(curr)
+    } else {
+      prev[key] = [curr]
+    }
+
+    return prev
+  }, {})
+}
 ```
 
 <br />
@@ -90,25 +122,26 @@ def foobar():
 
 Now a nested list:
 
-1.  First, get these ingredients:
+1. First, get these ingredients:
 
-    - carrots
-    - celery
-    - lentils
+- carrots
+- celery
+- lentils
 
-2.  Boil some water.
-3.  Dump everything in the pot and follow
-    this algorithm:
+2. Boil some water.
+3. Dump everything in the pot and follow this algorithm:
 
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
+```
+find wooden spoon
+uncover pot
+stir
+cover pot
+balance wooden spoon precariously on pot handle
+wait 10 minutes
+goto first step (or shut off burner when done)
+```
 
-    Do not bump wooden spoon or it will fall.
+Do not bump wooden spoon or it will fall.
 
 Notice again how text always lines up on 4-space indents (including that last line which continues item 3 above).
 
@@ -136,10 +169,14 @@ A horizontal rule follows.
 
 Here's a image can be specified like so:
 
-![example image](@/assets/articles/shiki-magic-move.png 'An exemplary image')
+![example image](@/assets/articles/shiki-magic-move.png)
 
 :::img-fig
-![example image](@/assets/articles/shiki-magic-move.png 'An exemplary image')
+![example image](@/assets/articles/shiki-magic-move.png)
+:::
+
+:::img-fig[example image]
+![](@/assets/articles/shiki-magic-move.png)
 :::
 
 Inline math equations go in like so: $\omega = d\phi / dt$.

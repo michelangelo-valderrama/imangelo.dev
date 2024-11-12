@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import Image from 'astro/components/Image.astro'
+import type { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
 import { getFilteredPosts } from '@/lib/utils'
 
@@ -10,7 +11,7 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 
 import BackLink from '@/components/widgets/BackLink.astro'
 
-import articleImage from '@/assets/articles/el-principio-del-universo.webp'
+import Link from '@/components/ui/link'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -21,8 +22,22 @@ export const getStaticPaths = (async () => {
   }))
 }) satisfies GetStaticPaths
 
+interface Props {
+  article: CollectionEntry<'articles'>
+}
+
 const { article } = Astro.props
 const { Content } = await article.render()
+
+const {
+  data: { title, pubDate, lastModDate, category, tags, cover }
+} = article
+
+const modDate = (lastModDate ?? pubDate).toLocaleDateString('es-ES', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric'
+})
 ---
 
 <Root>
@@ -35,25 +50,19 @@ const { Content } = await article.render()
       <time class="text-sm text-muted-foreground" datetime="2024-09-01"
         >21 sep, 2024</time
       >
-      <figure>
-        <Image src={articleImage} class="mt-6" alt="image" />
-        <figcaption class="text-xs text-muted-foreground mt-2">
-          Origen:
-          physics.oregonstate.edu/research/quantum-cosmology-and-foundations
-        </figcaption>
-      </figure>
+      {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
     </header>
     <Markdown class="pb-24">
       <Content />
       <aside
-        class="relative w-screen -left-50vw -right-50vw ml-1/2 mr-1/2 border-t border-b py-8 mt-18 bg-muted"
+        class="relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw border-t border-b py-8 mt-18 bg-muted"
       >
         <div class="max-w-screen-xs px-4 ma">
           <p>Gracias por leer :></p>
           <p>
-            Suscríbete a mi <a href="/rss">RSS</a> o <a href="/newsletter"
-              >newsletter</a
-            > para estar atento a futuras divagaciones.
+            Recuerda suscribirte a mi <a href="/rss">RSS</a> o <a
+              href="/newsletter">newsletter</a
+            > para estar atento a mis futuras divagaciones.
           </p>
           <p class="text-sm! text-foreground/70! mt-8!">
             Un saludo.<br />— Michelangelo
@@ -61,5 +70,48 @@ const { Content } = await article.render()
         </div>
       </aside>
     </Markdown>
+    <footer>
+      <h2 class="font-medium mb-4">Sobre este artículo</h2>
+      <ul
+        class="*:flex *:items-center *:justify-between space-y-2 text-muted-foreground text-sm"
+      >
+        {
+          cover?.credits && (
+            <li>
+              <span class="pr-4">Imagen</span>
+              <span class="text-foreground line-clamp-1 text-right">
+                {cover!.credits}
+              </span>
+            </li>
+          )
+        }
+        <li>
+          <span class="pr-4">Publicado en</span>
+          <span class="text-foreground text-right">
+            <Link className="text-foreground" href={'/categories/' + category}
+              >{category}</Link
+            >
+          </span>
+        </li>
+        <li>
+          <span class="pr-4">Etiquetas</span>
+          <span class="text-foreground flex gap-3 text-right">
+            {
+              tags.map((tag) => (
+                <Link className="text-foreground" href={'/categories/' + tag}>
+                  {tag}
+                </Link>
+              ))
+            }
+          </span>
+        </li>
+        <li>
+          <span class="pr-4">Actualizado el</span>
+          <time class="text-foreground text-right" datetime={modDate}
+            >{modDate}</time
+          >
+        </li>
+      </ul>
+    </footer>
   </Main>
 </Root>

@@ -1,5 +1,5 @@
 :root {
-  --im-background: 0 0% 98%;
+  --im-background: 0 0% 99%;
   --im-foreground: 0 0% 32%;
 
   --im-header: 0 0% 10%;
@@ -13,8 +13,8 @@
   --im-accent: 0 0% 94%;
   --im-accent-foreground: 0 0% 0%;
 
-  --im-muted: 0 0% 97%;
-  --im-muted-foreground: 0 0% 68%;
+  --im-muted: 0 0% 98%;
+  --im-muted-foreground: 0 0% 62%;
 
   --im-input: 0 0% 98%;
   --im-input-foreground: 0 0% 98%;
@@ -30,6 +30,9 @@
   --im-ring: 0 0% 20%;
 
   --im-radius: 0.5rem;
+
+  --im-success: 131 41% 46%;
+  --im-success-foreground: 0 0% 100%;
 
   --im-sans: 'Inter Variable', sans-serif;
   --im-mono: 'Fira Code Variable', monospace;

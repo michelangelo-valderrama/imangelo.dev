@@ -1,0 +1,39 @@
+---
+import { SOCIAL } from '@/config'
+
+import Link from '@/components/ui/link'
+---
+
+<footer
+  class="pt-12 pb-18 border-t border-border mt-32 relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw"
+>
+  <div class="max-w-screen-xs px-4 ma">
+    <ul
+      class="mb-12 flex justify-between *:flex *:flex-col *:items-start *:gap-y-2 text-sm"
+    >
+      <li>
+        <Link className="text-foreground border-b-none" href="/">Inicio</Link>
+      </li>
+      <li>
+        <Link className="text-foreground border-b-none" href="/newsletter"
+          >Newsletter</Link
+        >
+        <Link className="text-foreground border-b-none" href="/rss">RSS</Link>
+      </li>
+      <li>
+        <Link className="text-foreground border-b-none" href={SOCIAL.linkedin}
+          >LinkedIn</Link
+        >
+        <Link className="text-foreground border-b-none" href={SOCIAL.github}
+          >GitHub</Link
+        >
+      </li>
+    </ul>
+    <p
+      class="uppercase flex items-center justify-between text-xs text-muted-foreground"
+    >
+      <span>Di Michelangelo</span>
+      <span>MD, ES — 2024</span>
+    </p>
+  </div>
+</footer>

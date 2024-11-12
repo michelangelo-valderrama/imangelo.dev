@@ -7,7 +7,17 @@ const articles = defineCollection({
     description: z.string().max(350),
     pubDate: z.date(),
     lastModDate: z.date().optional(),
-    isDraft: z.boolean().default(true)
+    category: z.string(),
+    tags: z.string().array(),
+    isDraft: z.boolean().default(true),
+    cover: z
+      .object({
+        src: z.string(),
+        width: z.number().min(0),
+        height: z.number().min(0),
+        credits: z.string().optional()
+      })
+      .optional()
   })
 })
 
