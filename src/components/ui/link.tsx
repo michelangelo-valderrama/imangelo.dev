@@ -15,14 +15,14 @@ const linkVariants = cva(
   `
 )
 
-interface ButtonProps
+export interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   title?: string
   isExternal?: boolean
 }
 
-function Link({ className, title, isExternal, ...props }: ButtonProps) {
+function Link({ className, title, isExternal, ...props }: LinkProps) {
   return (
     <a
       className={cn(linkVariants({ className }))}

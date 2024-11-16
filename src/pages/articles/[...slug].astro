@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import { getCollection, type CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
 import { getFilteredPosts } from '@/lib/utils'
@@ -11,8 +11,9 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 
 import BackLink from '@/components/widgets/BackLink.astro'
 
-import Link from '@/components/ui/link'
-import ArticleItem from '@/components/view/ArticleItem.astro'
+import ArticleFooter from '@/components/article/ArticleFooter.astro'
+import RelatedArticles from '@/components/article/RelatedArticles.astro'
+import Toc from '@/components/widgets/toc'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -28,45 +29,38 @@ interface Props {
 }
 
 const { article } = Astro.props
-const { Content } = await article.render()
+const { Content, headings } = await article.render()
 
 const {
-  data: { title, pubDate, lastModDate, category, tags, cover }
+  data: { category, cover, lastModDate, pubDate, tags, title }
 } = article
-
-const modDate = (lastModDate ?? pubDate).toLocaleDateString('es-ES', {
-  day: '2-digit',
-  month: 'short',
-  year: 'numeric'
-})
-
-const relatedArticles = (
-  await getCollection(
-    'articles',
-    ($article) =>
-      !$article.data.isDraft &&
-      $article.data.category === article.data.category &&
-      $article.slug !== article.slug
-  )
-).slice(0, 3)
 ---
 
 <Root>
   <Main>
+    <Toc {headings} {title} />
     <header class="mb-8">
       <BackLink />
-      <h1 class="text-xl font-medium line-height-tight mb-1 mt-2 text-header">
-        El principio del universo: Desde las partículas hasta las estrellas
+      <h1
+        id="title"
+        class="text-xl font-medium line-height-tight mb-1 mt-2 text-header"
+      >
+        {title}
       </h1>
       <time class="text-sm text-muted-foreground" datetime="2024-09-01"
         >21 sep, 2024</time
       >
       {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
     </header>
-    <Markdown class="mb-12">
+    <Markdown class="mb-42">
       <Content />
       <aside
-        class="relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw border-t border-b py-8 mt-18 bg-muted"
+        class={`
+          relative w-screen
+          left-1/2 right-1/2 -ml-50vw -mr-50vw
+          border-t border-b py-8 mt-18
+          bg-muted/10 backdrop-blur-sm
+        `}
       >
         <div class="max-w-screen-xs px-4 ma">
           <p>Gracias por leer :></p>
@@ -81,54 +75,12 @@ const relatedArticles = (
         </div>
       </aside>
     </Markdown>
-    <aside class="mb-12">
-      <h2 class="font-medium mb-4">Relacionado</h2>
-      <ul>
-        {relatedArticles.map((article) => <ArticleItem {article} />)}
-      </ul>
-    </aside>
-    <footer>
-      <h2 class="font-medium mb-4">Sobre este artículo</h2>
-      <ul
-        class="*:flex *:items-center *:justify-between space-y-2 text-muted-foreground text-sm"
-      >
-        {
-          cover?.credits && (
-            <li>
-              <span class="pr-4">Imagen</span>
-              <span class="text-foreground line-clamp-1 text-right">
-                {cover!.credits}
-              </span>
-            </li>
-          )
-        }
-        <li>
-          <span class="pr-4">Publicado en</span>
-          <span class="text-foreground text-right">
-            <Link className="text-foreground" href={'/categories/' + category}
-              >{category}</Link
-            >
-          </span>
-        </li>
-        <li>
-          <span class="pr-4">Etiquetas</span>
-          <span class="text-foreground flex gap-3 text-right">
-            {
-              tags.map((tag) => (
-                <Link className="text-foreground" href={'/categories/' + tag}>
-                  {tag}
-                </Link>
-              ))
-            }
-          </span>
-        </li>
-        <li>
-          <span class="pr-4">Actualizado el</span>
-          <time class="text-foreground text-right" datetime={modDate}
-            >{modDate}</time
-          >
-        </li>
-      </ul>
-    </footer>
+    <RelatedArticles {category} slug={article.slug} />
+    <ArticleFooter
+      lastUpdateDate={lastModDate ?? pubDate}
+      imageCredits={cover?.credits}
+      {category}
+      {tags}
+    />
   </Main>
 </Root>

@@ -15,6 +15,7 @@ export default defineConfig({
   integrations: [sitemap(/*TODO*/), react(), UnoCSS(), expressiveCode(), mdx()],
   markdown: {
     remarkPlugins,
-    rehypePlugins
+    rehypePlugins,
+    remarkRehype: {}
   }
 })

@@ -1,0 +1,27 @@
+---
+import { cn } from '@/lib/utils'
+
+import Link, { type LinkProps } from '@/components/ui/link'
+
+interface Props extends LinkProps {
+  slug?: string
+}
+
+const { slug = '', className, ...props } = Astro.props
+---
+
+<Link
+  data-toc-link
+  data-heading-id={slug}
+  className={cn(
+    `
+      text-sm border-none text-wrap my-0.5
+      data-[active=true]:text-foreground data-[active=true]:font-medium
+    `,
+    className
+  )}
+  href={`#${slug}`}
+  {...props}
+>
+  <slot />
+</Link>

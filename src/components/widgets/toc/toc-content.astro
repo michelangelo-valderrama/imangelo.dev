@@ -1,0 +1,21 @@
+---
+import type { MarkdownHeading } from 'astro'
+import TocLink from './toc-link.astro'
+
+interface Props {
+  headings: MarkdownHeading[]
+}
+
+const { headings } = Astro.props
+---
+
+{
+  headings.map(({ slug, text, depth }) => {
+    if (depth > 2) return
+    return (
+      <li>
+        <TocLink {slug}>{text}</TocLink>
+      </li>
+    )
+  })
+}

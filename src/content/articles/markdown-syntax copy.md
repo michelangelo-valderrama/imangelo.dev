@@ -26,6 +26,10 @@ I spent an unreasonable amount of time on contextual styles, making sure that my
 
 Lorem ipsum dolor sit amet.
 
+Here's a footnote [^1].
+
+[^1]: Footnote text goes here.
+
 #### El arcoiris
 
 On the desktop homepage, you might’ve noticed that there’s a big new rainbow.
@@ -146,10 +150,6 @@ Do not bump wooden spoon or it will fall.
 Notice again how text always lines up on 4-space indents (including that last line which continues item 3 above).
 
 Here's a link to [google](https://www.google.com/) and to a [section heading in the current doc](#an-h2-header).
-
-Here's a footnote [^1].
-
-[^1]: Footnote text goes here.
 
 Here's a footnote v2 [^2].
 
