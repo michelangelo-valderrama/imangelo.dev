@@ -1,3 +1,3 @@
-import Toc from './toc.astro'
+import Toc from './Toc.astro'
 
 export default Toc

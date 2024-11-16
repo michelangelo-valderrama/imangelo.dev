@@ -1,0 +1,21 @@
+---
+import type { MarkdownHeading } from 'astro'
+import Toc from '../widgets/toc'
+import ShareButton from '../widgets/share/ShareButton.astro'
+
+interface Props {
+  headings: MarkdownHeading[]
+  title: string
+}
+
+const { headings, title } = Astro.props
+---
+
+<aside class="fixed left-0 right-0 top-32 hidden lg:block pointer-events-none">
+  <div class="max-w-screen-2xl ma flex justify-between">
+    <Toc {headings} {title} />
+    <article class="pointer-events-auto mr-4">
+      <ShareButton />
+    </article>
+  </div>
+</aside>

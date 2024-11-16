@@ -13,7 +13,7 @@ import BackLink from '@/components/widgets/BackLink.astro'
 
 import ArticleFooter from '@/components/article/ArticleFooter.astro'
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
-import Toc from '@/components/widgets/toc'
+import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -38,7 +38,7 @@ const {
 
 <Root>
   <Main>
-    <Toc {headings} {title} />
+    <ArticleWidgets {headings} {title} />
     <header class="mb-8">
       <BackLink />
       <h1

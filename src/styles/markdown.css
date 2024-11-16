@@ -206,7 +206,6 @@
   --ec-brdRad: var(--im-radius);
   --ec-brdCol: hsl(var(--im-border));
   --ec-gtrBrdCol: none;
-  --ec-uiFontSize: 0.75rem;
   --ec-uiFontFml: var(--im-sans);
   --ec-codeFontFml: var(--im-mono);
   --ec-lineNumbers-fg: hsl(var(--im-muted-foreground));
@@ -236,6 +235,7 @@
 
   .title {
     font-weight: normal;
+    font-size: 0.75rem;
   }
 
   .copy {
