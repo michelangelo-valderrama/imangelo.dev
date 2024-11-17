@@ -1,5 +1,5 @@
 :root {
-  --im-background: 0 0% 99%;
+  --im-background: 0 0% 98%;
   --im-foreground: 0 0% 32%;
 
   --im-header: 0 0% 10%;
@@ -10,11 +10,14 @@
   --im-primary: 0 0% 10%;
   --im-primary-foreground: 0 0% 98%;
 
-  --im-accent: 0 0% 94%;
+  --im-accent: 0 0% 95%;
   --im-accent-foreground: 0 0% 0%;
 
   --im-muted: 0 0% 90%;
   --im-muted-foreground: 0 0% 62%;
+
+  --im-popover: 0 0% 100%;
+  --im-popover-foreground: 0 0% 32%;
 
   --im-input: 0 0% 98%;
   --im-input-foreground: 0 0% 98%;

@@ -1,0 +1,12 @@
+---
+import ShareButton from './share-button'
+
+interface Props {
+  title: string
+  url: string
+}
+
+const { title, url } = Astro.props
+---
+
+<ShareButton {title} {url} client:load />

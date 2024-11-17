@@ -21,6 +21,19 @@ export default defineConfig({
           DEFAULT: 'hsl(var(--im-muted))',
           foreground: 'hsl(var(--im-muted-foreground))'
         },
+        popover: {
+          DEFAULT: 'hsl(var(--im-popover))',
+          foreground: 'hsl(var(--im-popover-foreground))',
+          muted: {
+            DEFAULT: 'hsl(var(--im-popover-muted))',
+            foreground: 'hsl(var(--im-popover-muted-foreground))'
+          },
+          accent: {
+            DEFAULT: 'hsl(var(--im-popover-accent))',
+            foreground: 'hsl(var(--im-popover-accent-foreground))'
+          },
+          border: 'hsl(var(--im-popover-border))'
+        },
         input: {
           DEFAULT: 'hsl(var(--im-input))',
           foreground: 'hsl(var(--im-input-foreground))'

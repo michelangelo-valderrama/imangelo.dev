@@ -3,6 +3,8 @@ import { SITE } from '@/config'
 
 import Head from '@/components/base/Head.astro'
 
+import Toaster from '@/components/ui/toast'
+
 import '@/styles/variables.css'
 import '@/styles/main.css'
 import '@/styles/reset.css'
@@ -23,5 +25,6 @@ import '@unocss/reset/tailwind.css'
     class="relative bg-background text-foreground font-sans overflow-x-hidden"
   >
     <slot />
+    <Toaster client:idle />
   </body>
 </html>

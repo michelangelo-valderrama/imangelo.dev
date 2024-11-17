@@ -34,3 +34,32 @@ export function groupBy<K extends PropertyKey, T>(
     return prev
   }, {})
 }
+
+export async function copyToClipboard(txt: string) {
+  let ok = false
+
+  try {
+    await navigator.clipboard.writeText(txt)
+    ok = true
+  } catch (error) {
+    const p = document.createElement('p')
+    p.textContent = txt
+    document.body.appendChild(p)
+
+    const range = document.createRange()
+    range.selectNode(p)
+    const selection = getSelection()
+    if (!selection) return false
+    selection.removeAllRanges()
+    selection.addRange(range)
+
+    try {
+      ok = document.execCommand('copy')
+    } finally {
+      selection.removeAllRanges()
+      document.body.removeChild(p)
+    }
+  } finally {
+    return ok
+  }
+}
