@@ -1,12 +1,7 @@
 ---
-import ShareButton from './share-button'
+import ShareButton, { type ShareButtonProps } from './share-button'
 
-interface Props {
-  title: string
-  url: string
-}
-
-const { title, url } = Astro.props
+interface Props extends ShareButtonProps {}
 ---
 
-<ShareButton {title} {url} client:load />
+<ShareButton {...Astro.props} client:load />

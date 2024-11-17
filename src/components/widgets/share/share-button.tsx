@@ -1,75 +1,47 @@
-import * as Share from 'social-share-generator'
-
 import {
   Popover,
   PopoverTrigger,
-  PopoverContent,
-  PopoverSeparator
+  PopoverContent
 } from '@/components/ui/popover'
 import Button from '@/components/ui/button'
-import { toast } from '@/components/ui/toast'
 
-import {
-  LinkedInIcon,
-  LinkIcon,
-  ShareIcon,
-  TelegramIcon,
-  XFormerlyTwitterIcon,
-  XIcon
-} from '@/icons'
+import { ShareIcon } from '@/icons'
 
-import { copyToClipboard } from '@/lib/utils'
+import ShareContent from './share-content'
+import Drawer, {
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger
+} from '@/components/ui/drawer'
 
-interface ShareButtonProps {
+export interface ShareButtonProps {
   title: string
   url: string
-  side: 'left' | 'top' | 'bottom' | 'right'
-  align: 'center' | 'end' | 'start'
+  isMobile?: boolean
 }
 
-interface SocialBtnProps {
-  social: 'telegram' | 'twitter' | 'linkedin'
-  name: string
-  icon: any
-}
-
-async function copyUrl(url: string) {
-  await copyToClipboard(url)
-  const toastId = toast('URL copiado', {
-    cancel: (
-      <Button
-        size="icon"
-        variant="ghost"
-        className="size-7 ml-a"
-        onClick={() => toast.dismiss(toastId)}
-      >
-        <XIcon className="size-4" />
-      </Button>
-    )
-  })
-}
-
-function ShareButton({
-  align = 'start',
-  side = 'left',
-  title,
-  url
-}: ShareButtonProps) {
-  const SocialBtn = ({ icon: Icon, social, name }: SocialBtnProps) => {
-    const shareUrl = Share[social]({
-      text: title,
-      url
-    })
-    return (
-      <a tabIndex={0} href={shareUrl} target="_blank" rel="noopener noreferrer">
-        <Button variant="popover">
-          <Icon className="size-4 mr-2"></Icon>
-          {name}
+function ShareButtonMobile({ title, url }: ShareButtonProps) {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button variant="ghost" size="icon" className="rounded-full">
+          <ShareIcon />
         </Button>
-      </a>
-    )
-  }
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerTitle />
+        <DrawerDescription />
+        <div className="px-2 pt-5 pb-6">
+          <ShareContent title={title} url={url} isMobile={true} />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
 
+function ShareButtonDesktop({ title, url }: ShareButtonProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -78,26 +50,20 @@ function ShareButton({
         </Button>
       </PopoverTrigger>
       <PopoverContent
+        side="left"
+        align="start"
         sideOffset={10}
-        align={align}
-        side={side}
-        className="w-42 py-2 px-1"
+        className="w-48 py-2 px-1"
       >
-        <Button variant="popover" onClick={() => copyUrl(url)}>
-          <LinkIcon className="size-4 mr-2" />
-          Copiar URL
-        </Button>
-        <PopoverSeparator />
-        <SocialBtn
-          social="twitter"
-          name="Twitter"
-          icon={XFormerlyTwitterIcon}
-        />
-        <SocialBtn social="linkedin" name="LinkedIn" icon={LinkedInIcon} />
-        <SocialBtn social="telegram" name="Telegram" icon={TelegramIcon} />
+        <ShareContent title={title} url={url} />
       </PopoverContent>
     </Popover>
   )
+}
+
+function ShareButton({ isMobile, ...props }: ShareButtonProps) {
+  if (isMobile) return <ShareButtonMobile {...props} />
+  return <ShareButtonDesktop {...props} />
 }
 
 export default ShareButton

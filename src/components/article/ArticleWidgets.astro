@@ -1,6 +1,8 @@
 ---
 import type { MarkdownHeading } from 'astro'
+
 import Toc from '../widgets/toc'
+import TocButton from '../widgets/toc/toc-button'
 import ShareButton from '../widgets/share'
 
 interface Props {
@@ -9,13 +11,58 @@ interface Props {
 }
 
 const { headings, title } = Astro.props
+
+const totalHeadings = headings.length
 ---
 
-<aside class="fixed left-0 right-0 top-32 hidden lg:block pointer-events-none">
+{/* Desktop */}
+<aside
+  id="article-widgets-container"
+  class={`
+    fixed left-0 right-0 top-32 hidden lg:block pointer-events-none
+    data-[hidden=true]:opacity-0 transition-opacity duration-300
+  `}
+>
   <div class="max-w-screen-xl ma flex justify-between">
-    <Toc {headings} {title} />
+    {totalHeadings ? <Toc {headings} {title} /> : <div />}
     <article class="pointer-events-auto mr-4">
       <ShareButton {title} url={Astro.url.href} />
     </article>
   </div>
 </aside>
+
+{/* Mobile */}
+<aside
+  class="lg:hidden fixed left-0 right-0 bottom-0 border-t bg-background z-10"
+>
+  <div
+    class="max-w-xl ma pt-2 pl-2 pr-3 pb-3 flex items-center justify-between"
+  >
+    {totalHeadings ? <TocButton {headings} client:load /> : <div />}
+    <div>
+      <ShareButton {title} url={Astro.url.href} isMobile />
+    </div>
+  </div>
+</aside>
+
+<script>
+  import { $ } from '@/lib/dom'
+
+  const containerElement = $('#article-widgets-container')!
+  const endOfArticleElement = $('#end-of-article')!
+
+  const endOfArticleObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ isIntersecting }) => {
+        containerElement.setAttribute('data-hidden', isIntersecting + '')
+      })
+    },
+    {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1
+    }
+  )
+
+  endOfArticleObserver.observe(endOfArticleElement)
+</script>

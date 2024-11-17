@@ -1,8 +1,8 @@
 ---
 import type { MarkdownHeading } from 'astro'
 
-import TocContent from './TocContent.astro'
-import TocLink from './TocLink.astro'
+import TocContent from './toc-content'
+import TocLink from './toc-link'
 
 interface Props {
   headings: MarkdownHeading[]
@@ -14,15 +14,16 @@ const { headings, title } = Astro.props
 
 <div class="ml-8 max-w-48">
   <ul class="pointer-events-auto">
-    <li class="mb-6">
+    <li class="mb-3">
       <TocLink
         slug="title"
         href="#"
         data-hidden
         className={`
-              transition-all
-              data-[hidden=true]:opacity-0 data-[hidden=true]:pointer-events-none
-            `}>{title}</TocLink
+          transition-all
+          data-[hidden=true]:opacity-0
+          data-[hidden=true]:pointer-events-none
+        `}>{title}</TocLink
       >
     </li>
     <TocContent {headings} />
@@ -30,10 +31,11 @@ const { headings, title } = Astro.props
 </div>
 
 <script>
+  import { $$ } from '@/lib/dom'
+
   /* Hedings */
-  const allHeadingsElements = document.querySelectorAll('h1, h2')
-  const allLinksToHeadings =
-    document.querySelectorAll<HTMLAnchorElement>('a[data-toc-link]')
+  const allHeadingsElements = $$('h1, h2')
+  const allLinksToHeadings = $$<HTMLAnchorElement>('a[data-toc-link]')
 
   const options: IntersectionObserverInit = {
     root: null,
@@ -42,18 +44,18 @@ const { headings, title } = Astro.props
   }
 
   const callback: IntersectionObserverCallback = (entries) => {
-    entries.forEach((entry) => {
-      const {
-        isIntersecting,
-        target: { id: headingId }
-      } = entry
-
+    entries.forEach(({ isIntersecting, target: { id: headingId } }) => {
       if (!isIntersecting) return
 
       allLinksToHeadings.forEach((linkToHeading) => {
         const { headingId: linkDataHeadingId } = linkToHeading.dataset
 
         const isLinkToCurrentHeading = linkDataHeadingId === headingId
+
+        const isMainHeadingInView = allHeadingsElements[0].id === headingId
+        allLinksToHeadings
+          .item(0)
+          .setAttribute('data-hidden', isMainHeadingInView + '')
 
         linkToHeading.setAttribute('data-active', isLinkToCurrentHeading + '')
       })
@@ -65,22 +67,4 @@ const { headings, title } = Astro.props
   allHeadingsElements.forEach((headingElement) => {
     headingsObserver.observe(headingElement)
   })
-
-  /* Main heading */
-  const mainHeading = document.querySelector<HTMLHeadingElement>('h1')!
-
-  const mainHeadingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        allLinksToHeadings
-          .item(0)
-          .setAttribute('data-hidden', entry.isIntersecting + '')
-      })
-    },
-    {
-      rootMargin: '0px'
-    }
-  )
-
-  mainHeadingObserver.observe(mainHeading)
 </script>

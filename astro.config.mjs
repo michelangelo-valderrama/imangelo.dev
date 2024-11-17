@@ -16,6 +16,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins,
     rehypePlugins,
-    remarkRehype: {}
+    remarkRehype: {
+      footnoteLabel: 'Notas'
+    }
+  },
+  devToolbar: {
+    enabled: false
   }
 })

@@ -52,7 +52,7 @@ const {
       >
       {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
     </header>
-    <Markdown class="mb-42">
+    <Markdown class="mb-42" id="article-content">
       <Content />
       <aside
         class={`
@@ -75,12 +75,14 @@ const {
         </div>
       </aside>
     </Markdown>
-    <RelatedArticles {category} slug={article.slug} />
-    <ArticleFooter
-      lastUpdateDate={lastModDate ?? pubDate}
-      imageCredits={cover?.credits}
-      {category}
-      {tags}
-    />
+    <div id="end-of-article">
+      <RelatedArticles {category} slug={article.slug} />
+      <ArticleFooter
+        lastUpdateDate={lastModDate ?? pubDate}
+        imageCredits={cover?.credits}
+        {category}
+        {tags}
+      />
+    </div>
   </Main>
 </Root>

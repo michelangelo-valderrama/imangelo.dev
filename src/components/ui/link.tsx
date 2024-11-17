@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
@@ -22,17 +23,20 @@ export interface LinkProps
   isExternal?: boolean
 }
 
-function Link({ className, title, isExternal, ...props }: LinkProps) {
-  return (
-    <a
-      className={cn(linkVariants({ className }))}
-      about={isExternal ? '_black' : '_self'}
-      title={title}
-      aria-label={title}
-      {...props}
-    ></a>
-  )
-}
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ className, title, isExternal, ...props }, ref) => {
+    return (
+      <a
+        ref={ref}
+        className={cn(linkVariants({ className }))}
+        about={isExternal ? '_black' : '_self'}
+        title={title}
+        aria-label={title}
+        {...props}
+      ></a>
+    )
+  }
+)
 
 Link.displayName = 'Link'
 
