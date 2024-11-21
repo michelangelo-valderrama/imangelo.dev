@@ -23,3 +23,9 @@ const pageDescription = description ?? SITE.description
 <meta name="description" content={pageDescription} />
 
 <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE.title}
+  href={new URL('rss.xml', Astro.site)}
+/>

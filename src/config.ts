@@ -8,3 +8,9 @@ export const SOCIAL = {
   linkedin: 'https',
   github: 'https://github.com/michelangelo-valderrama'
 }
+
+export const BANNER = {
+  url: '/banner.png',
+  width: 1200,
+  height: 800
+}
