@@ -14,6 +14,20 @@ tags:
 isDraft: false
 ---
 
+## h2 header
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia nihil sed atque delectus velit doloribus mollitia voluptates ad quibusdam?
+
+### h3 header
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia nihil sed atque delectus velit doloribus mollitia voluptates ad quibusdam?
+
+#### h4 header
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia nihil sed atque delectus velit doloribus mollitia voluptates ad quibusdam?
+
+---
+
 Hay algo que siempre me ha molestado de algunos matemáticos. Tómese por ejemplo Henri Poincaré y Bertrand Russell, sin lugar a dudas grandes matemáticos —en el caso de Poincaré también físico— y filósofos —sobre todo Russell— que no dudaron en afirmar que la matemática es la ciencia más pura y más bella que existe. Yo, ante tales afirmaciones no puedo parar de preguntarme: ¿Qué tienen de científico las matemáticas?
 
 Esto es un _archivo de prueba_.

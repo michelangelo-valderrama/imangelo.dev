@@ -23,11 +23,19 @@ interface ShareContentProps {
   title: string
   url: string
   isMobile?: boolean
+  onUrlCopied: (resp: boolean) => void
 }
 
-function ShareContent({ title, url, isMobile }: ShareContentProps) {
+function ShareContent({
+  title,
+  url,
+  isMobile,
+  onUrlCopied
+}: ShareContentProps) {
   const copyUrl = async () => {
     const resp = await copyToClipboard(url)
+    onUrlCopied(resp)
+
     if (!resp) return
 
     const toastId = toast('URL copiado', {
@@ -60,9 +68,9 @@ function ShareContent({ title, url, isMobile }: ShareContentProps) {
       <a tabIndex={0} href={shareUrl} target="_blank" rel="noopener noreferrer">
         <Button
           variant="popover"
-          className="text-base sm:text-sm my-0.5 sm:my-0 h-10 sm:h-9"
+          className="text-sm my-0.5 sm:my-0 h-10 sm:h-9"
         >
-          <Icon className="size-5 sm:size-4 mr-4 sm:mr-2"></Icon>
+          <Icon className="size-4 mr-2"></Icon>
           {name}
         </Button>
       </a>
@@ -74,9 +82,9 @@ function ShareContent({ title, url, isMobile }: ShareContentProps) {
       <Button
         variant="popover"
         onClick={copyUrl}
-        className="text-base sm:text-sm mb-0.5 h-10 sm:h-9"
+        className="text-sm mb-0.5 h-10 sm:h-9"
       >
-        <LinkIcon className="size-5 sm:size-4 mr-4 sm:mr-2" />
+        <LinkIcon className="size-4 mr-2" />
         Copiar URL
       </Button>
       <PopoverSeparator />

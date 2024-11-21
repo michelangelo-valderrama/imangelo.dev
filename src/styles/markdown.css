@@ -28,7 +28,7 @@
 
   a {
     text-decoration: none;
-    transition: all 300ms ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     &.data-footnote-backref,
     &[data-footnote-ref] {
@@ -72,7 +72,7 @@
 
         background-color: hsl(var(--im-link) / 0.25);
 
-        transition: background-color 100ms ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
 
       &:has(span) {
@@ -96,12 +96,12 @@
   }
 
   h2 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 500;
 
     margin-top: 2.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 
     &:first-of-type {
       margin-top: 2rem;
@@ -109,8 +109,8 @@
   }
 
   h3 {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-weight: 500;
 
     margin-top: 2.25rem;
@@ -120,10 +120,10 @@
   h4 {
     font-size: 1rem;
     line-height: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
 
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
+    margin-top: 1.85rem;
+    margin-bottom: 0.5rem;
   }
 
   p > code {
@@ -149,8 +149,6 @@
 
   li::marker {
     color: hsl(var(--im-muted-foreground));
-
-    transition: all 100ms ease-in-out;
   }
 
   .footnotes {
@@ -186,7 +184,7 @@
 }
 
 .katex-display {
-  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .expressive-code {

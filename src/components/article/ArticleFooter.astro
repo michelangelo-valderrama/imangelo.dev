@@ -35,21 +35,23 @@ const modDate = lastUpdateDate.toLocaleDateString('es-ES', {
     <li>
       <span class="pr-4">Publicado en</span>
       <span class="text-foreground text-right">
-        <Link className="text-foreground" href={'/categories/' + category}
+        {category}
+        {
+          /* <Link className="text-foreground" href={'/categories/' + category}
           >{category}</Link
-        >
+        > */
+        }
       </span>
     </li>
     <li>
       <span class="pr-4">Etiquetas</span>
       <span class="text-foreground flex gap-3 text-right">
         {
-          tags.map((tag) => (
-            <Link className="text-foreground" href={'/categories/' + tag}>
-              {tag}
-            </Link>
-          ))
+          /* <Link className="text-foreground" href={'/categories/' + tag}>
+          {tag}
+        </Link> */
         }
+        {tags.map((tag) => <span>{tag}</span>)}
       </span>
     </li>
     <li>

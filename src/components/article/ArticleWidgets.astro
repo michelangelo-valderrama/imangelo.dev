@@ -17,7 +17,7 @@ const totalHeadings = headings.length
 
 {/* Desktop */}
 <aside
-  id="article-widgets-container"
+  id="art-wid-dk-cont"
   class={`
     fixed left-0 right-0 top-32 hidden lg:block pointer-events-none
     data-[hidden=true]:opacity-0 transition-opacity duration-300
@@ -25,7 +25,7 @@ const totalHeadings = headings.length
 >
   <div class="max-w-screen-xl ma flex justify-between">
     {totalHeadings ? <Toc {headings} {title} /> : <div />}
-    <article class="pointer-events-auto mr-4">
+    <article class="pointer-events-auto mr-48">
       <ShareButton {title} url={Astro.url.href} />
     </article>
   </div>
@@ -33,7 +33,13 @@ const totalHeadings = headings.length
 
 {/* Mobile */}
 <aside
-  class="lg:hidden fixed left-0 right-0 bottom-0 border-t bg-background z-10"
+  id="art-wid-mb-cont"
+  data-show="true"
+  class={`
+    lg:hidden fixed left-0 right-0 bottom-0 border-t bg-background z-10 shadow
+    data-[show=true]:translate-y-0 data-[show=false]:translate-y-14
+    transition-all duration-300
+  `}
 >
   <div
     class="max-w-xl ma pt-2 pl-2 pr-3 pb-3 flex items-center justify-between"
@@ -48,13 +54,13 @@ const totalHeadings = headings.length
 <script>
   import { $ } from '@/lib/dom'
 
-  const containerElement = $('#article-widgets-container')!
-  const endOfArticleElement = $('#end-of-article')!
+  const artWidDkContElem = $('#art-wid-dk-cont')!
+  const endOfArticleElem = $('#end-of-article')!
 
   const endOfArticleObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(({ isIntersecting }) => {
-        containerElement.setAttribute('data-hidden', isIntersecting + '')
+        artWidDkContElem.setAttribute('data-hidden', isIntersecting + '')
       })
     },
     {
@@ -64,5 +70,21 @@ const totalHeadings = headings.length
     }
   )
 
-  endOfArticleObserver.observe(endOfArticleElement)
+  endOfArticleObserver.observe(endOfArticleElem)
+
+  /* show & hide by scroll */
+  const artWidMbCntElem = $('#art-wid-mb-cont')!
+
+  let lastScrollPos = window.scrollX
+  document.addEventListener('scrollend', () => {
+    const currentScrollPos = window.scrollY
+
+    const scrollPosDelta = lastScrollPos - currentScrollPos
+    const isScrollingUp = scrollPosDelta >= 0
+
+    lastScrollPos = currentScrollPos
+
+    if (Math.abs(scrollPosDelta) < 60) return
+    artWidMbCntElem.setAttribute('data-show', isScrollingUp + '')
+  })
 </script>

@@ -14,6 +14,7 @@ import BackLink from '@/components/widgets/BackLink.astro'
 import ArticleFooter from '@/components/article/ArticleFooter.astro'
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
 import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
+import ArticleGoodbye from '@/components/article/ArticleGoodbye.astro'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -52,28 +53,9 @@ const {
       >
       {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
     </header>
-    <Markdown class="mb-42" id="article-content">
+    <Markdown class="mb-18" id="article-content">
       <Content />
-      <aside
-        class={`
-          relative w-screen
-          left-1/2 right-1/2 -ml-50vw -mr-50vw
-          border-t border-b py-8 mt-18
-          bg-muted/10 backdrop-blur-sm
-        `}
-      >
-        <div class="max-w-screen-xs px-4 ma">
-          <p>Gracias por leer :></p>
-          <p>
-            Recuerda suscribirte a mi <a href="/rss">RSS</a> o <a
-              href="/newsletter">newsletter</a
-            > para estar atento a mis futuras divagaciones.
-          </p>
-          <p class="text-sm! text-foreground/70! mt-8!">
-            Un saludo.<br />— Michelangelo
-          </p>
-        </div>
-      </aside>
+      <ArticleGoodbye />
     </Markdown>
     <div id="end-of-article">
       <RelatedArticles {category} slug={article.slug} />
