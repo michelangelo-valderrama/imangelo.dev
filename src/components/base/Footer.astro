@@ -5,36 +5,43 @@ import Link from '@/components/ui/link'
 ---
 
 <footer
-  class="pt-10 pb-12 mt-24 border-t border-border relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw"
+  class="pt-8 pb-12 border-t bg-footer border-border relative w-screen left-1/2 right-1/2 -ml-50vw -mr-50vw"
 >
   <div class="max-w-screen-xs px-4 ma">
     <ul
       class="mb-14 flex justify-between *:flex *:flex-col *:items-start *:gap-y-2 text-sm"
     >
       <li>
-        <Link className="text-foreground border-b-none" href="/">Inicio</Link>
-      </li>
-      <li>
-        <Link className="text-foreground border-b-none" href="/newsletter"
-          >Newsletter</Link
-        >
-        <Link className="text-foreground border-b-none" href="/rss.xml"
-          >RSS</Link
+        <Link
+          className="text-foreground border-b-transparent hover:border-b-border"
+          href="/">Inicio</Link
         >
       </li>
       <li>
-        <Link className="text-foreground border-b-none" href={SOCIAL.linkedin}
-          >LinkedIn</Link
+        <Link
+          className="text-foreground border-b-transparent hover:border-b-border"
+          href="/newsletter">Newsletter</Link
         >
-        <Link className="text-foreground border-b-none" href={SOCIAL.github}
-          >GitHub</Link
+        <Link
+          className="text-foreground border-b-transparent hover:border-b-border"
+          href="/rss.xml">RSS</Link
+        >
+      </li>
+      <li>
+        <Link
+          className="text-foreground border-b-transparent hover:border-b-border"
+          href={SOCIAL.linkedin}>LinkedIn</Link
+        >
+        <Link
+          className="text-foreground border-b-transparent hover:border-b-border"
+          href={SOCIAL.github}>GitHub</Link
         >
       </li>
     </ul>
     <p
       class="uppercase flex items-center justify-between text-xs text-muted-foreground"
     >
-      <span>Di Michelangelo</span>
+      <span>di mikeˈlandʒelo</span>
       <span>MD, ES — 2024</span>
     </p>
   </div>

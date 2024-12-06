@@ -1,18 +1,18 @@
 import * as Share from 'social-share-generator'
-import { toast } from 'sonner'
 
 import Button from '@/components/ui/button'
 import { PopoverSeparator } from '@/components/ui/popover'
 
 import {
+  CheckIcon,
   LinkedInIcon,
   LinkIcon,
   TelegramIcon,
-  XFormerlyTwitterIcon,
-  XIcon
+  XFormerlyTwitterIcon
 } from '@/icons'
 
-import { copyToClipboard } from '@/lib/utils'
+import { cn, copyToClipboard } from '@/lib/utils'
+import { useEffect, useState } from 'react'
 
 interface SocialBtnProps {
   social: 'telegram' | 'twitter' | 'linkedin'
@@ -22,36 +22,23 @@ interface SocialBtnProps {
 interface ShareContentProps {
   title: string
   url: string
-  isMobile?: boolean
-  onUrlCopied: (resp: boolean) => void
 }
 
-function ShareContent({
-  title,
-  url,
-  isMobile,
-  onUrlCopied
-}: ShareContentProps) {
+function ShareContent({ title, url }: ShareContentProps) {
+  const [copied, setCopied] = useState(false)
+
   const copyUrl = async () => {
     const resp = await copyToClipboard(url)
-    onUrlCopied(resp)
-
-    if (!resp) return
-
-    const toastId = toast('URL copiado', {
-      position: isMobile ? 'top-center' : 'bottom-right',
-      cancel: (
-        <Button
-          size="icon"
-          variant="ghost"
-          className="size-7 ml-a"
-          onClick={() => toast.dismiss(toastId)}
-        >
-          <XIcon className="size-4" />
-        </Button>
-      )
-    })
+    setCopied(resp)
   }
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setCopied(false)
+    }, 1500)
+
+    return () => clearTimeout(timerId)
+  }, [copied])
 
   const SocialBtn = ({ social, name }: SocialBtnProps) => {
     const shareUrl = Share[social]({
@@ -84,7 +71,26 @@ function ShareContent({
         onClick={copyUrl}
         className="text-sm mb-0.5 h-10 sm:h-9"
       >
-        <LinkIcon className="size-4 mr-2" />
+        <div className="mr-2 relative">
+          <LinkIcon
+            data-copied={copied}
+            className={`
+              size-4 transition-all
+              data-[copied=true]:scale-0
+              data-[copied=true]:opacity-0
+            `}
+          />
+          <CheckIcon
+            data-copied={copied}
+            className={`
+              absolute inset-0
+              size-4 transition-all
+              size-4 opacity-0 scale-0
+              data-[copied=true]:scale-100
+              data-[copied=true]:opacity-100
+            `}
+          />
+        </div>
         Copiar URL
       </Button>
       <PopoverSeparator />

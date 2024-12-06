@@ -13,6 +13,9 @@ export default defineConfig({
           DEFAULT: 'hsl(var(--im-primary))',
           foreground: 'hsl(var(--im-primary-foreground))'
         },
+        goodbye: {
+          DEFAULT: 'hsl(var(--im-goodbye))'
+        },
         accent: {
           DEFAULT: 'hsl(var(--im-accent))',
           foreground: 'hsl(var(--im-accent-foreground))'
@@ -20,6 +23,11 @@ export default defineConfig({
         muted: {
           DEFAULT: 'hsl(var(--im-muted))',
           foreground: 'hsl(var(--im-muted-foreground))'
+        },
+        danger: {
+          DEFAULT: 'hsl(var(--im-danger))',
+          foreground: 'hsl(var(--im-danger-foreground))',
+          tint: 'hsl(var(--im-danger-tint))'
         },
         popover: {
           DEFAULT: 'hsl(var(--im-popover))',
@@ -36,7 +44,14 @@ export default defineConfig({
         },
         input: {
           DEFAULT: 'hsl(var(--im-input))',
-          foreground: 'hsl(var(--im-input-foreground))'
+          foreground: 'hsl(var(--im-input-foreground))',
+          border: 'hsl(var(--im-input-border))'
+        },
+        footer: {
+          DEFAULT: 'hsl(var(--im-footer))'
+        },
+        tooltip: {
+          DEFAULT: 'hsl(var(--im-tooltip))'
         },
         border: 'hsl(var(--im-border))',
         ring: 'hsl(var(--im-ring))',

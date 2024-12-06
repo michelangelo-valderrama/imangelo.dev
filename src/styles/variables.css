@@ -1,5 +1,5 @@
 :root {
-  --im-background: 0 0% 98%;
+  --im-background: 0 0% 99%;
   --im-foreground: 0 0% 34%;
 
   --im-header: 0 0% 10%;
@@ -10,17 +10,28 @@
   --im-primary: 0 0% 10%;
   --im-primary-foreground: 0 0% 98%;
 
+  --im-goodbye: 0 0% 98%;
+
   --im-accent: 0 0% 95%;
   --im-accent-foreground: 0 0% 0%;
 
   --im-muted: 0 0% 90%;
   --im-muted-foreground: 0 0% 62%;
 
-  --im-popover: 0 0% 100%;
-  --im-popover-foreground: 0 0% 32%;
+  --im-danger: 0 74.7% 15.5%;
+  --im-danger-foreground: 0 85.7% 97.3%;
+  --im-danger-tint: 0 72.2% 50.6%;
 
-  --im-input: 0 0% 98%;
-  --im-input-foreground: 0 0% 98%;
+  --im-popover: 0 0% 100%;
+  --im-popover-foreground: 0 0% 42%;
+
+  --im-input: 0 0% 100%;
+  --im-input-foreground: 0 0% 34%;
+  --im-input-border: 0 0% 88%;
+
+  --im-footer: 0 0% 98.6%;
+
+  --im-tooltip: 0 0% 98.6%;
 
   --im-code: 4 90% 60% / 0.1;
   --im-code-foreground: 4 90% 60%;
@@ -29,7 +40,7 @@
   --im-code-block-header: 0 0% 98%;
 
   --im-link: 4 90% 60%;
-  --im-border: 0 0% 92%;
+  --im-border: 0 0% 94%;
   --im-ring: 0 0% 20%;
 
   --im-radius: 0.5rem;

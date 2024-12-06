@@ -21,7 +21,7 @@ function TocButton({ headings }: TocButtonProps) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="ghost">
+        <Button variant="ghost" className="text-foreground">
           <TableOfContentsIcon className="size-4 mr-2" />
           Tabla de contenidos
         </Button>

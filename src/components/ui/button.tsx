@@ -23,10 +23,10 @@ const buttonVariants = cva(
           hover:bg-accent hover:text-accent-foreground
         `,
         ghost: `
-          text-muted-foreground hover:bg-accent hover:text-accent-foreground
+          bg-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground
         `,
         popover: `
-          text-muted-foreground hover:bg-accent hover:text-accent-foreground
+          bg-transparent text-popover-foreground hover:bg-accent hover:text-accent-foreground
           w-full justify-start
         `
       },

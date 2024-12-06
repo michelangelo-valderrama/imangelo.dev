@@ -5,6 +5,7 @@ import {
 } from 'astro:content'
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { z } from 'zod'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -62,4 +63,8 @@ export async function copyToClipboard(txt: string) {
   } finally {
     return ok
   }
+}
+
+export function validEmail(str: string) {
+  return z.string().email().safeParse(str).success
 }
