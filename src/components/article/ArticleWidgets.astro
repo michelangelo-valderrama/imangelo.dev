@@ -4,6 +4,7 @@ import type { MarkdownHeading } from 'astro'
 import Toc from '../widgets/toc'
 import TocButton from '../widgets/toc/toc-button'
 import ShareButton from '../widgets/share'
+import LikeButton from '../widgets/like-bnt'
 
 interface Props {
   headings: MarkdownHeading[]
@@ -25,7 +26,10 @@ const totalHeadings = headings.length
 >
   <div class="max-w-screen-xl mx-auto flex justify-between">
     {totalHeadings ? <Toc {headings} {title} /> : <div />}
-    <article class="pointer-events-auto mr-48">
+    <article
+      class="pointer-events-auto mr-40 flex flex-col items-start gap-y-3"
+    >
+      <LikeButton client:load />
       <ShareButton {title} url={Astro.url.href} />
     </article>
   </div>

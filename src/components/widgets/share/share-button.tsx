@@ -1,13 +1,11 @@
+import { ShareIcon } from '@/icons'
+
 import {
   Popover,
   PopoverTrigger,
   PopoverContent
 } from '@/components/ui/popover'
 import Button from '@/components/ui/button'
-
-import { ShareIcon } from '@/icons'
-
-import ShareContent from './share-content'
 import Drawer, {
   DrawerContent,
   DrawerDescription,
@@ -15,6 +13,10 @@ import Drawer, {
   DrawerTitle,
   DrawerTrigger
 } from '@/components/ui/drawer'
+
+import ActionButton from '@/components/view/action-button'
+
+import ShareContent from './share-content'
 
 export interface ShareButtonProps {
   title: string
@@ -51,9 +53,9 @@ function ShareButtonDesktop({ title, url }: ShareButtonProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full size-10">
-          <ShareIcon className="size-4" />
-        </Button>
+        <ActionButton>
+          <ShareIcon />
+        </ActionButton>
       </PopoverTrigger>
       <PopoverContent
         side="left"

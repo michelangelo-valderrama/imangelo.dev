@@ -85,7 +85,7 @@ function ShareContent({ title, url }: ShareContentProps) {
             className={`
               absolute inset-0
               size-4 transition-all
-              size-4 opacity-0 scale-0
+              opacity-0 scale-0
               data-[copied=true]:scale-100
               data-[copied=true]:opacity-100
             `}
