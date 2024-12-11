@@ -1,11 +1,11 @@
 <aside
   class={`
     relative w-screen
-    left-1/2 right-1/2 -ml-50vw -mr-50vw
-    pt-8 pb-2 mt-18 bg-goodbye backdrop-blur-sm
+    left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]
+    pt-8 pb-2 mt-16 bg-goodbye backdrop-blur-sm
   `}
 >
-  <div class="max-w-screen-xs px-4 ma">
+  <div class="max-w-screen-xs px-4 mx-auto">
     <p>Gracias por leer :></p>
     <p>
       Recuerda suscribirte a mi <a href="/rss">RSS</a> o <a href="/newsletter"
@@ -25,8 +25,10 @@
       stroke-width="2"
       viewBox="0 0 125 83"
       id="signature"
+      stroke-dasharray="400"
+      stroke-dashoffset="400"
       class={`
-        size-32 stroke-dash-400 stroke-offset-400 text-foreground/80
+        size-32 text-foreground/80
         data-[anim]:animate-[dash_1.6s_ease-out_100ms_forwards]
       `}
     >

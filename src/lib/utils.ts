@@ -68,3 +68,5 @@ export async function copyToClipboard(txt: string) {
 export function validEmail(str: string) {
   return z.string().email().safeParse(str).success
 }
+
+export const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms))

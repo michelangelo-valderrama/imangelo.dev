@@ -23,7 +23,7 @@ const totalHeadings = headings.length
     data-[hidden=true]:opacity-0 transition-opacity duration-300
   `}
 >
-  <div class="max-w-screen-xl ma flex justify-between">
+  <div class="max-w-screen-xl mx-auto flex justify-between">
     {totalHeadings ? <Toc {headings} {title} /> : <div />}
     <article class="pointer-events-auto mr-48">
       <ShareButton {title} url={Astro.url.href} />
@@ -32,18 +32,18 @@ const totalHeadings = headings.length
 </aside>
 
 {/* Mobile */}
-<aside
-  id="art-wid-mb-cont"
-  data-show="true"
-  class={`
-    lg:hidden fixed left-0 right-0 bottom-0 border-t bg-tooltip z-10
-    data-[show=true]:translate-y-0 data-[show=false]:translate-y-14
-    data-[show=true]:shadow-[0px_0px_20px_5px] data-[show=true]:shadow-black/10
-    transition-all duration-300
-  `}
->
+<aside class="lg:hidden fixed left-0 right-0 bottom-0 z-10">
   <div
-    class="max-w-xl ma pt-2 pl-2 pr-3 pb-3 flex items-center justify-between"
+    id="art-wid-mb-cont"
+    data-show="true"
+    class={`
+      max-w-xl rounded-t-lg mx-auto pt-2 pl-2 pr-3 pb-3
+      flex items-center justify-between bottom-0 border bg-tooltip
+      data-[show=true]:translate-y-0 data-[show=false]:translate-y-14
+      data-[show=true]:opacity-100 data-[show=false]:opacity-0
+      data-[show=true]:shadow data-[show=true]:shadow-black/10
+      transition-all duration-300
+    `}
   >
     {totalHeadings ? <TocButton {headings} client:load /> : <div />}
     <div>

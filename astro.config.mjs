@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config'
 
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
-import UnoCSS from 'unocss/astro'
+import tailwind from '@astrojs/tailwind'
 import expressiveCode from 'astro-expressive-code'
 import mdx from '@astrojs/mdx'
 
@@ -12,7 +12,14 @@ import { remarkPlugins, rehypePlugins } from './plugins'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://imangelo.dev',
-  integrations: [sitemap(/*TODO*/), react(), UnoCSS(), expressiveCode(), mdx()],
+  output: 'hybrid',
+  integrations: [
+    sitemap(/*TODO*/),
+    react(),
+    tailwind(),
+    expressiveCode(),
+    mdx()
+  ],
   markdown: {
     remarkPlugins,
     rehypePlugins,

@@ -5,7 +5,8 @@
   position: relative;
 
   figure {
-    p {
+    p,
+    img {
       margin-bottom: 0;
     }
 
@@ -24,6 +25,10 @@
 
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+
+  strong {
+    color: hsl(var(--im-foreground));
   }
 
   a {
@@ -148,13 +153,17 @@
   }
 
   li::marker {
-    color: hsl(var(--im-muted-foreground));
+    color: hsla(var(--im-muted-foreground) / 0.6);
   }
 
   .footnotes {
     position: relative;
     margin-top: 3.5rem;
-    padding-top: 1.25rem;
+
+    h2 {
+      opacity: 0;
+      margin: 0;
+    }
 
     ol {
       list-style-type: decimal;
@@ -179,6 +188,16 @@
       top: 0;
       width: 80px;
       border-top: 1.5px solid hsl(var(--im-border));
+    }
+  }
+
+  table {
+    tr {
+      border-color: hsl(var(--im-border));
+    }
+
+    thead {
+      border-color: hsl(var(--im-foreground));
     }
   }
 }

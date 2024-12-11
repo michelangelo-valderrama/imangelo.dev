@@ -1,10 +1,17 @@
-import { defineConfig, presetUno, presetTypography } from 'unocss'
-
-export default defineConfig({
-  presets: [presetUno, presetTypography],
-  extendTheme: (theme) => {
-    return {
-      ...theme,
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: ['class'],
+  prefix: '',
+  theme: {
+    extend: {
+      container: {
+        center: true,
+        padding: '2rem',
+        screens: {
+          '2xl': '1400px'
+        }
+      },
       colors: {
         background: 'hsl(var(--im-background))',
         foreground: 'hsl(var(--im-foreground))',
@@ -28,6 +35,10 @@ export default defineConfig({
           DEFAULT: 'hsl(var(--im-danger))',
           foreground: 'hsl(var(--im-danger-foreground))',
           tint: 'hsl(var(--im-danger-tint))'
+        },
+        success: {
+          DEFAULT: 'hsl(var(--im-success))',
+          foreground: 'hsl(var(--im-success-foreground))'
         },
         popover: {
           DEFAULT: 'hsl(var(--im-popover))',
@@ -54,12 +65,24 @@ export default defineConfig({
           DEFAULT: 'hsl(var(--im-tooltip))'
         },
         border: 'hsl(var(--im-border))',
-        ring: 'hsl(var(--im-ring))',
-        ...theme.colors
+        ring: 'hsl(var(--im-ring))'
       },
-      breakpoints: {
-        xs: '568px',
-        ...theme.breakpoints
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
+        }
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out'
+      },
+      screens: {
+        xs: '568px'
       },
       fontFamily: {
         sans: 'var(--im-sans)',
@@ -72,13 +95,9 @@ export default defineConfig({
       }
     }
   },
-  shortcuts: [
-    [
-      /^size-(\d+)$/,
-      ([, s]) => `w-${s} h-${s}`,
-      {
-        autocomplete: 'size-<num>'
-      }
-    ]
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar')
   ]
-})
+}

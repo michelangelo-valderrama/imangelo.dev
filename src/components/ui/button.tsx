@@ -6,18 +6,19 @@ import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
   `
-    inline-flex items-center justify-center
-    whitespace-nowrap
-    rounded-md
-    text-sm font-medium
-    transition-colors duration-300
-    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-    disabled:pointer-events-none disabled:op-50
+    inline-flex items-center justify-center gap-2
+    whitespace-nowrap rounded-md text-sm font-medium
+    ring-offset-background transition-colors
+    focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-ring focus-visible:ring-offset-2
+    disabled:pointer-events-none disabled:opacity-50
+    [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
   `,
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground shadow hover:bg-op-80',
+        primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        danger: 'bg-danger text-danger-foreground hover:bg-danger/90',
         outline: `
           border bg-background text-muted-foreground
           hover:bg-accent hover:text-accent-foreground
@@ -26,7 +27,8 @@ const buttonVariants = cva(
           bg-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground
         `,
         popover: `
-          bg-transparent text-popover-foreground hover:bg-accent hover:text-accent-foreground
+          bg-transparent text-popover-foreground
+          hover:bg-accent hover:text-accent-foreground
           w-full justify-start
         `
       },
