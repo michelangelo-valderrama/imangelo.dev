@@ -41,7 +41,6 @@ const {
   <Main class="pb-24">
     <ArticleWidgets {headings} {title} />
     <header class="mb-8">
-      <BackLink />
       <h1
         id="title"
         class="text-xl font-medium line-height-tight mb-1 mt-2 text-header"
@@ -55,16 +54,16 @@ const {
     </header>
     <Markdown class="mb-16" id="article-content">
       <Content />
-      <ArticleGoodbye />
+      <!-- <ArticleGoodbye /> -->
     </Markdown>
     <div id="end-of-article">
       <RelatedArticles {category} slug={article.slug} />
-      <ArticleFooter
+      <!-- <ArticleFooter
         lastUpdateDate={lastModDate ?? pubDate}
         imageCredits={cover?.credits}
         {category}
         {tags}
-      />
+      /> -->
     </div>
   </Main>
 </Root>

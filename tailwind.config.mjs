@@ -20,6 +20,10 @@ export default {
           DEFAULT: 'hsl(var(--im-primary))',
           foreground: 'hsl(var(--im-primary-foreground))'
         },
+        secondary: {
+          DEFAULT: 'hsl(var(--im-secondary))',
+          foreground: 'hsl(var(--im-secondary-foreground))'
+        },
         goodbye: {
           DEFAULT: 'hsl(var(--im-goodbye))'
         },

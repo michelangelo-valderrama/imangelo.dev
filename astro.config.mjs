@@ -9,6 +9,8 @@ import mdx from '@astrojs/mdx'
 
 import { remarkPlugins, rehypePlugins } from './plugins'
 
+import db from '@astrojs/db';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://imangelo.dev',
@@ -18,7 +20,8 @@ export default defineConfig({
     react(),
     tailwind(),
     expressiveCode(),
-    mdx()
+    mdx(),
+    db()
   ],
   markdown: {
     remarkPlugins,

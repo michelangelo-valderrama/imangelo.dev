@@ -14,3 +14,7 @@ svg {
   width: 1em;
   height: 1em;
 }
+
+* {
+  border-color: hsl(var(--im-border));
+}

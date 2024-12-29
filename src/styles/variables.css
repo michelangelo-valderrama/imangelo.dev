@@ -2,7 +2,7 @@
   --im-background: 0 0% 99%;
   --im-foreground: 0 0% 34%;
 
-  --im-header: 0 0% 10%;
+  --im-header: 0 0% 24%;
 
   --im-selection: 4 90% 60% / 0.1;
   --im-selection-foreground: 4 90% 60%;
@@ -10,7 +10,10 @@
   --im-primary: 0 0% 10%;
   --im-primary-foreground: 0 0% 98%;
 
-  --im-goodbye: 0 0% 97%;
+  --im-secondary: 4 90% 60%;
+  --im-secondary-foreground: 0 0% 30%;
+
+  --im-goodbye: 33 35% 80% / 0.1;
 
   --im-accent: 0 0% 95%;
   --im-accent-foreground: 0 0% 0%;

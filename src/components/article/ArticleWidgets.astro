@@ -24,19 +24,13 @@ const totalHeadings = headings.length
     data-[hidden=true]:opacity-0 transition-opacity duration-300
   `}
 >
-  <div class="max-w-screen-xl mx-auto flex justify-between">
+  <div class="max-w-screen-2xl mx-auto flex justify-between">
     {totalHeadings ? <Toc {headings} {title} /> : <div />}
-    <article
-      class="pointer-events-auto mr-40 flex flex-col items-start gap-y-3"
-    >
-      <LikeButton client:load />
-      <ShareButton {title} url={Astro.url.href} />
-    </article>
   </div>
 </aside>
 
 {/* Mobile */}
-<aside class="lg:hidden fixed left-0 right-0 bottom-0 z-10">
+<!-- <aside class="lg:hidden fixed left-0 right-0 bottom-0 z-10">
   <div
     id="art-wid-mb-cont"
     data-show="true"
@@ -54,7 +48,7 @@ const totalHeadings = headings.length
       <ShareButton {title} url={Astro.url.href} isMobile />
     </div>
   </div>
-</aside>
+</aside> -->
 
 <script>
   import { $ } from '@/lib/dom'
@@ -78,7 +72,7 @@ const totalHeadings = headings.length
   endOfArticleObserver.observe(endOfArticleElem)
 
   /* show & hide by scroll */
-  const artWidMbCntElem = $('#art-wid-mb-cont')!
+  /* const artWidMbCntElem = $('#art-wid-mb-cont')!
 
   let lastScrollPos = window.scrollX
   document.addEventListener('scrollend', () => {
@@ -91,5 +85,5 @@ const totalHeadings = headings.length
 
     if (Math.abs(scrollPosDelta) < 60) return
     artWidMbCntElem.setAttribute('data-show', isScrollingUp + '')
-  })
+  }) */
 </script>

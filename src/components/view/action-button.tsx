@@ -10,7 +10,11 @@ const ActionButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Button
         ref={ref}
         variant="ghost"
-        className={cn('rounded-full px-3 h-10', className)}
+        size="icon"
+        className={cn(
+          'rounded-full hover:bg-transparent [&_svg]:size-5',
+          className
+        )}
         {...props}
       />
     )
