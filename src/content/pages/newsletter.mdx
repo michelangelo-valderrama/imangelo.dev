@@ -1,0 +1,11 @@
+import PageHeader from '@/components/view/PageHeader.astro'
+import NewsletterForm from '@/components/view/newsletter-form.tsx'
+
+<PageHeader
+  title="Newsletter"
+  subtitle="Suscríbete para estar atento a futuros mis artículos"
+/>
+
+<div className="max-w-md">
+  <NewsletterForm client:load />
+</div>

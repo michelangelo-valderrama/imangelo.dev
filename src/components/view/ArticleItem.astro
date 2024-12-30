@@ -19,33 +19,53 @@ const pubDateFormated = pubDate.toLocaleString('es', {
 
 <li
   class={`
-    relative border-y border-b-transparent last-of-type:border-b-border group
-    w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4
+    relative
+    border-y border-b-transparent
+    last-of-type:border-b-border
+    w-screen
+    left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]
     sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0
-    hover:border-y-foreground last-of-type:hover:border-b-foreground
+    hover:border-y-foreground
+    focus-visible:border-y-foreground
+    last-of-type:hover:border-b-foreground
+    last-of-type:focus-visible:border-b-foreground
   `}
 >
-  <a href={'/articles/' + slug} class="py-2 block">
+  <a href={'/articles/' + slug} class="py-2 px-layout-px sm:px-0 block group">
     <p class="flex items-center relative">
       <time
         datetime={pubDate.toString()}
         class={`
           w-14 text-sm text-muted-foreground
-          group-hover:-translate-x-16 group-hover:opacity-0 group-hover:scale-0
           transition-all duration-200
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
         `}
       >
         {pubDateFormated}
       </time>
       <span
-        class="flex-1 px-2 group-hover:-translate-x-16 transition-all duration-200"
-        >{title}</span
+        class={`
+          flex-1 px-2
+          transition-all duration-200
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        `}>{title}</span
       >
       <MoveRightIcon
         className={`
-          text-muted-foreground size-4 translate-x-16 opacity-0 scale-0
-          group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-100
+          text-foreground size-[1em] translate-x-16 opacity-0 scale-0
           transition-all duration-200
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
         `}
       />
     </p>

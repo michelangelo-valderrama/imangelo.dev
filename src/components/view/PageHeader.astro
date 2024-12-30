@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string
+  subtitle?: string
+  subtitleDate?: boolean
+}
+
+const { title, subtitle, subtitleDate = false } = Astro.props
+---
+
+<header class="mb-4">
+  <h1>{title}</h1>
+  {
+    subtitle && (
+      <p>
+        {subtitleDate ? (
+          <time datetime={subtitle}>{subtitle}</time>
+        ) : (
+          <span>{subtitle}</span>
+        )}
+      </p>
+    )
+  }
+  <slot />
+</header>
+
+<style>
+  h1 {
+    @apply m-0;
+  }
+
+  p {
+    @apply text-sm text-muted-foreground;
+  }
+</style>

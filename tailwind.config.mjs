@@ -7,15 +7,17 @@ export default {
     extend: {
       container: {
         center: true,
-        padding: '2rem',
+        padding: 'var(--im-layout-px)',
         screens: {
-          '2xl': '1400px'
+          xs: '568px'
         }
       },
       colors: {
-        background: 'hsl(var(--im-background))',
+        background: {
+          DEFAULT: 'hsl(var(--im-background))',
+          contrast: 'hsl(var(--im-background-contrast))'
+        },
         foreground: 'hsl(var(--im-foreground))',
-        header: 'hsl(var(--im-header))',
         primary: {
           DEFAULT: 'hsl(var(--im-primary))',
           foreground: 'hsl(var(--im-primary-foreground))'
@@ -23,9 +25,6 @@ export default {
         secondary: {
           DEFAULT: 'hsl(var(--im-secondary))',
           foreground: 'hsl(var(--im-secondary-foreground))'
-        },
-        goodbye: {
-          DEFAULT: 'hsl(var(--im-goodbye))'
         },
         accent: {
           DEFAULT: 'hsl(var(--im-accent))',
@@ -39,10 +38,6 @@ export default {
           DEFAULT: 'hsl(var(--im-danger))',
           foreground: 'hsl(var(--im-danger-foreground))',
           tint: 'hsl(var(--im-danger-tint))'
-        },
-        success: {
-          DEFAULT: 'hsl(var(--im-success))',
-          foreground: 'hsl(var(--im-success-foreground))'
         },
         popover: {
           DEFAULT: 'hsl(var(--im-popover))',
@@ -96,6 +91,9 @@ export default {
         lg: 'calc(var(--im-radius) + 2px)',
         md: 'var(--im-radius)',
         sm: 'calc(var(--im-radius) - 2px)'
+      },
+      padding: {
+        'layout-px': 'var(--im-layout-px)'
       }
     }
   },

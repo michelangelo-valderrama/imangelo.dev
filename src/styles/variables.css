@@ -1,55 +1,46 @@
 :root {
-  --im-background: 0 0% 99%;
-  --im-foreground: 0 0% 34%;
+  --im-background: 72 24% 98%;
+  --im-foreground: 72 7% 28%;
 
-  --im-header: 0 0% 24%;
+  --im-background-contrast: 60 20% 99%;
 
-  --im-selection: 4 90% 60% / 0.1;
-  --im-selection-foreground: 4 90% 60%;
+  --im-selection: var(--im-secondary) / 0.1;
+  --im-selection-foreground: var(--im-secondary);
 
   --im-primary: 0 0% 10%;
   --im-primary-foreground: 0 0% 98%;
 
-  --im-secondary: 4 90% 60%;
-  --im-secondary-foreground: 0 0% 30%;
+  --im-secondary: 19 90% 50%;
+  --im-secondary-foreground: 19 90% 98%;
 
-  --im-goodbye: 33 35% 80% / 0.1;
+  --im-accent: 72 24% 98%;
+  --im-accent-foreground: 60 6% 10%;
 
-  --im-accent: 0 0% 95%;
-  --im-accent-foreground: 0 0% 0%;
+  --im-muted: 60 1% 98%;
+  --im-muted-foreground: 60 1% 60%;
 
-  --im-muted: 0 0% 90%;
-  --im-muted-foreground: 0 0% 62%;
+  --im-danger: 3 92% 54%;
+  --im-danger-foreground: 3 92% 98%;
+  --im-danger-tint: 3 92% 50%;
 
-  --im-danger: 0 74.7% 15.5%;
-  --im-danger-foreground: 0 85.7% 97.3%;
-  --im-danger-tint: 0 72.2% 50.6%;
+  --im-popover: var(--im-background-contrast);
+  --im-popover-foreground: var(--im-foreground);
 
-  --im-popover: 0 0% 100%;
-  --im-popover-foreground: 0 0% 42%;
-
-  --im-input: 0 0% 100%;
-  --im-input-foreground: 0 0% 34%;
-  --im-input-border: 0 0% 88%;
-
-  --im-footer: 0 0% 98.6%;
+  --im-input: var(--im-background);
+  --im-input-foreground: var(--im-foreground);
+  --im-input-border: 60 1% 82%;
 
   --im-tooltip: 0 0% 98.6%;
 
-  --im-code: 4 90% 60% / 0.1;
-  --im-code-foreground: 4 90% 60%;
+  --im-code: var(--im-secondary) / 0.05;
+  --im-code-foreground: var(--im-secondary);
 
-  --im-code-block: 0 0% 100%;
-  --im-code-block-header: 0 0% 98%;
+  --im-link: 19 90% 60%;
+  --im-border: 60 1% 92%;
+  --im-ring: 60 1% 80% / 0.6;
 
-  --im-link: 4 90% 60%;
-  --im-border: 0 0% 94%;
-  --im-ring: 0 0% 20%;
-
-  --im-radius: 0.5rem;
-
-  --im-success: 131 41% 46%;
-  --im-success-foreground: 0 0% 100%;
+  --im-radius: 0.35rem;
+  --im-layout-px: 2rem;
 
   --im-sans: 'Inter Variable', sans-serif;
   --im-mono: 'Fira Code Variable', monospace;

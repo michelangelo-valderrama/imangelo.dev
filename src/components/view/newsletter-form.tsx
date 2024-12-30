@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { actions } from 'astro:actions'
 
-import { AtSignIcon, LoaderCircleIcon } from '@/icons'
+import { LoaderCircleIcon, MailIcon } from '@/icons'
 
 import { validEmail } from '@/lib/utils'
 
-import Input from '@/components/ui/input'
 import Button from '@/components/ui/button'
+import InputInlineAddOn from '@/components/ui/input/input-inline-add-on'
 import { useToast } from '@/components/ui/use-toast'
 
 function NewsletterForm() {
@@ -32,7 +32,6 @@ function NewsletterForm() {
       if (error) throw new Error()
 
       toast({
-        variant: 'success',
         title: 'Operación exitosa.',
         description: '¡Gracias por suscribirte! 🎉'
       })
@@ -49,22 +48,23 @@ function NewsletterForm() {
   }
 
   return (
-    <form className="mt-6 flex gap-x-2 w-full" onSubmit={onSubmit}>
-      <Input
-        disabled={loading}
-        className="flex-1 h-9.5"
-        placeholder="correo@gmail.com"
-        type="email"
-        value={value}
-        onChange={onChange}
-        /* @ts-ignore */
-        prefix={<AtSignIcon className="size-4" />}
-      />
-      <Button type="submit" disabled={!isValid || loading}>
-        {loading && <LoaderCircleIcon className="size-4 mr-1 animate-spin" />}
-        Suscribirse
-      </Button>
-    </form>
+    <>
+      <form className="mt-6 flex gap-x-2 w-full" onSubmit={onSubmit}>
+        <InputInlineAddOn
+          placeholder="johndoe@gmail.com"
+          disabled={loading}
+          className="flex-1"
+          type="email"
+          value={value}
+          onChange={onChange}
+          suffix={<MailIcon />}
+        />
+        <Button type="submit" disabled={!isValid || loading}>
+          {loading && <LoaderCircleIcon className="size-4 mr-1 animate-spin" />}
+          Suscribirse
+        </Button>
+      </form>
+    </>
   )
 }
 

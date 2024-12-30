@@ -1,40 +1,35 @@
 ---
-import { SOCIAL } from '@/config'
-
 import Link from '@/components/ui/link'
 ---
 
 <footer
-  class="pt-8 pb-12 border-t bg-footer relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+  class="pt-8 pb-12 border-t bg-background-contrast relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
 >
-  <div class="max-w-screen-xs px-4 mx-auto">
+  <div class="container">
     <ul
       class="mb-14 flex justify-between *:flex *:flex-col *:items-start *:gap-y-2 text-sm"
     >
       <li>
-        <Link
-          className="text-foreground border-b-transparent hover:border-b-border"
-          href="/">Inicio</Link
+        <Link className="text-foreground border-b-transparent" href="/"
+          >Inicio</Link
         >
       </li>
       <li>
         <Link
-          className="text-foreground border-b-transparent hover:border-b-border"
+          className="text-foreground border-b-transparent"
           href="/newsletter">Newsletter</Link
         >
-        <Link
-          className="text-foreground border-b-transparent hover:border-b-border"
-          href="/rss.xml">RSS</Link
+        <Link className="text-foreground border-b-transparent" href="/rss.xml"
+          >RSS</Link
         >
       </li>
       <li>
         <Link
-          className="text-foreground border-b-transparent hover:border-b-border"
-          href={SOCIAL.linkedin}>LinkedIn</Link
+          className="text-foreground border-b-transparent"
+          href="https://portfolio.imangelo.dev/">Portfolio</Link
         >
-        <Link
-          className="text-foreground border-b-transparent hover:border-b-border"
-          href={SOCIAL.github}>GitHub</Link
+        <Link className="text-foreground border-b-transparent" href="/links"
+          >Links</Link
         >
       </li>
     </ul>

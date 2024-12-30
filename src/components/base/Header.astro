@@ -1,1 +1,21 @@
-<header class="flex items-start justify-between pb-12">new</header>
+---
+import Link from '../ui/link'
+
+const { pathname } = Astro.url
+---
+
+<header class="flex items-start justify-between mb-12 relative">
+  <div class="h-[29px] border-b absolute top-0 w-full z-0 pointer-events-none">
+  </div>
+  <nav class="relative">
+    <Link
+      data-active={pathname === '/'}
+      className={`
+        pb-1
+        data-[active='true']:text-accent-foreground
+        data-[active='true']:border-b-popover-accent
+      `}
+      href="/">Inicio</Link
+    >
+  </nav>
+</header>

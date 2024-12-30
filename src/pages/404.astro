@@ -1,17 +1,14 @@
 ---
+import RenderMD from '@/components/view/RenderMD.astro'
 import Main from '@/layouts/Main.layout.astro'
+import Markdown from '@/layouts/Markdown.layout.astro'
 import Root from '@/layouts/Root.layout.astro'
-
-import BackLink from '@/components/widgets/BackLink.astro'
 ---
 
 <Root>
   <Main>
-    <BackLink />
-    <h1 class="font-medium mt-2">
-      404
-      <span class="mx-1">|</span>
-      <span class="text-base text-muted-foreground">Página no encontrada</span>
-    </h1>
+    <Markdown>
+      <RenderMD slug="404" />
+    </Markdown>
   </Main>
 </Root>

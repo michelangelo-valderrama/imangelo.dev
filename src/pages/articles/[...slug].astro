@@ -15,6 +15,7 @@ import ArticleFooter from '@/components/article/ArticleFooter.astro'
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
 import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
 import ArticleGoodbye from '@/components/article/ArticleGoodbye.astro'
+import PageHeader from '@/components/view/PageHeader.astro'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -40,21 +41,11 @@ const {
 <Root>
   <Main class="pb-24">
     <ArticleWidgets {headings} {title} />
-    <header class="mb-8">
-      <h1
-        id="title"
-        class="text-xl font-medium line-height-tight mb-1 mt-2 text-header"
-      >
-        {title}
-      </h1>
-      <time class="text-sm text-muted-foreground" datetime="2024-09-01"
-        >21 sep, 2024</time
-      >
-      {!cover ? null : <Image {...cover} alt={title} class="mt-6" />}
-    </header>
+    <PageHeader title={title} subtitle="21 sep, 2024" subtitleDate={true}>
+      {!cover ? null : <Image {...cover} alt={title} class="my-4" />}
+    </PageHeader>
     <Markdown class="mb-16" id="article-content">
       <Content />
-      <!-- <ArticleGoodbye /> -->
     </Markdown>
     <div id="end-of-article">
       <RelatedArticles {category} slug={article.slug} />

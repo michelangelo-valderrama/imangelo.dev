@@ -13,7 +13,7 @@ if (!content) {
   throw new Error(`The slug '${slug}' does not exists in content/pages/'`)
 }
 
-const { Content /* headings */ } = await content.render()
+const { Content } = await content.render()
 ---
 
 <Content />
