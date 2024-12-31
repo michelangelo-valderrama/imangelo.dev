@@ -24,7 +24,7 @@ function NamePronunciation() {
       ></audio>
       <Button
         className={`
-          text-secondary gap-x-2 h-6 px-0.5
+          text-secondary gap-x-1 h-6 px-0.5
           text-base font-normal group
           hover:text-secondary
         `}

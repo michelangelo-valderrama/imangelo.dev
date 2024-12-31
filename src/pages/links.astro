@@ -1,0 +1,67 @@
+---
+import Root from '@/layouts/Root.layout.astro'
+import Main from '@/layouts/Main.layout.astro'
+
+import { SOCIAL } from '@/config'
+
+import Link from '@/components/ui/link'
+---
+
+<Root>
+  <Main>
+    <header class="flex justify-between mb-8">
+      <h1 class="grid">
+        <span>Michelangelo</span>
+        <span class="text-muted-foreground">Valderrama Vivanco</span>
+      </h1>
+      <div class="flex flex-col items-end">
+        <span>IF7SPORTS</span>
+        <span class="text-muted-foreground">Full Stack Developer</span>
+      </div>
+    </header>
+    <div class="grid grid-cols-3 grid-flow-row">
+      <span class="text-muted-foreground">Social</span>
+      <Link variant="links" href={SOCIAL.linkedin} className="col-start-2"
+        >LinkedIn</Link
+      >
+      <Link
+        variant="links"
+        href={SOCIAL.github}
+        className="row-start-2 col-start-2">GitHub</Link
+      >
+      <Link variant="links" href={SOCIAL.portfolio} className="col-start-3"
+        >Porfolio</Link
+      >
+      <Link
+        variant="links"
+        href={SOCIAL.website}
+        className="row-start-2 col-start-3">Website</Link
+      >
+
+      <span class="row-start-3 col-span-full h-6"></span>
+
+      <span class="row-start-4 text-muted-foreground">Email</span>
+      <Link
+        variant="links"
+        href="mailto:hi@imangelo.dev"
+        className="row-start-4 col-start-2">hi@imangelo.dev</Link
+      >
+
+      <span class="row-start-5 col-span-full h-6"></span>
+
+      <span class="row-start-6 text-muted-foreground">Downloads</span>
+      <Link
+        variant="links"
+        download
+        href="/michelangelo-valderrama-csv.pdf"
+        className="row-start-6 col-start-2">csv.pdf</Link
+      >
+      <Link
+        variant="links"
+        href="/michelangelo-valderrama.vcf"
+        download
+        className="row-start-6 col-start-3">vcard.vcf</Link
+      >
+    </div>
+  </Main>
+</Root>

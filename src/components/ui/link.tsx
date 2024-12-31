@@ -13,7 +13,15 @@ const linkVariants = cva(
     text-muted-foreground
     hover:text-accent-foreground
     border-b hover:border-accent-foreground
-  `
+  `,
+  {
+    variants: {
+      variant: {
+        links:
+          'border-b-transparent hover:border-b-transparent inline text-foreground'
+      }
+    }
+  }
 )
 
 export interface LinkProps
@@ -24,11 +32,11 @@ export interface LinkProps
 }
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ className, title, isExternal, ...props }, ref) => {
+  ({ variant, className, title, isExternal, ...props }, ref) => {
     return (
       <a
         ref={ref}
-        className={cn(linkVariants({ className }))}
+        className={cn(linkVariants({ variant, className }))}
         about={isExternal ? '_black' : '_self'}
         title={title}
         aria-label={title}

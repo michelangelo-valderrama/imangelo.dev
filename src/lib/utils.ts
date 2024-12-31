@@ -70,3 +70,45 @@ export function validEmail(str: string) {
 }
 
 export const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms))
+
+export function imageToBase64(url: string): Promise<string> {
+  let res: (value: unknown) => void
+  let rej: (reason?: any) => void
+
+  const p = new Promise((resolve, reject) => {
+    res = resolve
+    rej = reject
+  })
+
+  const img = new Image()
+  img.crossOrigin = 'Anonymous'
+  img.src = url
+
+  img.onload = () => {
+    const canvas = document.createElement('canvas') as HTMLCanvasElement,
+      ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+
+    canvas.height = img.naturalHeight
+    canvas.width = img.naturalWidth
+    ctx.drawImage(img, 0, 0)
+
+    const uri = canvas.toDataURL('image/png'),
+      b64 = uri.replace(/^data:image.+;base64,/, '')
+
+    res(b64)
+  }
+
+  img.onerror = (e) => rej(e)
+
+  return p as Promise<string>
+}
+
+export function downloadBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.target = '_blank'
+  a.download = filename
+  a.click()
+  a.remove()
+}
