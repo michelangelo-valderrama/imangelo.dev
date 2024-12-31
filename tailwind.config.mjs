@@ -75,11 +75,41 @@ export default {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        'im-slide-to-right': {
+          from: {
+            zIndex: '-10',
+            opacity: '0',
+            pointerEvents: 'none',
+            transform: 'translateX(-100%)'
+          },
+          to: {
+            zIndex: '0',
+            opacity: '1',
+            pointerEvents: 'auto',
+            transform: 'translateX(0)'
+          }
+        },
+        'im-slide-to-left': {
+          from: {
+            zIndex: '0',
+            opacity: '1',
+            pointerEvents: 'auto',
+            transform: 'translateX(0)'
+          },
+          to: {
+            zIndex: '-10',
+            opacity: '0',
+            pointerEvents: 'none',
+            transform: 'translateX(-100%)'
+          }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'im-slide-to-right': 'im-slide-to-right 0.2s ease-out forwards',
+        'im-slide-to-left': 'im-slide-to-left 0.2s ease-out forwards'
       },
       screens: {
         xs: '568px'

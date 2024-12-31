@@ -11,7 +11,7 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
 import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
-import ArticleActions from '@/components/article/ArticleActions.astro'
+import ArticleActions from '@/components/article/article-actions'
 
 import PageHeader from '@/components/view/PageHeader.astro'
 
@@ -46,8 +46,8 @@ const {
       <Content />
     </Markdown>
     <div id="end-of-article">
+      <ArticleActions url={Astro.url.toString()} client:visible />
       <RelatedArticles {category} slug={article.slug} />
-      <ArticleActions />
     </div>
   </Main>
 </Root>

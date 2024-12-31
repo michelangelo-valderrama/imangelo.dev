@@ -54,7 +54,7 @@ function LikeButton() {
         className={cn(
           'group relative gap-x-1.5 hover:bg-heart/5 hover:border-heart',
           {
-            'text-heart hover:text-heart border-heart/40': userLikes === 5
+            'text-heart hover:text-heart border-heart/20': userLikes === 5
           }
         )}
         onClick={onClickLike}

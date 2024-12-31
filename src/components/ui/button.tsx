@@ -20,7 +20,7 @@ const buttonVariants = cva(
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         danger: 'bg-danger text-danger-foreground hover:bg-danger/90',
         outline: `
-          border bg-background
+          border bg-background-contrast
           hover:bg-accent
           hover:text-accent-foreground
         `,
