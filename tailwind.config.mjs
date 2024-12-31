@@ -34,6 +34,7 @@ export default {
           DEFAULT: 'hsl(var(--im-muted))',
           foreground: 'hsl(var(--im-muted-foreground))'
         },
+        heart: 'hsl(var(--im-heart))',
         danger: {
           DEFAULT: 'hsl(var(--im-danger))',
           foreground: 'hsl(var(--im-danger-foreground))',

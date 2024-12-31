@@ -20,11 +20,14 @@ const buttonVariants = cva(
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         danger: 'bg-danger text-danger-foreground hover:bg-danger/90',
         outline: `
-          border bg-background text-muted-foreground
-          hover:bg-accent hover:text-accent-foreground
+          border bg-background
+          hover:bg-accent
+          hover:text-accent-foreground
         `,
         ghost: `
-          bg-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground
+          bg-transparent
+          hover:bg-accent
+          hover:text-accent-foreground
         `,
         popover: `
           bg-transparent text-popover-foreground

@@ -1,10 +1,7 @@
 ---
 import type { MarkdownHeading } from 'astro'
 
-import Toc from '../widgets/toc'
-import TocButton from '../widgets/toc/toc-button'
-import ShareButton from '../widgets/share'
-import LikeButton from '../widgets/like-bnt'
+import Toc from '@/components/widgets/toc'
 
 interface Props {
   headings: MarkdownHeading[]
@@ -28,27 +25,6 @@ const totalHeadings = headings.length
     {totalHeadings ? <Toc {headings} {title} /> : <div />}
   </div>
 </aside>
-
-{/* Mobile */}
-<!-- <aside class="lg:hidden fixed left-0 right-0 bottom-0 z-10">
-  <div
-    id="art-wid-mb-cont"
-    data-show="true"
-    class={`
-      max-w-xl rounded-t-lg mx-auto pt-2 pl-2 pr-3 pb-3
-      flex items-center justify-between bottom-0 border bg-tooltip
-      data-[show=true]:translate-y-0 data-[show=false]:translate-y-14
-      data-[show=true]:opacity-100 data-[show=false]:opacity-0
-      data-[show=true]:shadow data-[show=true]:shadow-black/10
-      transition-all duration-300
-    `}
-  >
-    {totalHeadings ? <TocButton {headings} client:load /> : <div />}
-    <div>
-      <ShareButton {title} url={Astro.url.href} isMobile />
-    </div>
-  </div>
-</aside> -->
 
 <script>
   import { $ } from '@/lib/dom'

@@ -9,12 +9,10 @@ import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
 
-import BackLink from '@/components/widgets/BackLink.astro'
-
-import ArticleFooter from '@/components/article/ArticleFooter.astro'
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
 import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
-import ArticleGoodbye from '@/components/article/ArticleGoodbye.astro'
+import ArticleActions from '@/components/article/ArticleActions.astro'
+
 import PageHeader from '@/components/view/PageHeader.astro'
 
 export const getStaticPaths = (async () => {
@@ -49,12 +47,7 @@ const {
     </Markdown>
     <div id="end-of-article">
       <RelatedArticles {category} slug={article.slug} />
-      <!-- <ArticleFooter
-        lastUpdateDate={lastModDate ?? pubDate}
-        imageCredits={cover?.credits}
-        {category}
-        {tags}
-      /> -->
+      <ArticleActions />
     </div>
   </Main>
 </Root>
