@@ -27,6 +27,7 @@ function NamePronunciation() {
           text-secondary gap-x-1 h-6 px-0.5
           text-base font-normal group
           hover:text-secondary
+          hover:bg-transparent
         `}
         variant="ghost"
         onClick={onPlay}

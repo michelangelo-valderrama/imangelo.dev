@@ -9,7 +9,7 @@ import remarkMath from 'remark-math'
 // rehype plugins
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import rehypeKatex from 'rehype-katex'
-import rehypeExternalLinks from 'rehype-external-links'
+import rehypeExternalLinks from './rehype-external-links'
 
 export const remarkPlugins: RemarkPlugins = [
   remarkDirective,

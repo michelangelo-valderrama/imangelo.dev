@@ -36,7 +36,7 @@
 
 .prose a {
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &.data-footnote-backref,
   &[data-footnote-ref] {
@@ -51,47 +51,29 @@
   }
 
   &:not(.data-footnote-backref, [data-footnote-ref]) {
-    color: hsl(var(--im-link));
-    position: relative;
-    display: inline-block;
+    color: hsl(var(--im-secondary));
+    font-weight: normal;
+    border-bottom: 1.5px solid hsl(var(--im-secondary) / 0.3);
 
     span {
-      display: inline-block;
+      white-space: nowrap;
+    }
+
+    svg {
       margin-left: 0.1rem;
-
       color: hsl(var(--im-muted-foreground));
+      transition: color 0.2s ease-in-out;
+      display: inline-block;
 
-      svg {
-        width: 1em;
-        height: 1em;
-      }
-    }
-
-    &::before {
-      content: '';
-
-      position: absolute;
-
-      bottom: -1px;
-      left: 0;
-      right: 0;
-
-      height: 1px;
-
-      background-color: hsl(var(--im-link) / 0.25);
-
-      transition: all 0.3s ease-in-out;
-    }
-
-    &:has(span) {
-      &::before {
-        right: calc(1em + 0.1rem);
-      }
+      width: 1em;
+      height: 1em;
     }
 
     &:hover {
-      &::before {
-        background-color: hsl(var(--im-link));
+      border-bottom-color: hsl(var(--im-secondary));
+
+      svg {
+        color: hsl(var(--im-foreground));
       }
     }
   }
@@ -147,13 +129,12 @@
 }
 
 .prose p > code {
-  display: inline-block;
-
   font-size: 0.8em;
   font-weight: 500;
 
-  padding: 0 0.5rem;
+  padding: 2px 4px;
   border-radius: calc(var(--im-radius));
+  border: 1px solid hsl(var(--im-code));
 
   background-color: hsl(var(--im-code));
   color: hsl(var(--im-code-foreground));
@@ -168,7 +149,7 @@
 }
 
 .prose li::marker {
-  color: hsla(var(--im-muted-foreground) / 0.6);
+  color: hsl(var(--im-muted-foreground) / 0.6);
 }
 
 .prose .footnotes {
@@ -225,7 +206,7 @@
   }
 
   thead {
-    border-color: hsla(var(--im-foreground) / 0.6);
+    border-color: hsl(var(--im-foreground) / 0.6);
   }
 }
 
