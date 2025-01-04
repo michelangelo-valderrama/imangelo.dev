@@ -22,7 +22,7 @@ function ShareButton(props: ShareButtonProps) {
     <div
       data-open={isOpen}
       className={`
-        inline-flex relative
+        inline-flex
       `}
     >
       <Button
@@ -59,16 +59,15 @@ function ShareButton(props: ShareButtonProps) {
       <div
         data-open={isOpen}
         className={`
-          absolute top-0
-          pl-9
-          rounded-md
+          rounded-r-md
           border
+          border-l-0
+          h-9
           bg-background-contrast
-          h-full
           transition-all duration-300
           opacity-0
           pointer-events-none
-          -translate-x-full
+          ml-[-100%]
           data-[open='true']:animate-im-slide-to-right
           data-[open='false']:animate-im-slide-to-left
         `}

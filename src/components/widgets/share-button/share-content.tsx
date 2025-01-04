@@ -27,7 +27,12 @@ function ShareContent({ title, url }: ShareContentProps) {
     else Icon = XFormerlyTwitterIcon
 
     return (
-      <a tabIndex={0} href={shareUrl} target="_blank" rel="noopener noreferrer">
+      <a
+        tabIndex={-1}
+        href={shareUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Button variant="ghost" size="icon" className="rounded-none">
           <Icon></Icon>
         </Button>
@@ -36,7 +41,7 @@ function ShareContent({ title, url }: ShareContentProps) {
   }
 
   return (
-    <div className="flex size-full overflow-hidden">
+    <div className="flex size-full">
       <SocialBtn name="LinkedIn" />
       <SocialBtn name="Telegram" />
       <SocialBtn name="Twitter" />

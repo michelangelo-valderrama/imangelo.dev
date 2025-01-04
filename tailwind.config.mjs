@@ -81,13 +81,18 @@ export default {
             zIndex: '-10',
             opacity: '0',
             pointerEvents: 'none',
-            transform: 'translateX(-100%)'
+            marginLeft: '-100%'
+            // transform: 'translateX(-100%)'
+          },
+          '70%': {
+            opacity: '0'
           },
           to: {
             zIndex: '0',
             opacity: '1',
             pointerEvents: 'auto',
-            transform: 'translateX(0)'
+            marginLeft: '0'
+            // transform: 'translateX(0)'
           }
         },
         'im-slide-to-left': {
@@ -95,13 +100,18 @@ export default {
             zIndex: '0',
             opacity: '1',
             pointerEvents: 'auto',
-            transform: 'translateX(0)'
+            marginLeft: '0'
+            // transform: 'translateX(0)'
+          },
+          '30%': {
+            opacity: '0'
           },
           to: {
             zIndex: '-10',
             opacity: '0',
             pointerEvents: 'none',
-            transform: 'translateX(-100%)'
+            marginLeft: '-100%'
+            // transform: 'translateX(-100%)'
           }
         }
       },

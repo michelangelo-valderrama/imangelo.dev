@@ -8,7 +8,7 @@ import ShareButton from '@/components/widgets/share-button'
 
 function ArticleActions({ url }: { url: string }) {
   return (
-    <aside className="flex justify-between items-center mb-8">
+    <aside className="flex justify-between items-start mb-8">
       <div>
         <Button variant="ghost" size="icon">
           <InfoIcon />
