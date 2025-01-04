@@ -83,12 +83,12 @@ function LikeButton() {
         strokeLinejoin="round"
         className={cn(
           `
-              transition-all duration-300
-              group-hover:text-heart
-              group-hover:scale-[1.2]
-              group-active:scale-[1.6]
-              *:transition-all *:duration-300
-            `
+                  transition-all duration-300
+                  group-hover:text-heart
+                  group-hover:scale-[1.2]
+                  group-active:scale-[1.6]
+                  *:transition-all *:duration-300
+                `
         )}
       >
         {/* state 0 */}

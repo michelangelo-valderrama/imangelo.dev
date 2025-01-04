@@ -2,6 +2,11 @@ import * as Share from 'social-share-generator'
 
 import { LinkedInIcon, TelegramIcon, XFormerlyTwitterIcon } from '@/icons'
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
 import Button from '@/components/ui/button'
 
 interface SocialBtnProps {
@@ -27,16 +32,23 @@ function ShareContent({ title, url }: ShareContentProps) {
     else Icon = XFormerlyTwitterIcon
 
     return (
-      <a
-        tabIndex={-1}
-        href={shareUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Button variant="ghost" size="icon" className="rounded-none">
-          <Icon></Icon>
-        </Button>
-      </a>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <a
+            tabIndex={-1}
+            href={shareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="ghost" size="icon" className="rounded-none">
+              <Icon></Icon>
+            </Button>
+          </a>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{name}</p>
+        </TooltipContent>
+      </Tooltip>
     )
   }
 

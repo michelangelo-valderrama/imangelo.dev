@@ -15,6 +15,8 @@ import ArticleActions from '@/components/article/article-actions'
 
 import PageHeader from '@/components/view/PageHeader.astro'
 
+import Skeleton from '@/components/ui/skeleton'
+
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
 
@@ -46,7 +48,9 @@ const {
       <Content />
     </Markdown>
     <div id="end-of-article">
-      <ArticleActions url={Astro.url.toString()} client:visible />
+      <ArticleActions url={Astro.url.toString()} client:only>
+        <Skeleton className="h-9 mb-8" slot="fallback" />
+      </ArticleActions>
       <RelatedArticles {category} slug={article.slug} />
     </div>
   </Main>

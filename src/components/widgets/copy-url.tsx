@@ -4,6 +4,11 @@ import { CheckIcon, CopyIcon } from '@/icons'
 
 import { copyToClipboard } from '@/lib/utils'
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
 import Button from '@/components/ui/button'
 
 function CopyUrlButton({ url }: { url: string }) {
@@ -23,26 +28,33 @@ function CopyUrlButton({ url }: { url: string }) {
   }, [copied])
 
   return (
-    <Button variant="ghost" size="icon" onClick={onCopyUrl}>
-      <CopyIcon
-        data-copied={copied}
-        className={`
-          transition-all duration-300
-          data-[copied='true']:scale-0
-          data-[copied='true']:opacity-0
-        `}
-      />
-      <CheckIcon
-        data-copied={copied}
-        className={`
-          absolute
-          transition-all duration-300
-          scale-0 opacity-0
-          data-[copied='true']:scale-100
-          data-[copied='true']:opacity-100
-        `}
-      />
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="ghost" size="icon" onClick={onCopyUrl}>
+          <CopyIcon
+            data-copied={copied}
+            className={`
+                transition-all duration-300
+                data-[copied='true']:scale-0
+                data-[copied='true']:opacity-0
+              `}
+          />
+          <CheckIcon
+            data-copied={copied}
+            className={`
+                absolute
+                transition-all duration-300
+                scale-0 opacity-0
+                data-[copied='true']:scale-100
+                data-[copied='true']:opacity-100
+              `}
+          />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Copiar URL</p>
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
