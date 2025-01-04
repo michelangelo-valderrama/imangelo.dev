@@ -1,26 +1,22 @@
-import { InfoIcon, ShareIcon } from '@/icons'
-
-import Button from '@/components/ui/button'
-
 import LikeButton from '@/components/widgets/like-button'
 import CopyUrl from '@/components/widgets/copy-url'
 import ShareButton from '@/components/widgets/share-button'
-import { TooltipProvider } from '../ui/tooltip'
+import InfoButton, {
+  type InfoButtonProps
+} from '@/components/widgets/info-button'
 
-function ArticleActions({ url }: { url: string }) {
+interface ArticleActionsProps extends InfoButtonProps {
+  url: string
+}
+
+function ArticleActions({ url, ...props }: ArticleActionsProps) {
   return (
-    <TooltipProvider delayDuration={100}>
-      <aside className="flex justify-between items-start mb-8">
-        <div>
-          <Button variant="ghost" size="icon">
-            <InfoIcon />
-          </Button>
-          <CopyUrl url={url} />
-          <ShareButton title="123" url={url} />
-        </div>
-        <LikeButton />
-      </aside>
-    </TooltipProvider>
+    <aside className="flex items-start mb-8">
+      <InfoButton {...props} />
+      <CopyUrl url={url} />
+      <ShareButton title="123" url={url} />
+      <LikeButton />
+    </aside>
   )
 }
 

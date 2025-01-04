@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
-import { getFilteredPosts } from '@/lib/utils'
+import { getFilteredPosts, formatDate } from '@/lib/utils'
 
 import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
@@ -36,21 +36,28 @@ const { Content, headings } = await article.render()
 const {
   data: { category, cover, lastModDate, pubDate, tags, title }
 } = article
+
+const pubDateFormatted = formatDate(pubDate)
 ---
 
 <Root>
   <Main class="pb-24">
     <ArticleWidgets {headings} {title} />
-    <PageHeader title={title} subtitle="21 sep, 2024" subtitleDate={true}>
+    <PageHeader title={title} subtitle={pubDateFormatted} subtitleDate={true}>
       {!cover ? null : <Image {...cover} alt={title} class="my-4" />}
     </PageHeader>
     <Markdown class="mb-16" id="article-content">
       <Content />
     </Markdown>
     <div id="end-of-article">
-      <ArticleActions url={Astro.url.toString()} client:only>
-        <Skeleton className="h-9 mb-8" slot="fallback" />
-      </ArticleActions>
+      <ArticleActions
+        url={Astro.url.toString()}
+        coverCredits={cover?.credits}
+        {lastModDate}
+        {category}
+        {tags}
+        client:visible
+      />
       <RelatedArticles {category} slug={article.slug} />
     </div>
   </Main>

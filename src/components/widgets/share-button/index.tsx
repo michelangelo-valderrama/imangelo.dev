@@ -2,11 +2,6 @@ import { useState } from 'react'
 
 import { ShareIcon, XIcon } from '@/icons'
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
 import Button from '@/components/ui/button'
 
 import ShareContent from './share-content'
@@ -25,44 +20,37 @@ function ShareButton(props: ShareButtonProps) {
 
   return (
     <div className="inline-flex">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            data-open={isOpen}
-            className={`
-              bg-background relative z-10
-              data-[open='true']:border
-              data-[open='true']:rounded-r-none
-              data-[open='true']:text-muted-foreground
-            `}
-            variant="ghost"
-            size="icon"
-            onClick={onOpen}
-          >
-            <ShareIcon
-              data-open={isOpen}
-              className={`
-                transition-all duration-300
-                data-[open='true']:scale-0
-                data-[open='true']:opacity-0
-              `}
-            />
-            <XIcon
-              data-open={isOpen}
-              className={`
-                absolute
-                transition-all duration-300
-                scale-0 opacity-0
-                data-[open='true']:scale-100
-                data-[open='true']:opacity-100
-              `}
-            />
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{isOpen ? 'Cerrar' : 'Compartir'}</p>
-        </TooltipContent>
-      </Tooltip>
+      <Button
+        data-open={isOpen}
+        className={`
+          bg-background relative z-10
+          data-[open='true']:border
+          data-[open='true']:rounded-r-none
+          data-[open='true']:text-muted-foreground
+        `}
+        variant="ghost"
+        size="icon"
+        onClick={onOpen}
+      >
+        <ShareIcon
+          data-open={isOpen}
+          className={`
+            transition-all duration-300
+            data-[open='true']:scale-0
+            data-[open='true']:opacity-0
+          `}
+        />
+        <XIcon
+          data-open={isOpen}
+          className={`
+            absolute
+            transition-all duration-300
+            scale-0 opacity-0
+            data-[open='true']:scale-100
+            data-[open='true']:opacity-100
+          `}
+        />
+      </Button>
       <div
         data-open={isOpen}
         className={`

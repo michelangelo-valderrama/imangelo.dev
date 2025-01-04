@@ -5,6 +5,11 @@ html {
   scroll-padding-top: 2.5rem;
 }
 
+body:focus-visible,
+*:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2;
+}
+
 ::selection {
   background-color: hsl(var(--im-selection));
   color: hsl(var(--im-selection-foreground));

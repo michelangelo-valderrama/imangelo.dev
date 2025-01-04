@@ -112,3 +112,11 @@ export function downloadBlob(blob: Blob, filename: string) {
   a.click()
   a.remove()
 }
+
+export function formatDate(date: Date) {
+  return date.toLocaleDateString('es-ES', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  })
+}

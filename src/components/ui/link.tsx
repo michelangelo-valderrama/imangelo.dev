@@ -17,8 +17,7 @@ const linkVariants = cva(
   {
     variants: {
       variant: {
-        links:
-          'border-b-transparent hover:border-b-transparent inline text-foreground'
+        links: 'inline text-foreground w-fit'
       }
     }
   }

@@ -61,14 +61,14 @@ function LikeButton() {
       variant="outline"
       ref={likeButtonRef}
       className={cn(
-        'group relative gap-x-1.5 hover:bg-heart/5 hover:border-heart',
+        'group ml-auto relative gap-x-1.5 hover:bg-heart/5 hover:border-heart',
         {
-          'text-heart hover:text-heart border-heart/20': userLikes === 5
+          'text-heart hover:text-heart border-heart/20': userLikes > 0
         }
       )}
       onClick={onClickLike}
     >
-      <span className="absolute">
+      <span className="absolute left-4">
         {isExploding && <ConfettiExplosion {...confettiProps} />}
       </span>
       <svg
@@ -83,12 +83,12 @@ function LikeButton() {
         strokeLinejoin="round"
         className={cn(
           `
-                  transition-all duration-300
-                  group-hover:text-heart
-                  group-hover:scale-[1.2]
-                  group-active:scale-[1.6]
-                  *:transition-all *:duration-300
-                `
+            transition-all duration-300
+            group-hover:text-heart
+            group-hover:scale-[1.2]
+            group-active:scale-[1.6]
+            *:transition-all *:duration-300
+          `
         )}
       >
         {/* state 0 */}
