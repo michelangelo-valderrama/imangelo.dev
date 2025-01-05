@@ -32,6 +32,8 @@
   --im-input-foreground: var(--im-foreground);
   --im-input-border: 60 1% 82%;
 
+  --im-callout-note: 239 80% 64%;
+
   --im-tooltip: 0 0% 98.6%;
 
   --im-code: var(--im-secondary) / 0.05;

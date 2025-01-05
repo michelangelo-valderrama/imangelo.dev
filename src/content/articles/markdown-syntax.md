@@ -68,6 +68,9 @@ Note that --- not considering the asterisk --- the actual text content starts at
 >
 > They can span multiple paragraphs, if you like.
 
+> [!info] Block quotes are written like so.
+> They can span multiple paragraphs, if you like.
+
 Use 3 dashes for an em-dash. (ex., "she was late—traffic was terrible").
 
 Use 2 dashes for ranges (ex., "it's all in chapters 12--14").

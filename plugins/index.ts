@@ -2,13 +2,14 @@ import type { RemarkPlugins, RehypePlugins } from 'astro'
 
 // remark plugins
 import remarkDirective from 'remark-directive'
-import remarkImageFigure from './remark-image-figure'
 import remarkImgattr from 'remark-imgattr'
 import remarkMath from 'remark-math'
+import remarkImageFigure from './remark-image-figure'
 
 // rehype plugins
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import rehypeKatex from 'rehype-katex'
+import rehypeCallouts from 'rehype-callouts'
 import rehypeExternalLinks from './rehype-external-links'
 
 export const remarkPlugins: RemarkPlugins = [
@@ -21,6 +22,19 @@ export const remarkPlugins: RemarkPlugins = [
 export const rehypePlugins: RehypePlugins = [
   rehypeHeadingIds,
   rehypeKatex,
+  [
+    rehypeCallouts,
+    {
+      callouts: {
+        info: {
+          title: '',
+          indicator:
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>',
+          color: 'var(--im-callout-note)'
+        }
+      }
+    }
+  ],
   [
     rehypeExternalLinks,
     {

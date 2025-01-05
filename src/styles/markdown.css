@@ -1,6 +1,6 @@
-/* Katex CSS */
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css');
 
+/* prose */
 .prose {
   position: relative;
   color: hsl(var(--im-foreground));
@@ -9,11 +9,11 @@
 .prose figure {
   p,
   img {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .prose figcaption {
-    margin-top: 0.5rem;
+    margin-block-start: 0.5rem;
     font-size: 0.875rem;
     color: hsl(var(--im-muted-foreground));
   }
@@ -25,8 +25,8 @@
   font-size: 1rem;
   line-height: 1.5rem;
 
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
 }
 
 .prose strong {
@@ -53,14 +53,14 @@
   &:not(.data-footnote-backref, [data-footnote-ref]) {
     color: hsl(var(--im-secondary));
     font-weight: normal;
-    border-bottom: 1.5px solid hsl(var(--im-secondary) / 0.3);
+    border-block-end: 1.5px solid hsl(var(--im-secondary) / 0.3);
 
     span {
       white-space: nowrap;
     }
 
     svg {
-      margin-left: 0.1rem;
+      margin-inline-start: 0.1rem;
       color: hsl(var(--im-muted-foreground));
       transition: color 0.2s ease-in-out;
       display: inline-block;
@@ -70,7 +70,7 @@
     }
 
     &:hover {
-      border-bottom-color: hsl(var(--im-secondary));
+      border-block-end-color: hsl(var(--im-secondary));
 
       svg {
         color: hsl(var(--im-foreground));
@@ -87,8 +87,8 @@
 .prose h3,
 .prose h4 {
   color: hsl(var(--im-accent-foreground));
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
 }
 
 .prose h1 {
@@ -103,7 +103,7 @@
   font-weight: 500;
 
   &:first-of-type {
-    margin-top: 1em;
+    margin-block-start: 1em;
   }
 }
 
@@ -145,7 +145,7 @@
 
 .prose .footnotes {
   position: relative;
-  margin-top: 3.5rem;
+  margin-block-start: 3.5rem;
 
   h2 {
     opacity: 0;
@@ -162,14 +162,14 @@
   }
 
   li {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   p {
     color: hsl(var(--im-muted-foreground));
     font-size: 0.875rem;
-    margin-left: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-inline-start: 0.25rem;
+    margin-block-end: 0.25rem;
   }
 
   &::before {
@@ -178,7 +178,7 @@
     left: 0;
     top: 0;
     width: 80px;
-    border-top: 1.5px solid hsl(var(--im-border));
+    border-block-start: 1.5px solid hsl(var(--im-border));
   }
 }
 
@@ -201,6 +201,117 @@
   }
 }
 
+/* callouts */
+.callout {
+  position: relative;
+  border-inline-start: 2px solid hsl(var(--callout-color-light));
+  border-radius: 0 var(--im-radius) var(--im-radius) 0;
+  background-color: hsl(var(--callout-color-light) / 0.1);
+  color: hsl(var(--im-foreground) / 0.9);
+  margin-block-end: 1rem;
+  padding: 1.5rem;
+
+  padding-inline-start: 23px;
+  left: -24px;
+  width: calc(100% + 24px);
+}
+
+@media (max-width: 640px) {
+  .callout::before,
+  .callout::after,
+  .callout-icon {
+    display: none;
+  }
+
+  .callout {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-inline-start: -50vw;
+    margin-inline-end: -50vw;
+    border-radius: 0;
+    border-inline-start: 0;
+    border-block: 1px solid hsl(var(--callout-color-light));
+    padding-inline: var(--im-layout-px);
+  }
+}
+
+.callout::before,
+.callout::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.callout::before {
+  transform: translate(-2px, 0);
+  width: 15px;
+  height: 18px;
+  mask-image: url('data:image/svg+xml,<svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5457 14.7321C1.14944 15.0307 0 16.2368 0 17.7783L0 -0.000179291H15C15 7.38006 9.76182 13.1889 2.5457 14.7321Z" fill="black"/></svg>');
+  background-color: hsl(var(--im-background));
+}
+
+.callout::after {
+  transform: translate(-2px, -1px);
+  width: 17px;
+  height: 21px;
+  background-color: hsl(var(--callout-color-light));
+  mask-image: url('data:image/svg+xml,<svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C16 8.90473 10.3785 15.0798 2.75483 16.7102C1.76308 16.9223 1 17.7643 1 18.7785L1 20" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>');
+}
+
+.callout-title {
+  line-height: 1;
+  font-weight: 600;
+}
+
+.callout-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% - 1px), -50%);
+  padding: 6px;
+}
+
+.callout-icon svg {
+  overflow: visible !important;
+  color: hsl(var(--callout-color-light));
+  width: 24px;
+  height: 24px;
+}
+
+.callout-content > :first-child {
+  margin-block-start: 0.875rem;
+}
+
+.callout-content > :last-child {
+  margin-block-end: 0;
+}
+
+.callout-collapsible .callout-title {
+  cursor: pointer;
+}
+
+.callout-collapsible .callout-fold {
+  display: flex;
+  align-items: center;
+  padding-inline-end: 8px;
+}
+
+.callout-collapsible > .callout-title .callout-fold svg {
+  transform: rotate(-90deg);
+  transition: transform 100ms ease-in-out;
+}
+
+.callout-collapsible[open] > .callout-title .callout-fold svg {
+  transform: none;
+}
+
+.callout-fold {
+  margin-inline-start: -2px;
+}
+
+/* katex */
 .katex-display {
   overflow-x: scroll;
 }
@@ -209,6 +320,7 @@
   color: hsl(var(--im-foreground));
 }
 
+/* expressive-code */
 .expressive-code {
   --ec-frm-frameBoxShdCssVal: none;
 
@@ -243,8 +355,8 @@
     width: 100vw;
     left: 50%;
     right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    margin-inline-start: -50vw;
+    margin-inline-end: -50vw;
 
     --ec-brdRad: 0;
   }
@@ -254,7 +366,7 @@
   }
 
   .frame.has-title .header {
-    border-bottom: var(--ec-brdWd) solid var(--ec-brdCol);
+    border-block-end: var(--ec-brdWd) solid var(--ec-brdCol);
   }
 
   .title {
