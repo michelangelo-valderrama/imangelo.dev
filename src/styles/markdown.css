@@ -346,6 +346,8 @@
   --ec-codeFontFml: var(--im-mono);
   --ec-lineNumbers-fg: hsl(var(--im-muted-foreground));
 
+  margin-block: 1.5rem;
+
   .ec-line .gutter .ln {
     padding-inline: 1.5ch 2ch;
   }

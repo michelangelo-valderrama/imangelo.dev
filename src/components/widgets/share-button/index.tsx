@@ -53,6 +53,8 @@ function ShareButton(props: ShareButtonProps) {
       </Button>
       <div
         data-open={isOpen}
+        aria-hidden={!isOpen}
+        {...{ inert: isOpen ? undefined : '' }}
         className={`
           rounded-r-md
           border

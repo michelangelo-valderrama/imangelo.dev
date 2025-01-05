@@ -1,0 +1,34 @@
+---
+interface Props {
+  quote: string
+  author?: string
+  lang?: string
+}
+
+const { quote, author = 'Anónimo', lang = 'es' } = Astro.props
+---
+
+<blockquote
+  class={`
+    relative w-screen
+    left-1/2 right-1/2
+    -ml-[50vw] -mr-[50vw]
+    border-y
+    pt-6 pb-4 px-layout-px my-10
+    not-prose
+  `}
+>
+  <div class="max-w-md mx-auto px-4 xs:px-0">
+    <p {lang} class="quote"><em>{quote}</em></p>
+    <p class="author">— {author}</p>
+  </div>
+</blockquote>
+
+<style>
+  .quote {
+    @apply text-xl text-foreground/80;
+  }
+  .author {
+    @apply text-accent-foreground text-right mb-0 text-sm;
+  }
+</style>
