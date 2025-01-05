@@ -25,7 +25,7 @@ function NewsletterForm() {
     setLoading(true)
 
     try {
-      const { data, error } = await actions.newsletterSubscription({
+      const { error } = await actions.newsletterSubscription({
         email: value
       })
 

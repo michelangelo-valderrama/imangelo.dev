@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import ConfettiExplosion, { type ConfettiProps } from 'react-confetti-explosion'
+import { actions } from 'astro:actions'
 
 import { cn } from '@/lib/utils'
+
+import { useDebounce } from '@/hooks/use-debounce'
 
 import Button from '@/components/ui/button'
 
@@ -12,20 +15,35 @@ const confettiProps: ConfettiProps = {
   width: 600
 }
 
-function LikeButton() {
-  const currentLikes = 0
+function LikeButton({ slug }: { slug: string }) {
+  const debouncedSaveLike = useDebounce(async (userLikes: number) => {
+    const { data, error } = await actions.setLikes({
+      numLikes: userLikes,
+      slug
+    })
 
+    if (!data || !data.success || error) {
+      console.log('[error] like-button', error)
+    }
+  }, 500)
+
+  const [isLoading, setIsLoading] = useState(true)
   const [isExploding, setIsExploding] = useState(false)
   const [userLikes, setUserLikes] = useState(0)
+  const [restOfLikes, setRestOfLikes] = useState(0)
   const [bubbles, setBubbles] = useState(0)
 
   const likeButtonRef = useRef<HTMLButtonElement>(null)
 
-  const onClickLike = () => {
-    if (userLikes === 4) setIsExploding(true)
-    if (userLikes < 5) setUserLikes(userLikes + 1)
-
+  const onLike = () => {
     if (!likeButtonRef.current) return
+
+    if (userLikes === 4) setIsExploding(true)
+    if (userLikes < 5) {
+      const newUserLikes = userLikes + 1
+      setUserLikes(newUserLikes)
+      debouncedSaveLike(newUserLikes)
+    }
 
     setBubbles(bubbles + 1)
     const spanElem = document.createElement('span')
@@ -39,6 +57,19 @@ function LikeButton() {
     `
     likeButtonRef.current.appendChild(spanElem)
   }
+
+  useEffect(() => {
+    actions
+      .getLikes({ slug })
+      .then(({ data, error }) => {
+        if (!data || error) return
+
+        const { hits, userLikes } = data
+        setRestOfLikes(hits - userLikes)
+        setUserLikes(userLikes)
+      })
+      .finally(() => setIsLoading(false))
+  }, [])
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -58,15 +89,23 @@ function LikeButton() {
 
   return (
     <Button
+      disabled={isLoading}
       variant="outline"
       ref={likeButtonRef}
       className={cn(
-        'group ml-auto relative gap-x-1.5 hover:bg-heart/5 hover:border-heart',
+        `
+          group
+          ml-auto
+          relative
+          gap-x-1.5
+          hover:bg-heart/5
+          hover:border-heart
+        `,
         {
           'text-heart hover:text-heart border-heart/20': userLikes > 0
         }
       )}
-      onClick={onClickLike}
+      onClick={onLike}
     >
       <span className="absolute left-4">
         {isExploding && <ConfettiExplosion {...confettiProps} />}
@@ -143,7 +182,7 @@ function LikeButton() {
           className={cn({ 'opacity-0': userLikes !== 5 })}
         />
       </svg>
-      <span className="min-w-5">{currentLikes + userLikes}</span>
+      <span className="min-w-5">{restOfLikes + userLikes}</span>
     </Button>
   )
 }

@@ -16,7 +16,7 @@ const newsletterSubscription = defineAction({
       return '[dev] ok'
     }
 
-    const { data, error } = await resend.contacts.create({
+    const { error } = await resend.contacts.create({
       audienceId: import.meta.env.RESEND_AUDIENCE_ID,
       unsubscribed: false,
       email
@@ -29,7 +29,7 @@ const newsletterSubscription = defineAction({
       })
     }
 
-    return data
+    return { success: true }
   }
 })
 

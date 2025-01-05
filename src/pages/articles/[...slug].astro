@@ -11,11 +11,9 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 
 import RelatedArticles from '@/components/article/RelatedArticles.astro'
 import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
-import ArticleActions from '@/components/article/article-actions'
+import ArticleActions from '@/components/article/ArticleActions.astro'
 
 import PageHeader from '@/components/view/PageHeader.astro'
-
-import Skeleton from '@/components/ui/skeleton'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
@@ -34,7 +32,8 @@ const { article } = Astro.props
 const { Content, headings } = await article.render()
 
 const {
-  data: { category, cover, lastModDate, pubDate, tags, title }
+  data: { category, cover, lastModDate, pubDate, tags, title },
+  slug
 } = article
 
 const pubDateFormatted = formatDate(pubDate)
@@ -52,11 +51,11 @@ const pubDateFormatted = formatDate(pubDate)
     <div id="end-of-article">
       <ArticleActions
         url={Astro.url.toString()}
+        slug={slug}
         coverCredits={cover?.credits}
         {lastModDate}
         {category}
         {tags}
-        client:visible
       />
       <RelatedArticles {category} slug={article.slug} />
     </div>

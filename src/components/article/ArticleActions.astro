@@ -1,0 +1,26 @@
+---
+import InfoButton, {
+  type InfoButtonProps
+} from '@/components/widgets/info-button'
+import CopyUrlButton from '@/components/widgets/copy-url'
+import ShareButton from '@/components/widgets/share-button'
+import LikeButton from '@/components/widgets/like-button'
+
+import Skeleton from '@/components/ui/skeleton'
+
+interface Props extends InfoButtonProps {
+  url: string
+  slug: string
+}
+
+const { url, slug, ...props } = Astro.props
+---
+
+<aside class="flex items-start mb-8">
+  <InfoButton {...props} client:visible />
+  <CopyUrlButton url={url} client:visible />
+  <ShareButton title="123" url={url} client:visible />
+  <LikeButton client:only="react" {slug}>
+    <Skeleton className="h-9 w-20 ml-auto" slot="fallback" />
+  </LikeButton>
+</aside>
