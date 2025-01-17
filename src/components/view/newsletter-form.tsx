@@ -3,7 +3,7 @@ import { actions } from 'astro:actions'
 
 import { LoaderCircleIcon, MailIcon } from '@/icons'
 
-import { validEmail } from '@/lib/utils'
+import { cn, sleep, validEmail } from '@/lib/utils'
 
 import Button from '@/components/ui/button'
 import InputInlineAddOn from '@/components/ui/input/input-inline-add-on'
@@ -13,7 +13,7 @@ function NewsletterForm() {
   const { toast } = useToast()
   const [isValid, setIsValid] = useState(false)
   const [value, setValue] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState<boolean | null>(null)
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value)
@@ -22,14 +22,15 @@ function NewsletterForm() {
 
   const onSubmit: React.ChangeEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-    setLoading(true)
+    setIsLoading(true)
 
     try {
-      const { error } = await actions.newsletterSubscription({
-        email: value
-      })
+      // const { error } = await actions.newsletterSubscription({
+      //   email: value
+      // })
 
-      if (error) throw new Error()
+      // if (error) throw new Error()
+      await sleep(1500)
 
       toast({
         title: 'Operación exitosa.',
@@ -42,29 +43,52 @@ function NewsletterForm() {
         description: 'Vuelva a intentarlo más tarde.'
       })
     } finally {
-      setLoading(false)
+      setIsLoading(false)
       setValue('')
     }
   }
 
   return (
-    <>
-      <form className="mt-6 flex gap-x-2 w-full" onSubmit={onSubmit}>
-        <InputInlineAddOn
-          placeholder="johndoe@gmail.com"
-          disabled={loading}
-          className="flex-1"
-          type="email"
-          value={value}
-          onChange={onChange}
-          suffix={<MailIcon />}
-        />
-        <Button type="submit" disabled={!isValid || loading}>
-          {loading && <LoaderCircleIcon className="size-4 mr-1 animate-spin" />}
+    <form className="mt-6 flex gap-x-2 w-full" onSubmit={onSubmit}>
+      <InputInlineAddOn
+        placeholder="johndoe@gmail.com"
+        disabled={!!isLoading}
+        className="flex-1"
+        type="email"
+        value={value}
+        onChange={onChange}
+        suffix={<MailIcon />}
+      />
+      <Button
+        className="relative"
+        type="submit"
+        disabled={!isValid || !!isLoading}
+      >
+        <span
+          data-show={isLoading}
+          className={`
+            absolute
+            mx-auto
+            opacity-0
+            transition-all
+            data-[show=true]:animate-im-jump-in
+            data-[show=false]:animge-im-jump-out
+          `}
+        >
+          <LoaderCircleIcon className="animate-spin" />
+        </span>
+        <span
+          data-hidden={isLoading}
+          className={`
+            transition-all
+            data-[hidden=true]:animate-im-jump-out
+            data-[hidden=false]:animge-im-jump-in
+          `}
+        >
           Suscribirse
-        </Button>
-      </form>
-    </>
+        </span>
+      </Button>
+    </form>
   )
 }
 

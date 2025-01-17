@@ -11,10 +11,16 @@ function InputLabelAnim({ placeholder, id, ...props }: InputLabelAnimProps) {
       <label
         htmlFor={id}
         className={`
-            origin-start absolute top-1/2 block
-            -translate-y-1/2 cursor-text px-1
-            text-sm text-muted-foreground/70
-            transition-all
+            origin-start
+            absolute
+            top-1/2
+            block
+            -translate-y-1/2
+            cursor-text
+            px-1
+            text-sm
+            text-muted-foreground/70
+            transition-all duration-base
             
             group-focus-within:pointer-events-none
             group-focus-within:top-0

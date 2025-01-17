@@ -6,13 +6,26 @@
   color: hsl(var(--im-foreground));
 }
 
+.prose blockquote:not(.custom-blockquote) {
+  border-inline-start: 3px solid hsl(var(--im-secondary) / 0.2);
+  padding-block: 0.5rem 0.8rem;
+  margin-inline: calc(var(--im-layout-px) * -0.5);
+  padding-inline: calc(var(--im-layout-px) * 0.5);
+  quotes: none;
+  font-style: normal;
+
+  p:last-child {
+    margin-block-end: 0;
+  }
+}
+
 .prose figure {
   p,
   img {
     margin-block-end: 0;
   }
 
-  .prose figcaption {
+  figcaption {
     margin-block-start: 0.5rem;
     font-size: 0.875rem;
     color: hsl(var(--im-muted-foreground));
@@ -36,7 +49,7 @@
 
 .prose a {
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition: all var(--im-duration-base) var(--im-timing-fn);
 
   &.data-footnote-backref,
   &[data-footnote-ref] {
@@ -60,20 +73,25 @@
     }
 
     svg {
-      margin-inline-start: 0.1rem;
-      color: hsl(var(--im-muted-foreground));
-      transition: color 0.2s ease-in-out;
       display: inline-block;
 
-      width: 1em;
-      height: 1em;
+      color: hsl(var(--im-muted-foreground));
+
+      margin-inline-start: 0.1rem;
+
+      width: 0.875em;
+      height: 0.875em;
+
+      transition: all var(--im-duration-base) var(--im-timing-fn);
     }
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       border-block-end-color: hsl(var(--im-secondary));
 
       svg {
         color: hsl(var(--im-foreground));
+        translate: 0 -20%;
       }
     }
   }
@@ -229,9 +247,16 @@
     right: 50%;
     margin-inline-start: -50vw;
     margin-inline-end: -50vw;
+    padding-inline: 0;
     border-radius: 0;
     border-inline-start: 0;
     border-block: 1px solid hsl(var(--callout-color-light));
+  }
+
+  .callout-title,
+  .callout-content {
+    max-width: var(--im-screen-xs);
+    margin-inline: auto;
     padding-inline: var(--im-layout-px);
   }
 }
@@ -300,7 +325,7 @@
 
 .callout-collapsible > .callout-title .callout-fold svg {
   transform: rotate(-90deg);
-  transition: transform 100ms ease-in-out;
+  transition: transform var(--im-duration-sm) var(--im-timing-fn);
 }
 
 .callout-collapsible[open] > .callout-title .callout-fold svg {
@@ -348,19 +373,13 @@
 
   margin-block: 1.5rem;
 
-  .ec-line .gutter .ln {
-    padding-inline: 1.5ch 2ch;
+  @media (min-width: 640px) {
+    width: calc(100% + calc(var(--im-layout-px) * 2));
+    margin-inline: calc(var(--im-layout-px) * -1);
   }
 
-  @media (max-width: 640px) {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-inline-start: -50vw;
-    margin-inline-end: -50vw;
-
-    --ec-brdRad: 0;
+  .ec-line .gutter .ln {
+    padding-inline: 1.5ch 2ch;
   }
 
   .code {

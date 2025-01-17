@@ -43,7 +43,7 @@ const pubDateFormatted = formatDate(pubDate)
   <Main class="pb-24">
     <ArticleWidgets {headings} {title} />
     <PageHeader title={title} subtitle={pubDateFormatted} subtitleDate={true}>
-      {!cover ? null : <Image {...cover} alt={title} class="my-4" />}
+      {!cover ? null : <Image {...cover} alt={title} class="mt-6 mb-18" />}
     </PageHeader>
     <Markdown class="mb-16" id="article-content">
       <Content />

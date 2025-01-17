@@ -27,7 +27,7 @@ function CopyUrlButton({ url }: { url: string }) {
       <CopyIcon
         data-copied={copied}
         className={`
-          transition-all duration-300
+          transition-all duration-base
           data-[copied='true']:scale-0
           data-[copied='true']:opacity-0
         `}
@@ -36,8 +36,9 @@ function CopyUrlButton({ url }: { url: string }) {
         data-copied={copied}
         className={`
           absolute
-          transition-all duration-300
-          scale-0 opacity-0
+          transition-all duration-base
+          scale-0
+          opacity-0
           data-[copied='true']:scale-100
           data-[copied='true']:opacity-100
         `}

@@ -30,7 +30,7 @@
 
   --im-input: var(--im-background);
   --im-input-foreground: var(--im-foreground);
-  --im-input-border: 60 1% 82%;
+  --im-input-border: 60 1% 88%;
 
   --im-callout-note: 239 80% 64%;
 
@@ -47,4 +47,12 @@
 
   --im-sans: 'Inter Variable', sans-serif;
   --im-mono: 'Fira Code Variable', monospace;
+
+  --im-screen-xs: 568px;
+
+  --im-timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --im-duration-lg: 0.3s;
+  --im-duration-base: calc(var(--im-duration-lg) - 0.1s);
+  --im-duration-sm: calc(var(--im-duration-lg) - 0.2s);
 }

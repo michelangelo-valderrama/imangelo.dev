@@ -51,13 +51,13 @@ function InfoButton(props: InfoButtonProps) {
     } else if (key === 'coverCredits' && props[key]) {
       const value = props[key]
       infoLines.push({
-        title: 'Créd. de img.',
+        title: 'Imagen',
         content: value
       })
     } else if (key === 'lastModDate' && props[key]) {
       const value = props[key]
       infoLines.push({
-        title: 'Últ. act.',
+        title: 'Actualizado',
         content: formatDate(value)
       })
     } else if (key === 'tags' && props[key]) {
@@ -65,7 +65,7 @@ function InfoButton(props: InfoButtonProps) {
       infoLines.push({
         title: 'Etiquetas',
         content: (
-          <div className="gap-x-1.5 grid grid-cols-2">
+          <div className="gap-y-1.5 grid grid-cols-1">
             {value.map((_, index) => (
               <span key={index}>
                 <span className="text-muted-foreground">#</span>
@@ -91,7 +91,7 @@ function InfoButton(props: InfoButtonProps) {
         className={`
           w-auto
           text-sm
-          space-y-2
+          space-y-2.5
         `}
       >
         {infoLines.map(({ title, content }, index) => (

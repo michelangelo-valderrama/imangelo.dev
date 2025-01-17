@@ -35,7 +35,7 @@ function ShareButton(props: ShareButtonProps) {
         <ShareIcon
           data-open={isOpen}
           className={`
-            transition-all duration-300
+            transition-all duration-base
             data-[open='true']:scale-0
             data-[open='true']:opacity-0
           `}
@@ -44,7 +44,7 @@ function ShareButton(props: ShareButtonProps) {
           data-open={isOpen}
           className={`
             absolute
-            transition-all duration-300
+            transition-all duration-base
             scale-0 opacity-0
             data-[open='true']:scale-100
             data-[open='true']:opacity-100
@@ -56,12 +56,10 @@ function ShareButton(props: ShareButtonProps) {
         aria-hidden={!isOpen}
         {...{ inert: isOpen ? undefined : '' }}
         className={`
-          rounded-r-md
-          border
-          border-l-0
+          rounded-r-md border border-l-0
           h-9
           bg-background-contrast
-          transition-all duration-300
+          transition-all duration-base
           opacity-0
           pointer-events-none
           ml-[-100%]

@@ -73,7 +73,6 @@ export default {
             opacity: '0',
             pointerEvents: 'none',
             marginLeft: '-100%'
-            // transform: 'translateX(-100%)'
           },
           '70%': {
             opacity: '0'
@@ -83,7 +82,6 @@ export default {
             opacity: '1',
             pointerEvents: 'auto',
             marginLeft: '0'
-            // transform: 'translateX(0)'
           }
         },
         'im-slide-to-left': {
@@ -92,7 +90,6 @@ export default {
             opacity: '1',
             pointerEvents: 'auto',
             marginLeft: '0'
-            // transform: 'translateX(0)'
           },
           '30%': {
             opacity: '0'
@@ -102,18 +99,45 @@ export default {
             opacity: '0',
             pointerEvents: 'none',
             marginLeft: '-100%'
-            // transform: 'translateX(-100%)'
+          }
+        },
+        'im-jump-in': {
+          from: {
+            opacity: '0',
+            scale: '0'
+          },
+          to: {
+            opacity: '1',
+            scale: '1'
+          }
+        },
+        'im-jump-out': {
+          from: {
+            opacity: '1',
+            scale: '1'
+          },
+          to: {
+            opacity: '0',
+            scale: '0'
           }
         }
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'im-slide-to-right': 'im-slide-to-right 0.2s ease-out forwards',
-        'im-slide-to-left': 'im-slide-to-left 0.2s ease-out forwards'
+        'accordion-down':
+          'accordion-down var(--im-duration-base) var(--im-timing-fn)',
+        'accordion-up':
+          'accordion-up var(--im-duration-base) var(--im-timing-fn)',
+        'im-slide-to-right':
+          'im-slide-to-right var(--im-duration-base) var(--im-timing-fn) forwards',
+        'im-slide-to-left':
+          'im-slide-to-left var(--im-duration-base) var(--im-timing-fn) forwards',
+        'im-jump-in':
+          'im-jump-in var(--im-duration-base) var(--im-timing-fn) forwards',
+        'im-jump-out':
+          'im-jump-out var(--im-duration-base) var(--im-timing-fn) forwards'
       },
       screens: {
-        xs: '568px'
+        xs: 'var(--im-screen-xs)'
       },
       fontFamily: {
         sans: 'var(--im-sans)',
@@ -126,6 +150,11 @@ export default {
       },
       padding: {
         'layout-px': 'var(--im-layout-px)'
+      },
+      transitionDuration: {
+        lg: 'var(--im-duration-lg)',
+        base: 'var(--im-duration-base)',
+        sm: 'var(--im-duration-sm)'
       }
     }
   },

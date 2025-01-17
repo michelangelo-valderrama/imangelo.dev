@@ -99,10 +99,13 @@ function LikeButton({ slug }: { slug: string }) {
           relative
           gap-x-1.5
           hover:bg-heart/5
+          focus-visible:bg-heart/5
           hover:border-heart
+          focus-visible:border-heart
         `,
         {
-          'text-heart hover:text-heart border-heart/20': userLikes > 0
+          'text-heart focus-visible:text-heart hover:text-heart border-heart/20':
+            userLikes > 0
         }
       )}
       onClick={onLike}
@@ -122,11 +125,13 @@ function LikeButton({ slug }: { slug: string }) {
         strokeLinejoin="round"
         className={cn(
           `
-            transition-all duration-300
+            transition-all duration-base
             group-hover:text-heart
+            group-focus-visible:text-heart
             group-hover:scale-[1.2]
+            group-focus-visible:scale-[1.2]
             group-active:scale-[1.6]
-            *:transition-all *:duration-300
+            *:transition-all *:duration-base
           `
         )}
       >

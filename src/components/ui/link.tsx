@@ -7,8 +7,7 @@ const linkVariants = cva(
   `
     inline-flex items-center justify-center
     whitespace-nowrap
-    transition-colors
-    duration-300
+    transition-colors duration-base
     cursor-pointer
     text-muted-foreground
     hover:text-accent-foreground

@@ -17,8 +17,12 @@ const totalHeadings = headings.length
 <aside
   id="art-wid-dk-cont"
   class={`
-    fixed left-0 right-0 top-32 hidden lg:block pointer-events-none
-    data-[hidden=true]:opacity-0 transition-opacity duration-300
+    fixed
+    left-0 right-0 top-32
+    hidden lg:block
+    pointer-events-none
+    transition-opacity duration-base
+    data-[hidden=true]:opacity-0
   `}
 >
   <div class="max-w-screen-2xl mx-auto flex justify-between">
@@ -36,6 +40,7 @@ const totalHeadings = headings.length
     (entries) => {
       entries.forEach(({ isIntersecting }) => {
         artWidDkContElem.setAttribute('data-hidden', isIntersecting + '')
+        artWidDkContElem.setAttribute('aria-hidden', isIntersecting + '')
       })
     },
     {

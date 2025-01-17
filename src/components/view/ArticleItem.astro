@@ -39,8 +39,9 @@ const pubDateFormated = pubDate.toLocaleString('es', {
       <time
         datetime={pubDate.toString()}
         class={`
-          w-14 text-sm text-muted-foreground
-          transition-all duration-200
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
           group-hover:-translate-x-16
           group-hover:opacity-0
           group-hover:scale-0
@@ -53,16 +54,18 @@ const pubDateFormated = pubDate.toLocaleString('es', {
       </time>
       <span
         class={`
-          flex-1 px-2
-          transition-all duration-200
+          flex-1
+          px-2
+          transition-all duration-base
           group-hover:-translate-x-16
           group-focus-visible:-translate-x-16
         `}>{title}</span
       >
       <MoveRightIcon
         className={`
-          text-foreground size-[1em]
-          transition-all duration-200
+          text-foreground
+          size-[1em]
+          transition-all duration-base
           translate-x-16
           opacity-0
           scale-0

@@ -8,7 +8,7 @@ interface Props {
 const { title, subtitle, subtitleDate = false } = Astro.props
 ---
 
-<header class="mb-4">
+<header class="mb-6">
   <h1>{title}</h1>
   {
     subtitle && (
@@ -26,7 +26,7 @@ const { title, subtitle, subtitleDate = false } = Astro.props
 
 <style>
   h1 {
-    @apply m-0;
+    @apply m-0 font-medium;
   }
 
   p {

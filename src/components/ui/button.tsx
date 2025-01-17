@@ -11,7 +11,7 @@ const buttonVariants = cva(
     rounded-md
     text-sm font-medium
     ring-offset-background
-    transition-all
+    transition-all duration-base
     focus-visible:outline-none
     focus-visible:ring-2
     focus-visible:ring-ring

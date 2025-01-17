@@ -24,10 +24,16 @@ function NamePronunciation() {
       ></audio>
       <Button
         className={`
-          text-secondary gap-x-1 h-6 px-0.5
-          text-base font-normal group
+          group
+          text-secondary
+          gap-x-1
+          h-6
+          px-0.5 py-0
+          text-base font-normal
           hover:text-secondary
           hover:bg-transparent
+          focus-visible:text-secondary
+          focus-visible:bg-transparent
         `}
         variant="ghost"
         onClick={onPlay}
@@ -35,7 +41,12 @@ function NamePronunciation() {
         /mikeˈlandʒelo/
         <Volume2Icon
           className={cn(
-            'text-muted-foreground group-hover:text-foreground transition-colors',
+            `
+              text-muted-foreground
+              transition-colors duration-base
+              group-hover:text-foreground
+              group-focus-visible:text-foreground
+            `,
             {
               'text-foreground': isPlaying
             }

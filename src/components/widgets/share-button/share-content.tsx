@@ -34,7 +34,7 @@ function ShareContent({ title, url }: ShareContentProps) {
         rel="noopener noreferrer"
       >
         <Button variant="ghost" size="icon" className="rounded-none">
-          <Icon></Icon>
+          <Icon />
         </Button>
       </a>
     )

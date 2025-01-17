@@ -10,12 +10,16 @@ const { quote, author = 'Anónimo', lang = 'es' } = Astro.props
 
 <blockquote
   class={`
-    relative w-screen
+    custom-blockquote
+    relative
+    w-screen
     left-1/2 right-1/2
     -ml-[50vw] -mr-[50vw]
     border-y
-    pt-6 pb-4 px-layout-px my-10
+    pt-6 pb-4 px-layout-px
+    my-10
     not-prose
+    bg-background/40 backdrop-blur-sm
   `}
 >
   <div class="max-w-md mx-auto px-4 xs:px-0">

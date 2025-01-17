@@ -1,33 +1,33 @@
-import { ActionError, defineAction } from 'astro:actions'
+import { defineAction } from 'astro:actions'
 import { z } from 'astro:schema'
-import { Resend } from 'resend'
 
-import { sleep } from '@/lib/utils'
+import { EMAIL } from '@/config'
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY)
+import { createContact, sendEmail } from '@/lib/email'
+import Welcome from '@/lib/email/templates/welcome'
 
 const newsletterSubscription = defineAction({
   input: z.object({
     email: z.string().email()
   }),
   handler: async ({ email }) => {
-    if (import.meta.env.DEV) {
-      await sleep(1000)
-      return '[dev] ok'
-    }
-
-    const { error } = await resend.contacts.create({
+    const respData = await createContact({
       audienceId: import.meta.env.RESEND_AUDIENCE_ID,
-      unsubscribed: false,
       email
     })
 
-    if (error) {
-      throw new ActionError({
-        code: 'BAD_REQUEST',
-        message: error.message
-      })
-    }
+    console.log('respData', respData)
+
+    const recommendedArticleUrl =
+      EMAIL.favoriteArticleUrls[
+        Math.floor(Math.random() * EMAIL.favoriteArticleUrls.length)
+      ]
+
+    await sendEmail({
+      reactTemplate: Welcome({ recommendedArticleUrl, contactId: respData.id }),
+      subject: '¡Gracias por suscribirte!',
+      to: email
+    })
 
     return { success: true }
   }
