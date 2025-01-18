@@ -1,6 +1,7 @@
 ---
-import { MoveRightIcon } from '@/icons'
 import type { CollectionEntry } from 'astro:content'
+
+import { ArrowUpRightIcon } from '@/icons'
 
 interface Props {
   article: CollectionEntry<'articles'>
@@ -61,7 +62,7 @@ const pubDateFormated = pubDate.toLocaleString('es', {
           group-focus-visible:-translate-x-16
         `}>{title}</span
       >
-      <MoveRightIcon
+      <ArrowUpRightIcon
         className={`
           text-foreground
           size-[1em]

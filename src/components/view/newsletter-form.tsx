@@ -25,12 +25,11 @@ function NewsletterForm() {
     setIsLoading(true)
 
     try {
-      // const { error } = await actions.newsletterSubscription({
-      //   email: value
-      // })
+      const { error } = await actions.newsletterSubscription({
+        email: value
+      })
 
-      // if (error) throw new Error()
-      await sleep(1500)
+      if (error) throw new Error()
 
       toast({
         title: 'Operación exitosa.',
