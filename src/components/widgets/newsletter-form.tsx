@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { actions } from 'astro:actions'
 
-import { LoaderCircleIcon, MailIcon } from '@/icons'
+import { MailIcon } from '@/icons'
 
-import { cn, sleep, validEmail } from '@/lib/utils'
+import { validEmail } from '@/lib/utils'
 
-import Button from '@/components/ui/button'
-import InputInlineAddOn from '@/components/ui/input/input-inline-add-on'
+import ButtonLoading from '@/components/ui/button-loading'
+import InputInlineAddOn from '@/components/ui/input-inline-add-on'
 import { useToast } from '@/components/ui/use-toast'
 
 function NewsletterForm() {
@@ -58,35 +58,9 @@ function NewsletterForm() {
         onChange={onChange}
         suffix={<MailIcon />}
       />
-      <Button
-        className="relative"
-        type="submit"
-        disabled={!isValid || !!isLoading}
-      >
-        <span
-          data-show={isLoading}
-          className={`
-            absolute
-            mx-auto
-            opacity-0
-            transition-all
-            data-[show=true]:animate-im-jump-in
-            data-[show=false]:animge-im-jump-out
-          `}
-        >
-          <LoaderCircleIcon className="animate-spin" />
-        </span>
-        <span
-          data-hidden={isLoading}
-          className={`
-            transition-all
-            data-[hidden=true]:animate-im-jump-out
-            data-[hidden=false]:animge-im-jump-in
-          `}
-        >
-          Suscribirse
-        </span>
-      </Button>
+      <ButtonLoading disabled={!isValid || !!isLoading} isLoading={isLoading}>
+        Suscribirse
+      </ButtonLoading>
     </form>
   )
 }

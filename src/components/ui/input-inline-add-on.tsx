@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-import Input from './index'
+import Input from '@/components/ui/input'
 
 export type InputInlineAddOnProps = Omit<
   React.ComponentProps<'input'>,

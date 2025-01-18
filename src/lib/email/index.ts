@@ -29,15 +29,15 @@ export async function createContact({
 
 export async function deleteContact({
   audienceId,
-  contactId
+  email
 }: {
   audienceId: string
-  contactId: string
+  email: string
 }) {
   try {
     const resp = await resend.contacts.remove({
       audienceId,
-      id: contactId
+      email
     })
 
     if (resp.error) throw resp.error.message

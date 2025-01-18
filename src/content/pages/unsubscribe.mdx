@@ -1,6 +1,11 @@
 import PageHeader from '@/components/view/PageHeader.astro'
+import UnsubscribeForm from '@/components/widgets/unsubscribe-form'
 
 <PageHeader
   title="Desuscribirse"
   subtitle="Ya no recibirás más correos sobre nuevos artículos"
 />
+
+<div className="max-w-md">
+  <UnsubscribeForm client:load />
+</div>

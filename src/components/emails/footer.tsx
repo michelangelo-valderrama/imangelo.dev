@@ -2,18 +2,13 @@ import { Hr, Link, Section, Column, Row } from '@react-email/components'
 
 import { EMAIL } from '@/config'
 
-function Footer({ contactId }: { contactId: string }) {
-  const unsubscribeUrl = EMAIL.unsubscribeUrl + '/' + contactId
-
+function Footer() {
   return (
     <Section>
       <Hr className="border-border" />
       <Row>
         <Column>
-          <Link
-            className="text-muted-foreground text-sm underline"
-            href={unsubscribeUrl}
-          >
+          <Link className="text-muted-foreground text-sm underline">
             desuscribirse
           </Link>
         </Column>

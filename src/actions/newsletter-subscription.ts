@@ -16,15 +16,13 @@ const newsletterSubscription = defineAction({
       email
     })
 
-    console.log('respData', respData)
-
     const recommendedArticleUrl =
       EMAIL.favoriteArticleUrls[
         Math.floor(Math.random() * EMAIL.favoriteArticleUrls.length)
       ]
 
     await sendEmail({
-      reactTemplate: Welcome({ recommendedArticleUrl, contactId: respData.id }),
+      reactTemplate: Welcome({ recommendedArticleUrl }),
       subject: '¡Gracias por suscribirte!',
       to: email
     })

@@ -4,12 +4,11 @@ import Root from '@/components/emails/root'
 
 interface Props {
   recommendedArticleUrl: string
-  contactId: string
 }
 
-function Welcome({ recommendedArticleUrl, contactId }: Props) {
+function Welcome({ recommendedArticleUrl }: Props) {
   return (
-    <Root contactId={contactId}>
+    <Root>
       <Heading className="text-xl text-accent-foreground" as="h1">
         ¡Gracias por suscribirte!
       </Heading>

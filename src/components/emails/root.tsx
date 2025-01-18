@@ -9,11 +9,9 @@ import {
 
 import Footer from './footer'
 
-interface RootProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  contactId: string
-}
+interface RootProps extends React.HtmlHTMLAttributes<HTMLDivElement> {}
 
-function Root({ contactId, children }: RootProps) {
+function Root({ children }: RootProps) {
   return (
     <Html lang="es">
       <Head>
@@ -51,7 +49,7 @@ function Root({ contactId, children }: RootProps) {
         <Body className="bg-background text-foreground font-sans">
           <Container className="pt-10 px-6 pb-8">
             {children}
-            <Footer contactId={contactId} />
+            <Footer />
           </Container>
         </Body>
       </Tailwind>
