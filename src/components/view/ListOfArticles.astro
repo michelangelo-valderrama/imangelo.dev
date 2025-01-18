@@ -25,7 +25,7 @@ const avaibleYears = Object.keys(articlesGroupedByYear).sort((a, b) => +b - +a)
 
     return (
       <section class="mt-8 first-of-type:mt-16">
-        <h2 class="mb-2">{year}</h2>
+        <h2 class="mb-2 text-sm">{year}</h2>
         <ul>
           {articles.map((article) => (
             <ArticleItem {article} />
