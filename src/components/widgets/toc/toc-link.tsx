@@ -24,6 +24,7 @@ const TocLink = React.forwardRef<HTMLAnchorElement, Props>(
             sm:text-sm
             data-[active=true]:text-foreground
             data-[active=true]:font-medium
+            focus-visible:opacity-100
           `,
           className
         )}

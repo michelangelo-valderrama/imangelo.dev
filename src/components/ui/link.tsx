@@ -10,8 +10,11 @@ const linkVariants = cva(
     transition-colors duration-base
     cursor-pointer
     text-muted-foreground
+    border-b
     hover:text-accent-foreground
-    border-b hover:border-accent-foreground
+    hover:border-accent-foreground
+    focus-visible:text-accent-foreground
+    focus-visible:border-accent-foreground
   `,
   {
     variants: {
