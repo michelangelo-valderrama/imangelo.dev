@@ -2,10 +2,11 @@
 interface Props {
   quote: string
   author?: string
+  source?: string
   lang?: string
 }
 
-const { quote, author = 'Anónimo', lang = 'es' } = Astro.props
+const { quote, author = 'Anónimo', source, lang = 'es' } = Astro.props
 ---
 
 <blockquote
@@ -22,9 +23,21 @@ const { quote, author = 'Anónimo', lang = 'es' } = Astro.props
     bg-background/40 backdrop-blur-sm
   `}
 >
-  <div class="max-w-md mx-auto px-4 xs:px-0">
-    <p {lang} class="quote"><em>{quote}</em></p>
-    <p class="author">— {author}</p>
+  <div class="max-w-lg mx-auto px-4 xs:px-0">
+    <p {lang} class="quote">
+      <em>
+        {quote}
+      </em>
+    </p>
+    {
+      source ? (
+        <p class="author">
+          — {author}, <em>{source}</em>
+        </p>
+      ) : (
+        <p class="author">— {author}</p>
+      )
+    }
   </div>
 </blockquote>
 

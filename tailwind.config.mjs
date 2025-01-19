@@ -9,7 +9,8 @@ export default {
         center: true,
         padding: 'var(--im-layout-px)',
         screens: {
-          xs: '568px'
+          xs: '564px',
+          view: '614px'
         }
       },
       colors: {
@@ -137,7 +138,8 @@ export default {
           'im-jump-out var(--im-duration-base) var(--im-timing-fn) forwards'
       },
       screens: {
-        xs: 'var(--im-screen-xs)'
+        xs: 'var(--im-screen-xs)',
+        view: 'var(--im-screen-view)'
       },
       fontFamily: {
         sans: 'var(--im-sans)',

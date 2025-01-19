@@ -46,12 +46,13 @@
   --im-radius-md: calc(var(--im-radius-lg) - 2px);
   --im-radius-sm: calc(var(--im-radius-lg) - 4px);
 
-  --im-layout-px: 2rem;
+  --im-layout-px: 32px;
 
   --im-sans: 'Inter Variable', sans-serif;
   --im-mono: 'Fira Code Variable', monospace;
 
-  --im-screen-xs: 568px;
+  --im-screen-xs: 564px;
+  --im-screen-view: 614px;
 
   --im-timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
 

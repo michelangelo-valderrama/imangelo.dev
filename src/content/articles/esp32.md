@@ -42,7 +42,7 @@ El ESP32 es solo el chip, pero también hace referencia a toda la serie (o famil
 
 Debido a que hay muchas placas, es normal abrumarse un poco. La recomendable para principiantes es **DOIT Esp32 DevKit v1** (ESP-WROOM-32). Aunque, seguramente os valga cualquiera que se parezca a esto:
 
-![Fotografía de una placa de desarrollo ESP32](/images/articles/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32/fotografia-de-una-placa-de-desarrollo-esp32.png)
+![Fotografía de una placa de desarrollo ESP32](@/assets/articles/fotografia-de-una-placa-de-desarrollo-esp32.png)
 
 ## ¿Cómo programar en el ESP32?
 
@@ -97,9 +97,9 @@ Ahora sigue estos pasos para instalar el ESP32 en Arduino IDE:
    ```
    https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
    ```
-   ![Menú Preferences de Arduino IDE](/images/articles/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32/menu-preferences-de-arduino-ide.png)
+   ![Menú Preferences de Arduino IDE](@/assets/articles/menu-preferences-de-arduino-ide.png)
 3. Ahora haz click en el icono **Boards Manager** en el panel de navegación izquierdo, busca **esp32** e instala **esp32 by Expressif Systems**:
-   ![Menú Boards Manager de Arduino IDE](/images/articles/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32/menu-boards-manager-de-arduino-ide.png)
+   ![Menú Boards Manager de Arduino IDE](@/assets/articles/menu-boards-manager-de-arduino-ide.png)
 4. Después de instalarlo, reinicia Arduno IDE.
 
 Ahora, ve a **Tools > Boards** y comprueba que tengas disponible **esp32**.
@@ -110,7 +110,7 @@ Para comprobar que todo ha ido bien, hay que subir un programa al ESP32. Para es
 
 1. Selecciona tu placa en el menu desplegable, al lado del check y la flecha, y haz click en **Select other board and port...**
 2. En **BOARDS**, busca el modelo de tu placa ESP32, en mi caso es **ESP32 DEV MODULE**. También hay que seleccionar el puerto:
-   ![Seleccionar el modelo de la placa y el puerto](/images/articles/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32/seleccionar-el-modelo-de-la-placa-el-puerto.png)
+   ![Seleccionar el modelo de la placa y el puerto](@/assets/articles/seleccionar-el-modelo-de-la-placa-el-puerto.png)
 
 Dale a **OK** y pega el siguiente código en el editor:
 
@@ -138,7 +138,7 @@ void loop() {
 ```
 
 Dale al botón **Upload** para compilar programa y enviarlo al ESP32:
-![Botón Upload de Arduino IDE](/images/articles/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32/boton-upload-de-arduino-ide.png)
+![Botón Upload de Arduino IDE](@/assets/articles/boton-upload-de-arduino-ide.png)
 
 > Si al intentar subir el programa te salta el error:
 >
