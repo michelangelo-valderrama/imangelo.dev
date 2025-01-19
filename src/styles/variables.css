@@ -52,7 +52,7 @@
   --im-mono: 'Fira Code Variable', monospace;
 
   --im-screen-xs: 564px;
-  --im-screen-view: 614px;
+  --im-screen-view: var(--im-screen-xs);
 
   --im-timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
 

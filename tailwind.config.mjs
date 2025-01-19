@@ -10,7 +10,7 @@ export default {
         padding: 'var(--im-layout-px)',
         screens: {
           xs: '564px',
-          view: '614px'
+          view: '564px'
         }
       },
       colors: {
