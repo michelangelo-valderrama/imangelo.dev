@@ -1,11 +1,16 @@
 ---
+import { SITE } from '@/config'
+
 import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
+
 import RenderMD from '@/components/view/RenderMD.astro'
+import CommonSeo from '@/components/seo/CommonSeo.astro'
 ---
 
 <Root>
+  <CommonSeo slot="head" title={`Newsletter | ${SITE.title}`} robots="none" />
   <Main>
     <Markdown>
       <RenderMD slug="unsubscribe" />

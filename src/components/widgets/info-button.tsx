@@ -25,6 +25,7 @@ function InfoLine({
 }
 
 export interface InfoButtonProps {
+  pubDate?: Date
   lastModDate?: Date
   coverCredits?: string
   category?: string
@@ -54,6 +55,12 @@ function InfoButton(props: InfoButtonProps) {
         title: 'Imagen',
         content: value
       })
+    } else if (key === 'pubDate' && props[key]) {
+      const value = props[key]
+      infoLines.push({
+        title: 'Publicado',
+        content: formatDate(value)
+      })
     } else if (key === 'lastModDate' && props[key]) {
       const value = props[key]
       infoLines.push({
@@ -65,11 +72,11 @@ function InfoButton(props: InfoButtonProps) {
       infoLines.push({
         title: 'Etiquetas',
         content: (
-          <div className="gap-y-1.5 grid grid-cols-1">
-            {value.map((_, index) => (
+          <div className="gap-y-1.5 grid grid-cols-1 text-right">
+            {value.map((tag, index) => (
               <span key={index}>
                 <span className="text-muted-foreground">#</span>
-                matemáticas
+                {tag}
               </span>
             ))}
           </div>

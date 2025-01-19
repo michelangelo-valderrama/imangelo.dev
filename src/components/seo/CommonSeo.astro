@@ -1,0 +1,44 @@
+---
+import { SITE, AUTHOR, BANNER } from '@/config'
+
+import BaseSeo from './core/BaseSeo.astro'
+import Twitter from './core/Twitter.astro'
+import OpenGraph from './core/OpenGraph.astro'
+
+interface Props {
+  title?: string
+  description?: string
+  robots?: string
+  image?: {
+    src?: string | URL
+    alt?: string
+    width?: number
+    height?: number
+  }
+}
+
+const { title, description, robots, image } = Astro.props
+---
+
+<BaseSeo
+  title={title ?? SITE.title}
+  description={description ?? SITE.description}
+  robots={robots}
+/>
+
+<Twitter
+  {title}
+  {description}
+  site={AUTHOR.twitter}
+  image={image ?? BANNER}
+  creator={AUTHOR.twitter}
+  card="summary_large_image"
+/>
+<OpenGraph
+  {title}
+  {description}
+  type="website"
+  locale={SITE.lang}
+  siteName={SITE.title}
+  image={image ?? BANNER}
+/>

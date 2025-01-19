@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import { AUTHOR, BANNER, SITE } from '@/config'
+
+import ArticleSchema from './schemas/ArticleSchema.astro'
+import BreadcrumbSchema from './schemas/BreadcrumbSchema.astro'
+import PostSchema from './schemas/PostSchema.astro'
+import CommonSeo from './CommonSeo.astro'
+
+interface Props {
+  article: CollectionEntry<'articles'>
+  imageSrc?: string
+}
+
+const {
+  article: { data },
+  imageSrc
+} = Astro.props
+
+let articleImage:
+  | {
+      src: string
+      width: number
+      height: number
+      alt: string
+    }
+  | undefined = undefined
+
+if (data.cover) {
+  articleImage = {
+    src: data.cover.src,
+    width: data.cover.width,
+    height: data.cover.height,
+    alt: data.title
+  }
+}
+---
+
+<CommonSeo
+  title={`${data.title} | ${SITE.title}`}
+  description={data.description}
+  image={articleImage}
+/>
+
+<meta property="article:publisher" content={Astro.site} />
+<meta property="article:author" content={AUTHOR.fullName} />
+{
+  data.tags
+    ? data.tags.map((tag: string) => (
+        <meta property="article:tag" content={tag} />
+      ))
+    : null
+}
+<meta property="article:published_time" content={data.pubDate.toString()} />
+<meta
+  property="article:modified_time"
+  content={(data.lastModDate ?? data.pubDate).toString()}
+/>
+
+<PostSchema
+  title={data.title}
+  description={data.description}
+  imageSrc={imageSrc ?? BANNER.src}
+  pubDate={data.pubDate}
+  modDate={data.lastModDate}
+/>
+<ArticleSchema
+  title={data.title}
+  imageSrc={imageSrc ?? BANNER.src}
+  pubDate={data.pubDate}
+  modDate={data.lastModDate}
+/>
+<BreadcrumbSchema title={data.title} />

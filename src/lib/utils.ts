@@ -114,9 +114,9 @@ export function downloadBlob(blob: Blob, filename: string) {
 }
 
 export function formatDate(date: Date) {
-  return date.toLocaleDateString('es-ES', {
+  return Intl.DateTimeFormat('es-ES', {
     day: '2-digit',
     month: 'short',
     year: 'numeric'
-  })
+  }).format(date)
 }

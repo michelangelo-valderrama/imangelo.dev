@@ -1,7 +1,7 @@
 ---
 title: Las matemáticas no son una ciencia
-description: Meta description...
-pubDate: 2023-09-12
+description: Definiendo el método científico, la ciencia y las matemáticas para desmentir la creencia de que estas son una ciencia.
+pubDate: 2023-03-23
 category: metafísica
 tags:
   - matemáticas

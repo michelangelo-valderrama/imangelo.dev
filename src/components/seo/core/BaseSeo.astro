@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string
+  description: string
+  canonical?: string
+  robots?: string
+}
+
+const { title, description, canonical, robots = 'index, follow' } = Astro.props
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+<link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+
+<link rel="canonical" href={canonical ?? Astro.url.href} />
+
+<meta name="robots" content={robots} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="RSS Feed de imangelo.dev"
+  href="/rss.xml"
+/>
+
+<title>{title}</title>
+<meta name="description" content={description} />

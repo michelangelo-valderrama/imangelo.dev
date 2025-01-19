@@ -1,0 +1,16 @@
+---
+import { SITE } from '@/config'
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: SITE.url,
+  name: SITE.title
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(webSiteSchema)}
+/>

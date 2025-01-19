@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@id': Astro.url,
+        name: title
+      }
+    }
+  ]
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

@@ -1,0 +1,23 @@
+---
+import { AUTHOR, SITE, SOCIAL, BANNER } from '@/config'
+
+const personSchema = {
+  '@context': 'https://schema.org/',
+  '@type': 'Person',
+  name: AUTHOR.fullName,
+  url: SITE.url,
+  image: BANNER.src,
+  sameAs: Object.values(SOCIAL),
+  jobTitle: AUTHOR.jobTitle,
+  worksFor: {
+    '@type': 'Organization',
+    name: AUTHOR.workCompany
+  }
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(personSchema)}
+/>

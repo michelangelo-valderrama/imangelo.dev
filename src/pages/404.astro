@@ -1,11 +1,15 @@
 ---
-import RenderMD from '@/components/view/RenderMD.astro'
+import { SITE } from '@/config'
 import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
 import Root from '@/layouts/Root.layout.astro'
+
+import CommonSeo from '@/components/seo/CommonSeo.astro'
+import RenderMD from '@/components/view/RenderMD.astro'
 ---
 
 <Root>
+  <CommonSeo slot="head" title={`404 | ${SITE.title}`} robots="none" />
   <Main>
     <Markdown>
       <RenderMD slug="404" />

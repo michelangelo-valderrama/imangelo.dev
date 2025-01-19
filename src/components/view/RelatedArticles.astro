@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content'
+
+import ArticleItem from '@/components/view/ArticleItem.astro'
+
+interface Props {
+  category?: string
+  pubDate: Date
+  slug: string
+}
+
+const { category, slug, pubDate } = Astro.props
+
+const relatedArticles = !category
+  ? []
+  : (
+      await getCollection(
+        'articles',
+        (article) =>
+          !article.data.isDraft &&
+          article.data.category === category &&
+          article.slug !== slug &&
+          article.data.pubDate < pubDate
+      )
+    )
+      .sort((a, b) => {
+        return a.data.pubDate - b.data.pubDate
+      })
+      .slice(0, 3)
+---
+
+{
+  relatedArticles.length ? (
+    <aside class="mb-12">
+      <h2 class="mb-3">Relacionado</h2>
+      <ul>
+        {relatedArticles.map((article) => (
+          <ArticleItem {article} />
+        ))}
+      </ul>
+    </aside>
+  ) : null
+}

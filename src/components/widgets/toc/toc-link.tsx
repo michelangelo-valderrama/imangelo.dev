@@ -17,9 +17,14 @@ const TocLink = React.forwardRef<HTMLAnchorElement, Props>(
         href={`#${slug}`}
         className={cn(
           `
-          sm:text-sm border-none text-wrap my-1 sm:my-0.5
-          data-[active=true]:text-foreground data-[active=true]:font-medium
-        `,
+            border-none
+            text-wrap
+            my-1
+            sm:my-0.5
+            sm:text-sm
+            data-[active=true]:text-foreground
+            data-[active=true]:font-medium
+          `,
           className
         )}
         {...props}

@@ -9,19 +9,21 @@ import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
 import Markdown from '@/layouts/Markdown.layout.astro'
 
-import RelatedArticles from '@/components/article/RelatedArticles.astro'
-import ArticleWidgets from '@/components/article/ArticleWidgets.astro'
-import ArticleActions from '@/components/article/ArticleActions.astro'
-
+import RelatedArticles from '@/components/view/RelatedArticles.astro'
+import ArticleActions from '@/components/view/ArticleActions.astro'
 import PageHeader from '@/components/view/PageHeader.astro'
+import ArticleWidgets from '@/components/widgets/ArticleWidgets.astro'
+import ArticleSeo from '@/components/seo/ArticleSeo.astro'
 
 export const getStaticPaths = (async () => {
   const articles = await getFilteredPosts('articles')
 
-  return articles.map((article) => ({
-    params: { slug: article.slug },
-    props: { article }
-  }))
+  return articles.map((article) => {
+    return {
+      params: { article: article.slug },
+      props: { article }
+    }
+  })
 }) satisfies GetStaticPaths
 
 interface Props {
@@ -40,6 +42,7 @@ const pubDateFormatted = formatDate(pubDate)
 ---
 
 <Root>
+  <ArticleSeo slot="head" article={article} imageSrc={cover?.src} />
   <Main class="pb-24">
     <ArticleWidgets {headings} {title} />
     <PageHeader title={title} subtitle={pubDateFormatted} subtitleDate={true}>
@@ -53,11 +56,12 @@ const pubDateFormatted = formatDate(pubDate)
         url={Astro.url.toString()}
         slug={slug}
         coverCredits={cover?.credits}
+        {pubDate}
         {lastModDate}
         {category}
         {tags}
       />
-      <RelatedArticles {category} slug={article.slug} />
+      <RelatedArticles {pubDate} {category} slug={article.slug} />
     </div>
   </Main>
 </Root>

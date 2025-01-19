@@ -1,0 +1,49 @@
+---
+import { AUTHOR, SITE } from '@/config'
+
+interface Props {
+  title: string
+  description: string
+  imageSrc: string
+  pubDate: Date
+  modDate?: Date
+}
+
+const { description, imageSrc, modDate, pubDate, title } = Astro.props
+
+const postSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': Astro.url,
+    name: SITE.url
+  },
+  headline: title,
+  description: description,
+  image: [imageSrc],
+  datePublished: pubDate,
+  dateModified: modDate ?? pubDate,
+  author: [
+    {
+      '@type': 'Person',
+      name: AUTHOR.fullName,
+      url: Astro.site
+    }
+  ],
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.title,
+    logo: {
+      '@type': 'ImageObject',
+      url: imageSrc
+    }
+  }
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(postSchema)}
+/>

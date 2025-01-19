@@ -144,9 +144,9 @@ export default {
         mono: 'var(--im-mono)'
       },
       borderRadius: {
-        lg: 'calc(var(--im-radius) + 2px)',
-        md: 'var(--im-radius)',
-        sm: 'calc(var(--im-radius) - 2px)'
+        lg: 'var(--im-radius-lg)',
+        md: 'var(--im-radius-md)',
+        sm: 'var(--im-radius-sm)'
       },
       padding: {
         'layout-px': 'var(--im-layout-px)'

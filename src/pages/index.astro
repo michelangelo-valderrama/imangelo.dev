@@ -6,9 +6,11 @@ import Markdown from '@/layouts/Markdown.layout.astro'
 import RenderMD from '@/components/view/RenderMD.astro'
 
 import ListOfArticles from '@/components/view/ListOfArticles.astro'
+import CommonSeo from '@/components/seo/CommonSeo.astro'
 ---
 
 <Root>
+  <CommonSeo slot="head" />
   <Main>
     <Markdown>
       <RenderMD slug="home" />

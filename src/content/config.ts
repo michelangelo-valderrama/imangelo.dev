@@ -7,8 +7,8 @@ const articles = defineCollection({
     description: z.string().max(350),
     pubDate: z.date(),
     lastModDate: z.date().optional(),
-    category: z.string(),
-    tags: z.string().array(),
+    category: z.string().optional(),
+    tags: z.string().array().optional(),
     isDraft: z.boolean().default(true),
     cover: z
       .object({

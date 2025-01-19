@@ -42,7 +42,10 @@
   --im-border: 60 1% 92%;
   --im-ring: 60 1% 80% / 0.6;
 
-  --im-radius: 0.35rem;
+  --im-radius-lg: 0.4rem;
+  --im-radius-md: calc(var(--im-radius-lg) - 2px);
+  --im-radius-sm: calc(var(--im-radius-lg) - 4px);
+
   --im-layout-px: 2rem;
 
   --im-sans: 'Inter Variable', sans-serif;
@@ -55,4 +58,12 @@
   --im-duration-lg: 0.3s;
   --im-duration-base: calc(var(--im-duration-lg) - 0.1s);
   --im-duration-sm: calc(var(--im-duration-lg) - 0.2s);
+
+  --im-ec-background-contrast: var(--im-background-contrast);
+  --im-ec-foreground: var(--im-foreground);
+  --im-ec-border: var(--im-border);
+  --im-ec-accent: var(--im-accent);
+  --im-ec-muted: var(--im-muted);
+  --im-ec-muted-foreground: var(--im-muted-foreground);
+  --im-ec-inline-extension: 32px;
 }

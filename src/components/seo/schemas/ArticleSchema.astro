@@ -1,0 +1,34 @@
+---
+import { AUTHOR } from '@/config'
+
+interface Props {
+  title: string
+  imageSrc: string
+  pubDate: Date
+  modDate?: Date
+}
+
+const { imageSrc, modDate, pubDate, title } = Astro.props
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  image: [imageSrc],
+  datePublished: pubDate,
+  dateModified: modDate ?? pubDate,
+  author: [
+    {
+      '@type': 'Person',
+      name: AUTHOR.fullName,
+      url: Astro.site
+    }
+  ]
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(articleSchema)}
+/>

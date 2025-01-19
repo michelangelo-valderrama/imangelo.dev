@@ -12,30 +12,40 @@ const {
   slug
 } = Astro.props.article
 
-const pubDateFormated = pubDate.toLocaleString('es', {
+const pubDateFormated = Intl.DateTimeFormat('es', {
   day: '2-digit',
   month: 'short'
-})
+}).format(pubDate)
 ---
 
 <li
   class={`
     relative
-    border-y border-b-transparent
     last-of-type:border-b-border
     w-screen
     left-1/2 right-1/2
     -ml-[50vw] -mr-[50vw]
     sm:w-auto
-    sm:left-auto sm:right-auto
-    sm:mx-auto sm:px-0
+    sm:left-auto
+    sm:right-auto
+    sm:mx-auto
+    sm:px-0
+    border-y border-b-transparent
     hover:border-y-foreground
     focus-visible:border-y-foreground
     last-of-type:hover:border-b-foreground
     last-of-type:focus-visible:border-b-foreground
   `}
 >
-  <a href={'/articles/' + slug} class="py-2 px-layout-px sm:px-0 block group">
+  <a
+    href={`/${slug}`}
+    class={`
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    `}
+  >
     <p class="flex items-center relative">
       <time
         datetime={pubDate.toString()}

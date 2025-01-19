@@ -11,12 +11,16 @@ import { remarkPlugins, rehypePlugins } from './plugins'
 
 import db from '@astrojs/db'
 
+const SITE = 'https://imangelo.dev'
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://imangelo.dev',
+  site: SITE,
   output: 'hybrid',
   integrations: [
-    sitemap(/*TODO*/),
+    sitemap({
+      filter: (page) => page !== `${SITE}/404`
+    }),
     react(),
     tailwind(),
     expressiveCode(),
