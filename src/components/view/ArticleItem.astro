@@ -2,13 +2,14 @@
 import type { CollectionEntry } from 'astro:content'
 
 import { ArrowUpRightIcon } from '@/icons'
+import { cn } from '@/lib/utils'
 
 interface Props {
   article: CollectionEntry<'articles'>
 }
 
 const {
-  data: { title, pubDate },
+  data: { title, pubDate, isDraft },
   slug
 } = Astro.props.article
 
@@ -19,23 +20,28 @@ const pubDateFormated = Intl.DateTimeFormat('es', {
 ---
 
 <li
-  class={`
-    relative
-    last-of-type:border-b-border
-    w-screen
-    left-1/2 right-1/2
-    -ml-[50vw] -mr-[50vw]
-    sm:w-auto
-    sm:left-auto
-    sm:right-auto
-    sm:mx-auto
-    sm:px-0
-    border-y border-b-transparent
-    hover:border-y-foreground
-    focus-visible:border-y-foreground
-    last-of-type:hover:border-b-foreground
-    last-of-type:focus-visible:border-b-foreground
-  `}
+  class={cn(
+    `
+      relative
+      last-of-type:border-b-border
+      w-screen
+      left-1/2 right-1/2
+      -ml-[50vw] -mr-[50vw]
+      sm:w-auto
+      sm:left-auto
+      sm:right-auto
+      sm:mx-auto
+      sm:px-0
+      border-y border-b-transparent
+      hover:border-y-foreground
+      focus-visible:border-y-foreground
+      last-of-type:hover:border-b-foreground
+      last-of-type:focus-visible:border-b-foreground
+    `,
+    {
+      'border-r-2 border-r-secondary': isDraft
+    }
+  )}
 >
   <a
     href={`/${slug}`}

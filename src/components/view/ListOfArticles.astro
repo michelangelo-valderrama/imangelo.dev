@@ -3,10 +3,7 @@ import { getCollection } from 'astro:content'
 import ArticleItem from './ArticleItem.astro'
 import { groupBy } from '@/lib/utils'
 
-const articlesCollection = await getCollection(
-  'articles',
-  (article) => !article.data.isDraft
-)
+const articlesCollection = await getCollection('articles')
 
 const articlesGroupedByYear = groupBy(
   articlesCollection,
@@ -14,6 +11,8 @@ const articlesGroupedByYear = groupBy(
 )
 
 const avaibleYears = Object.keys(articlesGroupedByYear).sort((a, b) => +b - +a)
+
+const isProd = import.meta.env.PROD
 ---
 
 {
@@ -23,13 +22,18 @@ const avaibleYears = Object.keys(articlesGroupedByYear).sort((a, b) => +b - +a)
 
     if (!articles) return null
 
+    const articlesSorted = articles.sort(
+      (a, b) => b.data.pubDate - a.data.pubDate
+    )
+
     return (
       <section class="mt-8 first-of-type:mt-16">
         <h2 class="mb-2 text-sm">{year}</h2>
         <ul>
-          {articles.map((article) => (
-            <ArticleItem {article} />
-          ))}
+          {articlesSorted.map((article) => {
+            if (isProd && article.data.isDraft) return null
+            return <ArticleItem {article} />
+          })}
         </ul>
       </section>
     )

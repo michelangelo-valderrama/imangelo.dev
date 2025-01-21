@@ -19,6 +19,7 @@ Como es de esperar, no tengo ni idea de estas cosas, pero os quiero transmitir u
 
 El **ESP32** es una serie de _microcontroladores SoC_ (system-on-chip) de bajo coste y bajo consumo energético con WIFI y Bluetooth modo dual integrados. Actualmente son creados y desarrollados por la empresa china **Expressif Systems**.
 
+> [!info]
 > Un **SoC** es un circuito integrado que integra (valga a redundancia), la mayor parte de los componentes de un ordenador (CPU, memoria, GPU...). Además, pueden enviar y recibir señales **digitales** y **analógicas**, incluso señales de radio. La famosa serie de chips **Apple Silicon** son SoC basados (en su mayoría) en la arquitectura **ARM**.
 
 Esta seria es la sucesora del **ESP8266**. Es mejor en todo y viene con Bluetooth integrado. El ESP32 cuesta un poco más, pero sigue siendo barato.
@@ -42,13 +43,14 @@ El ESP32 es solo el chip, pero también hace referencia a toda la serie (o famil
 
 Debido a que hay muchas placas, es normal abrumarse un poco. La recomendable para principiantes es **DOIT Esp32 DevKit v1** (ESP-WROOM-32). Aunque, seguramente os valga cualquiera que se parezca a esto:
 
-![Fotografía de una placa de desarrollo ESP32](@/assets/articles/fotografia-de-una-placa-de-desarrollo-esp32.png)
+![Fotografía de una placa de desarrollo ESP32](@/assets/articles/esp32/fotografia-de-una-placa-de-desarrollo-esp32.png)
 
 ## ¿Cómo programar en el ESP32?
 
 Como ya mencioné antes, el ESP32 se puede programar con el Arduino IDE usando **C++** o **Micropython**. También se puede usar **VSCode**, pero me parece que lo más fácil es usar Arduino IDE tengas o no experiencia con Arduino.
 
-> Yo uso una distribución Linux, **Pop!\_OS** (no por nada, simplemente porque quería probar algo diferente a Ubuntu). Los pasos deberían ser los mismos para otras distribuciones basadas en Debian, pero si usas otro sistema operativo, te recomiendo ojear otros tutoriales, aunque aquí comento un error que solucioné y creo es común.
+> [!note]
+> Yo uso la distribución Linux **Pop!\_OS** (no por nada, simplemente porque quería probar algo diferente a Ubuntu). Los pasos deberían ser los mismos para otras distribuciones basadas en Debian, pero si usas otro sistema operativo, te recomiendo ojear otros tutoriales, aunque aquí comento un error que solucioné y creo es común.
 
 ### Instalar Arduino IDE
 
@@ -97,9 +99,9 @@ Ahora sigue estos pasos para instalar el ESP32 en Arduino IDE:
    ```
    https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
    ```
-   ![Menú Preferences de Arduino IDE](@/assets/articles/menu-preferences-de-arduino-ide.png)
+   ![Menú Preferences de Arduino IDE](@/assets/articles/esp32/menu-preferences-de-arduino-ide.png)
 3. Ahora haz click en el icono **Boards Manager** en el panel de navegación izquierdo, busca **esp32** e instala **esp32 by Expressif Systems**:
-   ![Menú Boards Manager de Arduino IDE](@/assets/articles/menu-boards-manager-de-arduino-ide.png)
+   ![Menú Boards Manager de Arduino IDE](@/assets/articles/esp32/menu-boards-manager-de-arduino-ide.png)
 4. Después de instalarlo, reinicia Arduno IDE.
 
 Ahora, ve a **Tools > Boards** y comprueba que tengas disponible **esp32**.
@@ -110,7 +112,7 @@ Para comprobar que todo ha ido bien, hay que subir un programa al ESP32. Para es
 
 1. Selecciona tu placa en el menu desplegable, al lado del check y la flecha, y haz click en **Select other board and port...**
 2. En **BOARDS**, busca el modelo de tu placa ESP32, en mi caso es **ESP32 DEV MODULE**. También hay que seleccionar el puerto:
-   ![Seleccionar el modelo de la placa y el puerto](@/assets/articles/seleccionar-el-modelo-de-la-placa-el-puerto.png)
+   ![Seleccionar el modelo de la placa y el puerto](@/assets/articles/esp32/seleccionar-el-modelo-de-la-placa-el-puerto.png)
 
 Dale a **OK** y pega el siguiente código en el editor:
 
@@ -138,8 +140,9 @@ void loop() {
 ```
 
 Dale al botón **Upload** para compilar programa y enviarlo al ESP32:
-![Botón Upload de Arduino IDE](@/assets/articles/boton-upload-de-arduino-ide.png)
+![Botón Upload de Arduino IDE](@/assets/articles/esp32/boton-upload-de-arduino-ide.png)
 
+> [!warning]
 > Si al intentar subir el programa te salta el error:
 >
 > ```
