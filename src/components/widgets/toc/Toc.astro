@@ -12,7 +12,7 @@ interface Props {
 const { headings, title } = Astro.props
 ---
 
-<div class="ml-8 max-w-48">
+<article class="ml-8 max-w-48">
   <ul class="pointer-events-auto">
     <li class="mb-3">
       <TocLink
@@ -28,7 +28,7 @@ const { headings, title } = Astro.props
     </li>
     <TocContent {headings} />
   </ul>
-</div>
+</article>
 
 <script>
   import { $$ } from '@/lib/dom'

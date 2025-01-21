@@ -14,7 +14,7 @@ En este artículo, simplemente reflexiono sobre algunas de mis obras favoritas d
 
 Hace unos años, por razones que no recuerdo con exactitud, comencé a seguir a Alexelcapo. Este señor habla extensamente sobre gran variedad de temas, pero particularmente me interesaba cuando hablaba sobre videojuegos, cine y literatura. Ya estaba inmerso en el mundo del cine y los videojuegos, y había incursionado un poco en la lectura gracias a Orwell. Aunque me encantó _1984_, todavía no había adquirido el hábito de leer de forma regular. En uno de sus directos, Alejandro el Capo recomendó _La última pregunta_, así que decidí echarle un vistazo.
 
-#### La última pregunta
+## La última pregunta
 
 _La última pregunta_ es, casi por consenso, la mejor historia corta de ciencia ficción escrita por Asimov. Se centra, como se puede intuir, en una pregunta: **¿sería posible revertir la entropía?**
 
@@ -24,7 +24,7 @@ Durante millones de años, esta pregunta se formula una y otra vez de diferentes
 
 Años después y tras múltiples relecturas, este final sigue provocándome escalofríos. La idea de que la capacidad de revertir la entropía lleve a la idea de Dios es impactante.
 
-#### Yo, Robot
+## Yo, Robot
 
 Este libro es una recopilación de diferentes historias de Asimov, todas ellas ambientadas en un mismo universo. Hay más historias en las que aparece Susan Calvin, pero no están incluidas en esta recopilación. Recuerdo una en la que un robot parece enamorarse de una mujer, pero se cuestiona si son sentimientos genuinos o si el robot los finge para cumplir el deseo de su dueña.
 
@@ -32,7 +32,7 @@ _Yo, Robot_ también fue adaptada a película, protagonizada por Will Smith. La 
 
 Asimov tenía un gran sentido del humor, y esto se refleja en sus obras. _Yo, Robot_ es bastante divertido, pero también profundiza en ideas fascinantes, como en "Razón", donde el mejor dúo de ingenieros del mundo, Mike Donovan y Gregory Powell, crean un robot destinado a reemplazarlos en el trabajo de dirigir una estación espacial encargada de enviar energía a la Tierra. El robot es puramente racional y, siguiendo sus postulados (como que ningún ser puede crear un ser mejor que él mismo), no cree que Donovan y Powell lo hayan creado, ni que el punto luminoso que ven a lo lejos sea un planeta con billones de habitantes llamado Tierra. A través de la razón, llega a una especie de fe en que el transformador de energía, el Señor, lo creó, y son sus postulados los que le permite responder a las contradicciones planteadas por Donovan y Powell sobre su fe. Al final, el robot es perfecto para dirigir la estación y enviar energía a la Tierra, no porque esté convencido de la existencia del planeta, sino porque así se lo dicta el Señor. Esta historia, en la era actual de la inteligencia artificial, me recuerda cómo, al entrenar una IA para, por ejemplo, reconocer rostros humanos, esta crea “parámetros” o dimensiones para clasificar lo que es y lo que no es un rostro humano. Estos parámetros pueden estar muy alejados de nuestra concepción humana de lo que deberían ser. Dependen de cómo se haya entrenado la IA y suelen diferir mucho de nuestras abstracciones conceptuales. Esto es lo que ocurre con el robot de la historia: cumple su tarea de suministrar energía a la Tierra a través de un rayo láser, pero lo hace siguiendo su propio pensamiento, dictado por el Señor.
 
-#### Yo, Asimov
+## Yo, Asimov
 
 Este libro son las memorias de Asimov. Mientras estaba en el hospital debido a un problema de salud del que no estaba seguro de poder recuperarse, hizo lo que siempre había deseado hacer: escribir. _Yo, Asimov_ no es una autobiografía, ya que Asimov ya había escrito una, sino un recorrido por sus pensamientos, ideas y anécdotas a lo largo de casi toda su vida. Me encantan las biografías, ya que me inspira conocer la vida de otras personas y eso también me ayuda a entender mejor la mía.
 

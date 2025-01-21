@@ -39,12 +39,13 @@ const {
 } = article
 
 const pubDateFormatted = formatDate(pubDate)
+const tocTitle = title.split(':')[0]
 ---
 
 <Root>
   <ArticleSeo slot="head" article={article} imageSrc={cover?.src} />
   <Main currentPage="Artículo" class="pb-24">
-    <ArticleWidgets {headings} {title} />
+    <ArticleWidgets {headings} title={tocTitle} />
     <PageHeader title={title} subtitle={pubDateFormatted} subtitleDate={true}>
       {!cover ? null : <Image {...cover} alt={title} class="mt-6 mb-18" />}
     </PageHeader>
