@@ -7,15 +7,16 @@
 }
 
 .prose blockquote:not(.custom-blockquote) {
-  border-inline-start: 2px solid hsl(var(--im-secondary) / 0.6);
+  border-inline-start: var(--im-callout-border) hsl(var(--im-secondary) / 0.6);
   background-color: hsl(var(--im-secondary) / 0.04);
   padding-block: 1rem;
   margin-inline: calc(var(--im-layout-px) * -1);
   padding-inline: var(--im-layout-px);
   quotes: none;
   font-weight: 400;
+  border-radius: 0 var(--im-radius-lg) var(--im-radius-lg) 0;
 
-  --im-ec-inline-extension: 14px;
+  --im-code-block-inline-extension: 14px;
 
   p:last-child {
     margin-block-end: 0;
@@ -239,18 +240,19 @@
 /* callouts */
 .callout {
   position: relative;
-  border-inline-start: 2px solid hsl(var(--callout-color-light));
+  border-inline-start: var(--im-callout-border) hsl(var(--callout-color-light));
   border-radius: 0 var(--im-radius-lg) var(--im-radius-lg) 0;
   background-color: hsl(var(--callout-color-light) / 0.1);
   color: hsl(var(--im-foreground) / 0.9);
 
   margin-block: 2rem 1.5rem;
 
-  padding: 1.5rem;
+  padding-block: 1.25rem 1.5rem;
   padding-inline-start: 23px;
+  padding-inline-end: var(--im-callout-inline-extension);
 
-  left: -24px;
-  width: calc(100% + 24px);
+  width: calc(100% + calc(var(--im-callout-inline-extension) * 2));
+  margin-inline: calc(var(--im-callout-inline-extension) * -1);
 }
 
 .callout p:first-of-type {
@@ -268,8 +270,7 @@
     width: 100vw;
     left: 50%;
     right: 50%;
-    margin-inline-start: -50vw;
-    margin-inline-end: -50vw;
+    margin-inline: -50vw;
     padding-inline: 0;
     border-radius: 0;
     border-inline-start: 0;
@@ -309,7 +310,6 @@
 }
 
 .callout-title {
-  line-height: 1;
   font-weight: 600;
 }
 
@@ -372,33 +372,33 @@
 .expressive-code {
   --ec-frm-frameBoxShdCssVal: none;
 
-  --ec-frm-edBg: hsl(var(--im-ec-background-contrast));
-  --ec-frm-trmBg: hsl(var(--im-ec-background-contrast));
+  --ec-frm-edBg: hsl(var(--im-code-block-contrast));
+  --ec-frm-trmBg: hsl(var(--im-code-block-contrast));
 
-  --ec-frm-trmTtbBrdBtmCol: hsl(var(--im-ec-border));
-  --ec-frm-trmTtbFg: hsl(var(--im-ec-foreground) / 0.6);
-  --ec-frm-trmTtbBg: hsl(var(--im-ec-muted));
-  --ec-frm-trmTtbDotsFg: hsl(var(--im-ec-foreground));
+  --ec-frm-trmTtbBrdBtmCol: hsl(var(--im-code-block-border));
+  --ec-frm-trmTtbFg: hsl(var(--im-code-block-foreground) / 0.6);
+  --ec-frm-trmTtbBg: hsl(var(--im-code-block-muted));
+  --ec-frm-trmTtbDotsFg: hsl(var(--im-code-block-foreground));
 
-  --ec-frm-edTabBarBrdCol: hsl(var(--im-ec-border));
-  --ec-frm-edTabBarBrdBtmCol: hsl(var(--im-ec-muted));
-  --ec-frm-edTabBarBg: hsl(var(--im-ec-muted));
-  --ec-frm-edActTabBg: hsl(var(--im-ec-muted));
+  --ec-frm-edTabBarBrdCol: hsl(var(--im-code-block-border));
+  --ec-frm-edTabBarBrdBtmCol: hsl(var(--im-code-block-muted));
+  --ec-frm-edTabBarBg: hsl(var(--im-code-block-muted));
+  --ec-frm-edActTabBg: hsl(var(--im-code-block-muted));
   --ec-frm-edTabBrdRad: var(--im-radius-md);
-  --ec-frm-edActTabIndBtmCol: hsl(var(--im-ec-foreground));
+  --ec-frm-edActTabIndBtmCol: hsl(var(--im-code-block-foreground));
 
   --ec-brdRad: var(--im-radius-md);
-  --ec-brdCol: hsl(var(--im-ec-border));
+  --ec-brdCol: hsl(var(--im-code-block-border));
   --ec-gtrBrdCol: none;
   --ec-uiFontFml: var(--im-sans);
   --ec-codeFontFml: var(--im-mono);
-  --ec-lineNumbers-fg: hsl(var(--im-ec-muted-foreground));
+  --ec-lineNumbers-fg: hsl(var(--im-code-block-muted-foreground));
 
   margin-block: 1.5rem;
 
   @media (min-width: 640px) {
-    width: calc(100% + calc(var(--im-ec-inline-extension) * 2));
-    margin-inline: calc(var(--im-ec-inline-extension) * -1);
+    width: calc(100% + calc(var(--im-code-block-inline-extension) * 2));
+    margin-inline: calc(var(--im-code-block-inline-extension) * -1);
   }
 
   .ec-line .gutter .ln {
@@ -420,9 +420,9 @@
 
   .copy {
     button {
-      --ec-frm-inlBtnBg: hsl(var(--im-ec-accent));
-      --ec-frm-inlBtnFg: hsl(var(--im-ec-foreground));
-      --ec-frm-inlBtnBrd: hsl(var(--im-ec-border));
+      --ec-frm-inlBtnBg: hsl(var(--im-code-block-accent));
+      --ec-frm-inlBtnFg: hsl(var(--im-code-block-foreground));
+      --ec-frm-inlBtnBrd: hsl(var(--im-code-block-border));
       --ec-frm-inlBtnBrdOpa: 1;
 
       width: 2rem !important;

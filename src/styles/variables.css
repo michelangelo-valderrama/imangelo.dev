@@ -32,6 +32,9 @@
   --im-input-foreground: var(--im-foreground);
   --im-input-border: 60 1% 88%;
 
+  --im-callout-inline-extension: 32px;
+  --im-callout-border: 2px solid;
+  --im-callout-info: 239 80% 64%;
   --im-callout-note: 239 80% 64%;
 
   --im-tooltip: 0 0% 98.6%;
@@ -60,11 +63,11 @@
   --im-duration-base: calc(var(--im-duration-lg) - 0.1s);
   --im-duration-sm: calc(var(--im-duration-lg) - 0.2s);
 
-  --im-ec-background-contrast: var(--im-background-contrast);
-  --im-ec-foreground: var(--im-foreground);
-  --im-ec-border: var(--im-border);
-  --im-ec-accent: var(--im-accent);
-  --im-ec-muted: var(--im-muted);
-  --im-ec-muted-foreground: var(--im-muted-foreground);
-  --im-ec-inline-extension: 32px;
+  --im-code-block-contrast: var(--im-background-contrast);
+  --im-code-block-foreground: var(--im-foreground);
+  --im-code-block-border: var(--im-border);
+  --im-code-block-accent: var(--im-accent);
+  --im-code-block-muted: var(--im-muted);
+  --im-code-block-muted-foreground: var(--im-muted-foreground);
+  --im-code-block-inline-extension: 32px;
 }
