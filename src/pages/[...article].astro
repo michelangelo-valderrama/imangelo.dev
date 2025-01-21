@@ -43,7 +43,7 @@ const pubDateFormatted = formatDate(pubDate)
 
 <Root>
   <ArticleSeo slot="head" article={article} imageSrc={cover?.src} />
-  <Main class="pb-24">
+  <Main currentPage="Artículo" class="pb-24">
     <ArticleWidgets {headings} {title} />
     <PageHeader title={title} subtitle={pubDateFormatted} subtitleDate={true}>
       {!cover ? null : <Image {...cover} alt={title} class="mt-6 mb-18" />}

@@ -1,13 +1,17 @@
 ---
-import Link from '../ui/link'
+import Link from '@/components/ui/link'
+
+interface Props {
+  currentPage?: string
+}
+
+const { currentPage } = Astro.props
 
 const { pathname } = Astro.url
 ---
 
-<header class="flex items-start justify-between mb-12 relative">
-  <div class="h-[29px] border-b absolute top-0 w-full z-0 pointer-events-none">
-  </div>
-  <nav class="relative">
+<header>
+  <nav class="flex items-end justify-between mb-12">
     <Link
       data-active={pathname === '/'}
       className={`
@@ -17,5 +21,21 @@ const { pathname } = Astro.url
       `}
       href="/">Inicio</Link
     >
+    <div class="border-b flex-1"></div>
+    {
+      currentPage && (
+        <Link
+          className={`
+          pb-1
+          ml-auto
+          text-accent-foreground
+          border-b-accent-foreground
+        `}
+          href={`/${pathname}`}
+        >
+          {currentPage}
+        </Link>
+      )
+    }
   </nav>
 </header>
