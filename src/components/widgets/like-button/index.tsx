@@ -53,6 +53,8 @@ function LikeButton({ slug }: { slug: string }) {
     if (userLikes === 4) {
       setIsExploding(true)
       playPartyHorn()
+    } else if (userLikes < 4) {
+      playBlob()
     }
 
     if (userLikes < 5) {
@@ -62,7 +64,6 @@ function LikeButton({ slug }: { slug: string }) {
     }
 
     setBubbles(bubbles + 1)
-    playBlob()
 
     const spanElem = document.createElement('span')
     spanElem.setAttribute('data-bubble-anim', 'true')
