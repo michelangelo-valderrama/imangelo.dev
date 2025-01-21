@@ -3,6 +3,7 @@ title: En memoria de Isaac Asimov
 description: Isaac Asimov falleció en abril de 1992, pero sus obras continúan teniendo un impacto hoy en día, no solo por sus ideas adelantadas a su tiempo, sino también por su persona.
 pubDate: 2024-04-14
 category: metafísica
+isDraft: false
 ---
 
 El 6 de abril de 1992 falleció uno de los más destacados exponentes de la ciencia ficción, Isaac Asimov. _Yo, Robot_, _La última pregunta_, _Fundación_ y _El hombre bicentenario_ son algunas de sus obras más reconocidas, aunque _El niño feo_ también merece ser mencionada, a pesar de ser menos valorada.
