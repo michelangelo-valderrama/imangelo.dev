@@ -1,0 +1,60 @@
+{
+  "redirects": [
+    {
+      "source": "/introduccion-al-desarrollo-de-videojuegos-con-pico-8",
+      "destination": "/como-hacer-un-videojuego-con-pico-8"
+    },
+    {
+      "source": "/2023-03-06-como-hacer-un-videojuego-con-pico-8",
+      "destination": "/como-hacer-un-videojuego-con-pico-8"
+    },
+    {
+      "source": "/2024-11-10-introduccion-a-la-placa-de-desarrollo-esp32",
+      "destination": "/esp32"
+    },
+    {
+      "source": "/2024-09-29-sobre-los-devcontainers-una-guia-practica",
+      "destination": "/devcontainers"
+    },
+    {
+      "source": "/2024-06-28-mis-andanzas-en-la-impresion-3d",
+      "destination": "/impresion-3d"
+    },
+    {
+      "source": "/2024-05-30-compre-una-ps4-rota-parte-1",
+      "destination": "/ps4-rota-parte-1"
+    },
+    {
+      "source": "/2024-04-14-en-memoria-de-isaac-asimov",
+      "destination": "/isaac-asimov"
+    },
+    {
+      "source": "/2024-03-16-presentando-el-blog",
+      "destination": "/presentando-el-blog"
+    },
+    {
+      "source": "/2024-01-06-implementando-i18n-en-astro",
+      "destination": "/i18n-astro"
+    },
+    {
+      "source": "/2023-03-23-las-matematicas-no-son-una-ciencia",
+      "destination": "/las-matematicas-no-son-una-ciencia"
+    },
+    {
+      "source": "/2023-03-07-el-principio-del-universo",
+      "destination": "/el-principio-de-universo"
+    },
+    {
+      "source": "/2023-12-03-descargar-y-configurar-firefox-developer-edition-en-linux",
+      "destination": "/"
+    },
+    {
+      "source": "/2023-12-07-crear-shortcut-de-pico-8-en-linux",
+      "destination": "/"
+    },
+    {
+      "source": "/2024-07-31-objetivos-para-el-resto-del-ano-jejeje",
+      "destination": "/"
+    }
+  ]
+}
