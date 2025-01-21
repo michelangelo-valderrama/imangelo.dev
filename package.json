@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.1",
-    "astro": "^4.16.16"
+    "astro": "^4.16.16",
+    "use-sound": "^4.0.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

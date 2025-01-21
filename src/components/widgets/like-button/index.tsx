@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import ConfettiExplosion, { type ConfettiProps } from 'react-confetti-explosion'
 import { actions } from 'astro:actions'
+import { useSound } from 'use-sound'
+
+import blopSound from '@/assets/sounds/blop.mp3'
+import partyHornSound from '@/assets/sounds/party-horn.mp3'
 
 import { cn } from '@/lib/utils'
 
@@ -16,6 +20,20 @@ const confettiProps: ConfettiProps = {
 }
 
 function LikeButton({ slug }: { slug: string }) {
+  const [isLoading, setIsLoading] = useState(true)
+  const [isExploding, setIsExploding] = useState(false)
+  const [userLikes, setUserLikes] = useState(0)
+  const [restOfLikes, setRestOfLikes] = useState(0)
+  const [bubbles, setBubbles] = useState(0)
+
+  const [playBlob] = useSound(blopSound, {
+    playbackRate: 0.75 + (userLikes * 2) / 10,
+    volume: 0.8
+  })
+  const [playPartyHorn] = useSound(partyHornSound, {
+    volume: 0.6
+  })
+
   const debouncedSaveLike = useDebounce(async (userLikes: number) => {
     const { data, error } = await actions.setLikes({
       numLikes: userLikes,
@@ -27,18 +45,16 @@ function LikeButton({ slug }: { slug: string }) {
     }
   }, 500)
 
-  const [isLoading, setIsLoading] = useState(true)
-  const [isExploding, setIsExploding] = useState(false)
-  const [userLikes, setUserLikes] = useState(0)
-  const [restOfLikes, setRestOfLikes] = useState(0)
-  const [bubbles, setBubbles] = useState(0)
-
   const likeButtonRef = useRef<HTMLButtonElement>(null)
 
   const onLike = () => {
     if (!likeButtonRef.current) return
 
-    if (userLikes === 4) setIsExploding(true)
+    if (userLikes === 4) {
+      setIsExploding(true)
+      playPartyHorn()
+    }
+
     if (userLikes < 5) {
       const newUserLikes = userLikes + 1
       setUserLikes(newUserLikes)
@@ -46,6 +62,8 @@ function LikeButton({ slug }: { slug: string }) {
     }
 
     setBubbles(bubbles + 1)
+    playBlob()
+
     const spanElem = document.createElement('span')
     spanElem.setAttribute('data-bubble-anim', 'true')
     spanElem.className = `
