@@ -19,7 +19,7 @@ const linkVariants = cva(
   {
     variants: {
       variant: {
-        links: 'inline text-foreground w-fit'
+        links: 'inline-flex text-foreground w-fit gap-x-1'
       }
     }
   }
