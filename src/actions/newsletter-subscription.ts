@@ -11,7 +11,7 @@ const newsletterSubscription = defineAction({
     email: z.string().email()
   }),
   handler: async ({ email }) => {
-    const respData = await createContact({
+    await createContact({
       audienceId: import.meta.env.RESEND_AUDIENCE_ID,
       email
     })

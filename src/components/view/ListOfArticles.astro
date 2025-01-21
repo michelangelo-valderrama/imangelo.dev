@@ -23,7 +23,7 @@ const isProd = import.meta.env.PROD
     if (!articles) return null
 
     const articlesSorted = articles.sort(
-      (a, b) => b.data.pubDate - a.data.pubDate
+      (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
     )
 
     return (

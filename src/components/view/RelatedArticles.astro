@@ -24,7 +24,7 @@ const relatedArticles = !category
       )
     )
       .sort((a, b) => {
-        return a.data.pubDate - b.data.pubDate
+        return a.data.pubDate.getTime() - b.data.pubDate.getTime()
       })
       .slice(0, 3)
 ---

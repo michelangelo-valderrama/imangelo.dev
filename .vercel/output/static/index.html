@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v4.16.16"><meta http-equiv="X-UA-Compatible" content="IE=7"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><link rel="shortcut icon" href="favicon.svg" type="image/x-icon"><link rel="canonical" href="https://imangelo.dev/"><meta name="robots" content="index, follow"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="RSS Feed de imangelo.dev" href="/rss.xml"><title>Michelangelo Valderrama</title><meta name="description" content="Desarrollador apacionado por la ciencia y el arte que busca nuevas formas de pensar en la web."> <meta property="twitter:card" content="summary_large_image"><meta property="twitter:site" content="@imangelo84"><meta property="twitter:creator" content="@imangelo84"><meta property="twitter:image" content="https://localhost:4321/banner.png"><meta property="twitter:image:alt" content="Michelangelo Valderrama"> <meta property="og:type" content="website"><meta property="og:url" content="https://imangelo.dev/"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Michelangelo Valderrama"><meta property="og:image" content="https://localhost:4321/banner.png"><meta property="og:image:alt" content="Michelangelo Valderrama"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><link rel="stylesheet" href="/_astro/_article_.DBc673nX.css"></head> <body class="relative bg-background text-foreground font-sans overflow-x-hidden">   <main class="container min-h-svh pb-24 pt-12 flex flex-col"> <header> <nav class="flex items-end justify-between mb-12"> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer text-muted-foreground border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground pb-1 data-[active=&#x27;true&#x27;]:text-accent-foreground data-[active=&#x27;true&#x27;]:border-b-accent-foreground" about="_self" data-active="true" href="/">Inicio</a> <div class="border-b flex-1"></div>  </nav> </header> <article class="flex-1">  <article class="prose">  <h1><p>Soy Michelangelo <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="22jdEi" prefix="r18" component-url="/_astro/name-pronunciation.BYorbXsZ.js" component-export="default" renderer-url="/_astro/client.DeZSGkx7.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;NamePronunciation&quot;,&quot;value&quot;:true}" await-children=""><audio src="/sounds/michelangelo.mpga"></audio><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent group text-secondary gap-x-1 h-6 px-0.5 py-0 text-base font-normal hover:text-secondary hover:bg-transparent focus-visible:text-secondary focus-visible:bg-transparent">/mikeˈlandʒelo/<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground transition-colors duration-base group-hover:text-foreground group-focus-visible:text-foreground"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path></svg></button><!--astro:end--></astro-island>,</p></h1>
+<p>Desarrollador apacionado por la ciencia y el arte que busca nuevas formas de pensar en la web.</p>
+<p>Creo en el <a href="https://medium.com/@ryangwilson/stop-saying-ui-ux-51f300374f8f" rel="noopener noreferrer">UX <span>first<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10v10M7 17 17 7"></path></svg></span></a> y los <a href="https://designwanted.com/design-icons-dieter-rams/" rel="noopener noreferrer">principios de <span>Rams<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10v10M7 17 17 7"></path></svg></span></a>.</p>
+<p>Busco crear productos y experiencias minimalistas, útiles, <em>human-first</em> y estéticas.</p>
+<p>Actualmente trabajo en <a href="https://if7sports.com/es/" rel="noopener noreferrer">IF7SPORTS<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10v10M7 17 17 7"></path></svg></span></a>.</p>  </article> <section class="mt-8 first-of-type:mt-16"><h2 class="mb-2 text-sm">2025</h2><ul><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/blog-2025" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sun Jan 19 2025 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 19 ene </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Sobre el blog, edición 2025</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li></ul></section><section class="mt-8 first-of-type:mt-16"><h2 class="mb-2 text-sm">2024</h2><ul><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/esp32" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sun Nov 10 2024 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 10 nov </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Introducción a la placa de desarrollo ESP32</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/devcontainers" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sun Sep 29 2024 02:00:00 GMT+0200 (Central European Summer Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 29 sept </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Sobre los dev containers: Una guía práctica</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/impresion-3d" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Fri Jun 28 2024 02:00:00 GMT+0200 (Central European Summer Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 28 jun </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Mis andanzas en la impresión 3D</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/ps4-rota-parte-1" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Thu May 30 2024 02:00:00 GMT+0200 (Central European Summer Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 30 may </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Compré una PS4 rota: Parte 1</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/isaac-asimov" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sun Apr 14 2024 02:00:00 GMT+0200 (Central European Summer Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 14 abr </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">En memoria de Isaac Asimov</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/presentando-el-blog" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sat Mar 16 2024 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 16 mar </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Presentando el blog</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/i18n-astro" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Sat Jan 06 2024 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 06 ene </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Implementando i18n en Astro</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li></ul></section><section class="mt-8 first-of-type:mt-16"><h2 class="mb-2 text-sm">2023</h2><ul><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/las-matematicas-no-son-una-ciencia" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Thu Mar 23 2023 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 23 mar </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Las matemáticas no son una ciencia</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/el-principio-de-universo" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Tue Mar 07 2023 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 07 mar </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">El Principio del Universo: Desde las partículas hasta las estrellas</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li><li class="relative last-of-type:border-b-border w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] sm:w-auto sm:left-auto sm:right-auto sm:mx-auto sm:px-0 border-y border-b-transparent hover:border-y-foreground focus-visible:border-y-foreground last-of-type:hover:border-b-foreground last-of-type:focus-visible:border-b-foreground"> <a href="/como-hacer-un-videojuego-con-pico-8" class="
+      group
+      block
+      py-2 px-layout-px
+      sm:px-0
+    "> <p class="flex items-center relative"> <time datetime="Mon Mar 06 2023 01:00:00 GMT+0100 (Central European Standard Time)" class="
+          w-14
+          text-sm text-muted-foreground
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-hover:opacity-0
+          group-hover:scale-0
+          group-focus-visible:-translate-x-16
+          group-focus-visible:opacity-0
+          group-focus-visible:scale-0
+        "> 06 mar </time> <span class="
+          flex-1
+          px-2
+          transition-all duration-base
+          group-hover:-translate-x-16
+          group-focus-visible:-translate-x-16
+        ">Cómo hacer un videojuego con PICO-8</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="
+          text-foreground
+          size-[1em]
+          transition-all duration-base
+          translate-x-16
+          opacity-0
+          scale-0
+          group-hover:translate-x-0
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-focus-visible:translate-x-0
+          group-focus-visible:opacity-100
+          group-focus-visible:scale-100
+        "><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg> </p> </a> </li></ul></section>  </article> </main> <footer class="pt-8 pb-12 border-t bg-background-contrast relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"> <div class="container"> <ul class="mb-14 flex justify-between *:flex *:flex-col *:items-start *:gap-y-2 text-sm"> <li> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground text-foreground border-b-transparent" about="_self" href="/">Inicio</a> </li> <li> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground text-foreground border-b-transparent" about="_self" href="/newsletter">Newsletter</a> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground text-foreground border-b-transparent" about="_self" href="/rss.xml">RSS</a> </li> <li> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground text-foreground border-b-transparent" about="_self" href="https://portfolio.imangelo.dev/">Portfolio</a> <a class="inline-flex items-center justify-center whitespace-nowrap transition-colors duration-base cursor-pointer border-b hover:text-accent-foreground hover:border-accent-foreground focus-visible:text-accent-foreground focus-visible:border-accent-foreground text-foreground border-b-transparent" about="_self" href="/links">Links</a> </li> </ul> <p class="uppercase flex items-center justify-between text-xs text-muted-foreground"> <span>di mikeˈlandʒelo</span> <span>MD, ES — 2024</span> </p> </div> </footer>  <script>(()=>{var l=(o,t)=>{let i=async()=>{await(await o())()},e=typeof t.value=="object"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};"requestIdleCallback"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event("astro:idle"));})();</script><astro-island uid="2pIGwL" prefix="r6" component-url="/_astro/toaster.DsoaCN1j.js" component-export="default" renderer-url="/_astro/client.DeZSGkx7.js" props="{}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;Toaster&quot;,&quot;value&quot;:true}" await-children=""><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div><!--astro:end--></astro-island> </body></html>

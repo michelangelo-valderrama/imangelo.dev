@@ -55,6 +55,7 @@ export async function copyToClipboard(txt: string) {
     selection.addRange(range)
 
     try {
+      //@ts-ignore
       ok = document.execCommand('copy')
     } finally {
       selection.removeAllRanges()

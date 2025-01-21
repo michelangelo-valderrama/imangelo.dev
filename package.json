@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "dev:host": "astro dev --host",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build --remote",
     "preview": "astro preview",
     "astro": "astro",
     "email:dev": "email dev -d ./src/lib/email/templates/"
