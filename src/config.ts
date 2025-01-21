@@ -35,6 +35,6 @@ export const SOCIAL = {
 export const BANNER = {
   src: SITE.url + '/banner.png',
   width: 1200,
-  height: 800,
+  height: 675,
   alt: SITE.title
 }
