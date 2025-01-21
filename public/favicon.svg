@@ -1,29 +1,8 @@
-<svg
-  width="52"
-  height="52"
-  viewBox="0 0 52 52"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  >
-  <path
-    d="M32 38H43L34 16H23L27.3448 26.6207L32 38Z"
-    fill="white"
-  />
-  <path
-    d="M23 16H12L14.5 21.3103L17 26.6207L23 16Z"
-    fill="white"
-  />
-  <path
-    d="M12 16L10 21.3103H14.5L12 16Z"
-    fill="#222222"
-  />
-  <path
-    d="M17 26.6207H27.3448L23 16L17 26.6207Z"
-    fill="#222222"
-  />
-  <path
-    d="M12 16L10 21.3103H14.5M12 16H23M12 16L14.5 21.3103M17 26.6207L14.5 21.3103M17 26.6207H27.3448M17 26.6207L23 16M23 16H34L43 38H32L27.3448 26.6207M23 16L27.3448 26.6207"
-    stroke="#222222"
-    stroke-width="2"
-  />
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="48" height="48" rx="24" fill="white"/>
+<path d="M30 36H41L32 14H21L25.3448 24.6207L30 36Z" fill="white"/>
+<path d="M21 14H10L12.5 19.3103L15 24.6207L21 14Z" fill="white"/>
+<path d="M10 14L8 19.3103H12.5L10 14Z" fill="#222222"/>
+<path d="M15 24.6207H25.3448L21 14L15 24.6207Z" fill="#222222"/>
+<path d="M9 14L7 19.3103H11.5M9 14H20M9 14L11.5 19.3103M11.5 19.3103L14 24.6207M20 14L14 24.6207M20 14H31L40 36H29L24.3448 24.6207M20 14L24.3448 24.6207M14 24.6207H24.3448" stroke="#222222" stroke-width="2"/>
 </svg>
