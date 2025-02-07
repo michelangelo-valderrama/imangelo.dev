@@ -2,7 +2,7 @@ export const SITE = {
   url: import.meta.env.PUBLIC_SITE_URL,
   title: 'Michelangelo Valderrama',
   description:
-    'Desarrollador apacionado por la ciencia y el arte que busca nuevas formas de pensar en la web.',
+    'Soy Michelangelo Valderrama, desarrollador apacionado por la ciencia y el arte que busca nuevas formas de pensar en la web.',
   lang: 'es'
 }
 
