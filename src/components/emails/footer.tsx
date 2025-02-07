@@ -8,7 +8,10 @@ function Footer() {
       <Hr className="border-border" />
       <Row>
         <Column>
-          <Link className="text-muted-foreground text-sm underline">
+          <Link
+            className="text-muted-foreground text-sm underline"
+            href={EMAIL.unsubscribeUrl}
+          >
             desuscribirse
           </Link>
         </Column>
