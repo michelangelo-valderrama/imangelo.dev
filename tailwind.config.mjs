@@ -10,7 +10,7 @@ export default {
         padding: 'var(--im-layout-px)',
         screens: {
           xs: '564px',
-          view: '564px'
+          view: '600px'
         }
       },
       colors: {
@@ -144,6 +144,68 @@ export default {
       fontFamily: {
         sans: 'var(--im-sans)',
         mono: 'var(--im-mono)'
+      },
+      fontSize: {
+        /* xs: [
+          '0.75rem',
+          {
+            lineHeight: '1rem'
+          }
+        ],
+        sm: [
+          '0.875rem',
+          {
+            lineHeight: '1.25rem'
+          }
+        ],
+        base: [
+          '1rem',
+          {
+            lineHeight: '1.5rem'
+          }
+        ],
+        lg: [
+          '1.125rem',
+          {
+            lineHeight: '1.75rem'
+          }
+        ],
+        xl: [
+          '1.25rem',
+          {
+            lineHeight: '1.75rem'
+          }
+        ] */
+        xs: [
+          'var(--im-text-xs)',
+          {
+            lineHeight: 'var(--im-text-xs-lh)'
+          }
+        ],
+        sm: [
+          'var(--im-text-sm)',
+          {
+            lineHeight: 'var(--im-text-sm-lh)'
+          }
+        ],
+        base: [
+          'var(--im-text-base)',
+          {
+            lineHeight: 'var(--im-text-base-lh)'
+          }
+        ],
+        lg: [
+          'var(--im-text-lg)',
+          {
+            lineHeight: 'var(--im-text-lg-lh)'
+          }
+        ],
+        xl: [
+          'var(--im-text-xl)',
+          {
+            lineHeight: 'var(--im-text-xl-lh)'
+          }
+        ]
       },
       borderRadius: {
         lg: 'var(--im-radius-lg)',

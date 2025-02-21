@@ -11,26 +11,27 @@ const { pathname } = Astro.url
 ---
 
 <header>
-  <nav class="flex items-end justify-between mb-12">
+  <nav class="mb-10 flex items-center">
     <Link
       data-active={pathname === '/'}
       className={`
         pb-1
         data-[active='true']:text-accent-foreground
-        data-[active='true']:border-b-accent-foreground
+        border-none
       `}
-      href="/">Inicio</Link
+      href="/"
     >
-    <div class="border-b flex-1"></div>
+      Michelangelo Valderrama
+    </Link>
     {
       currentPage && (
         <Link
           className={`
-          pb-1
-          ml-auto
-          text-accent-foreground
-          border-b-accent-foreground
-        `}
+            pb-1
+            ml-auto
+            text-accent-foreground
+            border-none
+          `}
           href={`/${pathname}`}
         >
           {currentPage}

@@ -56,7 +56,7 @@
   --im-mono: 'Fira Code Variable', monospace;
 
   --im-screen-xs: 564px;
-  --im-screen-view: var(--im-screen-xs);
+  --im-screen-view: 600px;
 
   --im-timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -71,4 +71,19 @@
   --im-code-block-muted: var(--im-muted);
   --im-code-block-muted-foreground: var(--im-muted-foreground);
   --im-code-block-inline-extension: 32px;
+
+  --im-text-xs: 0.65rem;
+  --im-text-xs-lh: 0.9rem;
+
+  --im-text-sm: 0.75rem;
+  --im-text-sm-lh: 1rem;
+
+  --im-text-base: 0.875rem;
+  --im-text-base-lh: 1.25rem;
+
+  --im-text-lg: 1rem;
+  --im-text-lg-lh: 1.5rem;
+
+  --im-text-xl: 1.125rem;
+  --im-text-xl-lg: 1.75rem;
 }

@@ -32,7 +32,7 @@
 
     p {
       margin-inline: auto;
-      max-width: var(--im-screen-xs);
+      max-width: var(--im-screen-view);
       padding-inline: var(--im-layout-px);
     }
   }
@@ -46,7 +46,7 @@
 
   figcaption {
     margin-block-start: 0.5rem;
-    font-size: 0.875rem;
+    font-size: var(--im-text-sm);
     color: hsl(var(--im-muted-foreground));
   }
 }
@@ -54,11 +54,11 @@
 .prose p {
   color: hsl(var(--im-foreground));
 
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--im-text-base);
+  line-height: var(--im-text-base-lh);
 
   margin-block-start: 0;
-  margin-block-end: 1rem;
+  margin-block-end: 0.5em;
 }
 
 .prose strong {
@@ -130,26 +130,26 @@
 }
 
 .prose h1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--im-text-base);
+  line-height: var(--im-text-base-lh);
   font-weight: 400;
 }
 
 .prose h2 {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--im-text-base);
+  line-height: var(--im-text-base-lh);
   font-weight: 500;
 }
 
 .prose h3 {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--im-text-base);
+  line-height: var(--im-text-base-lh);
   font-weight: 400;
 }
 
 .prose h4 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--im-text-sm);
+  line-height: var(--im-text-sm-lh);
   font-weight: 400;
 }
 
@@ -191,7 +191,7 @@
     list-style-position: outside;
 
     li::marker {
-      font-size: 0.75rem;
+      font-size: var(--im-text-xs);
     }
   }
 
@@ -201,7 +201,7 @@
 
   p {
     color: hsl(var(--im-muted-foreground));
-    font-size: 0.875rem;
+    font-size: var(--im-text-sm);
     margin-inline-start: 0.25rem;
     margin-block-end: 0.25rem;
   }
@@ -277,7 +277,7 @@
 
   .callout-title,
   .callout-content {
-    max-width: var(--im-screen-xs);
+    max-width: var(--im-screen-view);
     margin-inline: auto;
     padding-inline: var(--im-layout-px);
   }
@@ -419,7 +419,7 @@
 
   .title {
     font-weight: normal;
-    font-size: 0.75rem;
+    font-size: var(--im-text-xs);
   }
 
   .copy {

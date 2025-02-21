@@ -206,7 +206,10 @@ function LikeButton({ slug }: { slug: string }) {
           className={cn({ 'opacity-0': userLikes !== 5 })}
         />
       </svg>
-      <span className="min-w-5">{restOfLikes + userLikes}</span>
+
+      <span className="min-w-5">
+        {isLoading ? 'xx' : restOfLikes + userLikes}
+      </span>
     </Button>
   )
 }
