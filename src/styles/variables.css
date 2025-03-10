@@ -72,7 +72,22 @@
   --im-code-block-muted-foreground: var(--im-muted-foreground);
   --im-code-block-inline-extension: 32px;
 
-  --im-text-xs: 0.65rem;
+  --im-text-xs: 0.75rem;
+  --im-text-xs-lh: 1rem;
+
+  --im-text-sm: 0.875rem;
+  --im-text-sm-lh: 1.25rem;
+
+  --im-text-base: 1rem;
+  --im-text-base-lh: 1.5rem;
+
+  --im-text-lg: 1.125rem;
+  --im-text-lg-lh: 1.75rem;
+
+  --im-text-xl: 1.25rem;
+  --im-text-xl-lg: 1.75rem;
+
+  /* --im-text-xs: 0.65rem;
   --im-text-xs-lh: 0.9rem;
 
   --im-text-sm: 0.75rem;
@@ -85,5 +100,5 @@
   --im-text-lg-lh: 1.5rem;
 
   --im-text-xl: 1.125rem;
-  --im-text-xl-lg: 1.75rem;
+  --im-text-xl-lg: 1.75rem; */
 }
