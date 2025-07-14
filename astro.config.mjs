@@ -38,5 +38,8 @@ export default defineConfig({
   },
   devToolbar: {
     enabled: false
+  },
+  redirects: {
+    '/links': 'https://if7sports-links.web.app/michelangelo-valderrama'
   }
 })

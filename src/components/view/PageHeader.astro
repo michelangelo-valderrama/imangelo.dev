@@ -1,4 +1,7 @@
 ---
+import Link from '@/components/ui/link'
+import { Undo2Icon } from '@/icons'
+
 interface Props {
   title: string
   subtitle?: string
@@ -9,6 +12,10 @@ const { title, subtitle, subtitleDate = false } = Astro.props
 ---
 
 <header class="mb-6">
+  <Link href="/" className="border-none font-medium gap-1 text-sm mb-2.5">
+    <Undo2Icon /> Volver
+  </Link>
+
   <h1>{title}</h1>
   {
     subtitle && (
@@ -26,10 +33,10 @@ const { title, subtitle, subtitleDate = false } = Astro.props
 
 <style>
   h1 {
-    @apply m-0;
+    @apply mb-0.5 font-medium;
   }
 
   p {
-    @apply text-sm text-muted-foreground;
+    @apply text-muted-foreground;
   }
 </style>

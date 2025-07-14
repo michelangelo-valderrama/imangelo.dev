@@ -1,8 +1,8 @@
 :root {
-  --im-background: 72 24% 98%;
+  --im-background: 0 0% 100%;
   --im-foreground: 72 7% 28%;
 
-  --im-background-contrast: 60 20% 99%;
+  --im-background-contrast: 0 0% 99%;
 
   --im-selection: var(--im-secondary) / 0.1;
   --im-selection-foreground: var(--im-secondary);

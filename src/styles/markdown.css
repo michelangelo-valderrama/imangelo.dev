@@ -299,14 +299,6 @@
   background-color: hsl(var(--im-background));
 }
 
-.callout::after {
-  transform: translate(-2px, -1px);
-  width: 17px;
-  height: 21px;
-  background-color: hsl(var(--callout-color-light));
-  mask-image: url('data:image/svg+xml,<svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C16 8.90473 10.3785 15.0798 2.75483 16.7102C1.76308 16.9223 1 17.7643 1 18.7785L1 20" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>');
-}
-
 .callout-title {
   font-weight: 600;
   margin-block-end: 0.5rem;
@@ -317,7 +309,9 @@
   left: 0;
   top: 0;
   transform: translate(calc(-50% - 1px), -50%);
-  padding: 6px;
+  padding: 8px;
+  background-color: hsl(var(--im-background));
+  border-radius: 1rem;
 }
 
 .callout-icon svg {

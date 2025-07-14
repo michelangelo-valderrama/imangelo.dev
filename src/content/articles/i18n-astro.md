@@ -6,7 +6,6 @@ category: tutorial
 tags:
   - i18n
   - astro
-isDraft: false
 ---
 
 Nuevo artículo, nuevo tutorial.

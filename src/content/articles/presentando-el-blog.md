@@ -3,7 +3,6 @@ title: Presentando el blog
 description: Presentando el blog.
 pubDate: 2024-03-16
 category: blog
-isDraft: false
 ---
 
 Hace unos meses que creé este blog, pero todavía no he escrito nada sobre mis metas y objetivos con el mismo. En realidad, ni siquiera lo he presentado.

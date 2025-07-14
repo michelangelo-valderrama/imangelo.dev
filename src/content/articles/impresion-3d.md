@@ -3,7 +3,6 @@ title: Mis andanzas en la impresión 3D
 description: Mi padre me dio su antigua impresora 3D y me ha tocado aprender. Aquí mis primeras impresiones sobre la impresión 3D y mi experiencia con la Ender-3 V2.
 pubDate: 2024-06-28
 category: maker
-isDraft: false
 ---
 
 Hace unos meses, mi padre se adentró en el mundo de la impresión 3D comprando una Ender-3 V2. Cuando me comentó que quería meterse en este mundillo, fui escéptico. Comprar una impresora 3D me sonaba a algo que tocas una semana y después olvidas, así que intenté frenarlo un poco. Sin embargo, no me hizo caso y se la compró igual. ¡Y qué bien hizo! Ha sabido sacarle provecho: primero imprimiendo cosas de otros y luego creando sus propios modelos. Gracias a esto, ahora IF7Sports puede presumir de ofrecer medallas y trofeos personalizados en sus torneos. Todo un capo, mi padre.
