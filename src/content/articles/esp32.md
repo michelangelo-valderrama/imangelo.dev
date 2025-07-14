@@ -79,22 +79,11 @@ pip list | grep pyserial
 
 Desde aquí puedes instalar Arduino IDE en formato ZIP o AppImage: https://www.arduino.cc/en/software.
 
-Yo prefiero AppImage. Descargando un icono del IDE y usando un paquete de npm que creé, configuro rápidamente un desktop shortcut:
-
-```bash
-sudo mkdir /opt/arduino-ide
-
-sudo mv ~/Downloads/arduino-ide_x.x.x_Linux_64bit.AppImage /opt/arduino-ide
-sudo mv ~/Downloads/arduino-ide-icon.png /opt/arduino-ide
-
-npx create-desktop-shortcut arduino-ide_x.x.x_Linux_64bit.AppImage -n "Arduino IDE" -i /opt/arduino-ide/arduino-ide-icon.png -c Development
-```
-
 ### Instalando el ESP32 en Arduino IDE
 
 Ahora sigue estos pasos para instalar el ESP32 en Arduino IDE:
 
-1. Ve te a **Files > Preferences** o ejecuta el comando `Ctrl + Comma`.
+1. Ve te a **File > Preferences** o ejecuta el comando `Ctrl + Comma`.
 2. Copia y pega el siguiente URL en **Additional Boards Manager URLs**:
    ```
    https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
@@ -118,7 +107,7 @@ Dale a **OK** y pega el siguiente código en el editor:
 
 ```cpp
 // PIN del LED integrado
-int LED 2;
+int LED = 2;
 
 // es llamado una vez al principio
 void setup() {
@@ -153,14 +142,14 @@ Dale al botón **Upload** para compilar programa y enviarlo al ESP32:
 > Una forma de arreglarlo, aunque suene sorprendente, es darte esos mismos permisos necesarios:
 >
 > ```bash
-> sudo chmod 666 /dev/ttyXXXX
+> sudo chmod 666 /dev/ttyUSB0
 > ```
 >
 > Pero esa no es realmente una solución, pues lo tienes que hacer cada vez que vuelvas a encender el ordenador. La verdadera solución es añadir tu usuario al grupo `dialout`:
 >
 > ```bash
 > # Comprueba si el grupo `dialout` tiene acceso al puerto
-> ls -l /dev/tty/USB0
+> ls -l /dev/ttyUSB0
 >
 > # Añade tu usuario al grupo `dialout`
 > sudo usermod -aG dialout $USER
