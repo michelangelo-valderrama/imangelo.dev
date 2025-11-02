@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/links",
+      "destination": "https:/if7sports-links.web.app/michelangelo-valderrama",
+      "permanent": true
+    },
+    {
       "source": "/introduccion-al-desarrollo-de-videojuegos-con-pico-8",
       "destination": "/como-hacer-un-videojuego-con-pico-8"
     },
