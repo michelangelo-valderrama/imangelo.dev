@@ -8,10 +8,8 @@ import { visit } from 'unist-util-visit'
 
 import type { Root, Paragraph, PhrasingContent } from 'mdast'
 
-import type { MarkdownVFile } from '@astrojs/markdown-remark'
-
 function remarkImageFigure() {
-  return (tree: Root, file: MarkdownVFile) => {
+  return (tree: Root, file: any) => {
     visit(tree, (node) => {
       if (node.type !== 'containerDirective') return
       if (node.name !== 'img-fig') return
@@ -40,6 +38,7 @@ function remarkImageFigure() {
       ) {
         content = [{ type: 'text', value: children[0].children[0].alt }]
       } else {
+        content = []
         file.fail(
           'The figcaption text is missing in the `image-figure` directive. Specify it in the `[]` of `:::image-figure[]{}` or `![]()`.',
           node
