@@ -6,7 +6,7 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import expressiveCode from 'astro-expressive-code'
 import mdx from '@astrojs/mdx'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 
 import { remarkPlugins, rehypePlugins } from './plugins'
 
@@ -18,7 +18,7 @@ const SITE = 'https://imangelo.dev'
 export default defineConfig({
   site: SITE,
   adapter: vercel(),
-  output: 'hybrid',
+  output: 'static',
   integrations: [
     sitemap({
       filter: (page) => page !== `${SITE}/404`

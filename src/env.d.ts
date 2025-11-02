@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly RESEND_API_KEY: string
   readonly RESEND_AUDIENCE_ID: string
   readonly PUBLIC_SITE_URL: string
+  readonly PROD: string
 }
 
 interface ImportMeta {

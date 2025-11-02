@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 
 interface Props {
   slug: string
@@ -13,7 +13,7 @@ if (!content) {
   throw new Error(`The slug '${slug}' does not exists in content/pages/'`)
 }
 
-const { Content } = await content.render()
+const { Content } = await render(content)
 ---
 
 <Content />

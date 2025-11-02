@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths } from 'astro'
-import type { CollectionEntry } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
-import { getFilteredPosts, formatDate } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 
 import Root from '@/layouts/Root.layout.astro'
 import Main from '@/layouts/Main.layout.astro'
@@ -16,7 +16,9 @@ import ArticleWidgets from '@/components/widgets/ArticleWidgets.astro'
 import ArticleSeo from '@/components/seo/ArticleSeo.astro'
 
 export const getStaticPaths = (async () => {
-  const articles = await getFilteredPosts('articles')
+  const articles = await getCollection('articles', ({ data }) => {
+    return import.meta.env.PROD ? !data.isDraft : true
+  })
 
   return articles.map((article) => {
     return {
